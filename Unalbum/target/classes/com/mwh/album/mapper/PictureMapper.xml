@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mwh.album.mapper.PictureMapper">
+    <resultMap id="PictureList" type="Picture">
+        <id property="id" column="id"/>
+        <result property="picName" column="picName"/>
+        <result property="picCategory" column="picCategory"/>
+        <result property="picURL" column="picURL"/>
+        <result property="createDate" column="createDate"/>
+    </resultMap>
+
+    <insert id="save" parameterType="Picture">
+        insert into td_picture
+        values
+        (null,#{picName},#{picCategory},#{picURL},
+        #{createDate})
+    </insert>
+
+
+    <update id="update" parameterType="Picture" >
+        update td_picture set
+        picName = #{picName},
+        picCategory = #{picCategory},
+        picURL=#{picURL}
+        where id = #{id}
+    </update>
+
+    <delete id="delete" parameterType="int">
+        delete from td_picture where
+        id = #{id}
+    </delete>
+
+    <select id="findAll" resultMap="PictureList">
+        select * from td_picture
+    </select>
+
+
+    <select id="findById" parameterType="int" resultType="Picture">
+        select *
+        from td_picture where id=#{id}
+    </select>
+
+    <select id="findByPicName" parameterType="String" resultType="Picture">
+        select *
+        from td_picture where userName=#{userName}
+    </select>
+
+    <select id="findByCategoryID" parameterType="int" resultMap="PictureList">
+        select *
+        from td_picture where picCategory=#{picCategory}
+    </select>
+
+</mapper>

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="Unalbum:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="Unalbum.war">
+      <element id="artifact" artifact-name="Unalbum:war exploded" />
+    </root>
+  </artifact>
+</component>

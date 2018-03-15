@@ -12,14 +12,22 @@ import java.util.List;
  */
 public interface UserService {
 
-    public void save(User user) throws UserExistException;
+    void save(User user) throws UserExistException;
 
-    public void delete(int id);
+    void delete(int id);
 
-    public void update(User user);
+    //修改用户个人资料
+    void updateProfile(User user);
 
-    public List<User> findAll();
-    public User findById(int id);
-    public User findByUserName(String userName);
+    //修改用户密码
+    void updatePassword(int id, String password);
+
+    //修改用户头像
+    void uploadProfile(int id, String photo);
+    List<User> findAll();
+
+    User findById(int id);
+
+    User findByUserName(String userName);
 
 }

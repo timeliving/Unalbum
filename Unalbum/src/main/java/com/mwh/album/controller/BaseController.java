@@ -9,7 +9,7 @@ import org.springframework.util.Assert;
 /**
  * 所有Controller的基类
  */
-public class BaseController {
+public abstract class BaseController {
     protected static final String ERROR_MSG_KEY = "errorMsg";
 
     /**

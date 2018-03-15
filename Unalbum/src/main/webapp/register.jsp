@@ -1,6 +1,10 @@
-
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <meta charset="UTF-8" />
@@ -9,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="Unsplash">
+    <meta name="apple-mobile-web-app-title" content="Unalbum">
 
     <title>
         Join Unablum
@@ -33,15 +37,45 @@
     <meta name="msapplication-TileColor" content="#FFFFFF">
     <meta name="msapplication-TileImage" content="/mstile-144x144.png">
 
+    <script>
+        function mycheck(){
+            var checked = false;
 
+            try {
+                if (document.all("userName").value.length > 10){
+                    alert("用户名太长，请更正。");
+                    document.all("userName").focus();
+                    document.all("userName").value = "";
+                    return false;
+                }else if(document.all("password").value != document.all("confirm_password").value){
+                    alert("两次输入的密码不正确，请更正。");
+                    document.all("password").focus();
+                    document.all("password").value = "";
+                    document.all("confirm_password").value="";
+                    return false;
+                }else if(document.all("password").value.length <= 6){
+                    alert("密码太短，请更正。");
+                    document.all("password").focus();
+                    document.all("password").value = "";
+                    document.all("confirm_password").value="";
+                    return false;
+                }else {
+                    checked = true;
+                }
+            } catch(e) {
+                checked = false;
+            }
+
+
+            return checked ? true : false;
+        }
+    </script>
 
 </head>
 <body class="">
 
 
 <div class="js-flash-container"></div>
-
-
 
 <div class="registrations__wrapper">
     <div class="registrations__container">
@@ -65,15 +99,19 @@
                     <div class="col-xs-12">
 
                         <div class="form">
-                            <form class="new_#&lt;User:0x007f394f409a90&gt;" id="new_#&lt;User:0x007f394f409a90&gt;" action="<c:url value="/doRegister.html" />" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" />
-                                <input type="hidden" name="authenticity_token" value="wY7ad1clBPxmjmGpDUtiRPOL4RafzYiu8mgvVyO7TYP/cg8FWs4RSwA9DDBPoYGnp+pQpjj9B94lq2AAOSg4Hg==" />
+                            <form class="new_#&lt;User:0x007f394f409a90&gt;" id="new_#&lt;User:0x007f394f409a90&gt;"  action="<c:url value="/doRegister.html" />" accept-charset="UTF-8" method="post">
 
+                                <input name="utf8" type="hidden" value="&#x2713;" />
                                 <div class="form-group">
                                     <label for="user_username">
-                                        Username <span class="text-secondary">(最多十个字符)</span>
+                                        Username
+                                        <span class="text-secondary">(最多10个字符)
+                                        </span>
                                     </label>
                                     <input class="form-control" required="required" type="text" name="userName" id="user_username" />
-
+                                    <c:if test="${errorMsg.equals('AH') }">
+                                        <div class="form-error-inline">用户名已存在，请更换后重试</div>
+                                    </c:if>
                                 </div> <!-- close .form-group -->
 
                                 <div class="form-group">
@@ -83,12 +121,19 @@
                                     <input autocomplete="off" class="form-control" required="required" type="password" name="password" id="user_password" />
 
                                 </div> <!-- close .form-group -->
+                                <div class="form-group">
+                                    <label for="user_password">
+                                        Confirm Password <span class="text-secondary"></span>
+                                    </label>
+                                    <input autocomplete="off" class="form-control" required="required" type="password" name="confirm_password" id="confirm_password" />
+
+                                </div> <!-- close .form-group -->
 
                                 <input type="hidden" name="after_authorization_action" id="after_authorization_action" class="js-after-authorization-action" />
                                 <input type="hidden" name="after_authorization_object_id" id="after_authorization_object_id" class="js-after-authorization-object-id" />
 
                                 <div class="form-group">
-                                    <input type="submit" name="commit" value="注册" class="btn btn-default btn-block-level" data-disable-with="..." />
+                                    <input type="submit" name="commit" value="注册" onclick="return mycheck()" class="btn btn-default btn-block-level" data-disable-with="..." />
                                 </div> <!-- close .form-group -->
 
 

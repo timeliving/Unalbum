@@ -6,6 +6,11 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <html>
 <head>
     <meta charset="UTF-8" />
@@ -17,27 +22,21 @@
     <meta name="apple-mobile-web-app-title" content="Unsplash">
 
     <title>
-        Edit profile | Unsplash
+        Edit profile | Unalbum
     </title>
 
-    <meta name="description" content="
-    Do whatever you want free high-resolution photos. Download 10 new free photos every 10 days.
-">
-    <meta name="author" content="Crew">
-    <meta name="csrf-param" content="authenticity_token" />
-    <meta name="csrf-token" content="K2k4+iroqKfdw4oWsPN7tDLDfIdd5fNPdo7zTlXkfIM+HFQ4/sL3gX6AZum7YWUiUOzuXONe/X05donrD/BBAA==" />
 
-    <link rel="stylesheet" media="all" href="css/application-029d8a8982b375e16ae9a71ff44f628ad1233d0ebb95f215695c83595dac8d70.css" />
+    <link rel="stylesheet" media="all" href="<%=basePath%>css/unsplash.css" />
 
-    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
-    <link rel="apple-touch-icon-precomposed" type="image/png" href="img/apple-touch-icon-precomposed.png" />
-    <link rel="apple-touch-icon-precomposed" type="image/png" href="img/apple-touch-icon-60x60-precomposed.png" sizes="60x60" />
-    <link rel="apple-touch-icon-precomposed" type="image/png" href="img/apple-touch-icon-72x72-precomposed.png" sizes="72x72" />
-    <link rel="apple-touch-icon-precomposed" type="image/png" href="img/apple-touch-icon-76x76-precomposed.png" sizes="76x76" />
-    <link rel="apple-touch-icon-precomposed" type="image/png" href="img/apple-touch-icon-114x114-precomposed.png" sizes="114x114" />
-    <link rel="apple-touch-icon-precomposed" type="image/png" href="img/apple-touch-icon-120x120-precomposed.png" sizes="120x120" />
-    <link rel="apple-touch-icon-precomposed" type="image/png" href="img/apple-touch-icon-144x144-precomposed.png" sizes="144x144" />
-    <link rel="apple-touch-icon-precomposed" type="image/png" href="img/apple-touch-icon-152x152-precomposed.png" sizes="152x152" />
+    <link rel="shortcut icon" type="image/x-icon" href="<%=basePath%>img/favicon.ico" />
+    <link rel="apple-touch-icon-precomposed" type="image/png" href="<%=basePath%>img/apple-touch-icon-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" type="image/png" href="<%=basePath%>img/apple-touch-icon-60x60-precomposed.png" sizes="60x60" />
+    <link rel="apple-touch-icon-precomposed" type="image/png" href="<%=basePath%>img/apple-touch-icon-72x72-precomposed.png" sizes="72x72" />
+    <link rel="apple-touch-icon-precomposed" type="image/png" href="<%=basePath%>img/apple-touch-icon-76x76-precomposed.png" sizes="76x76" />
+    <link rel="apple-touch-icon-precomposed" type="image/png" href="<%=basePath%>img/apple-touch-icon-114x114-precomposed.png" sizes="114x114" />
+    <link rel="apple-touch-icon-precomposed" type="image/png" href="<%=basePath%>img/apple-touch-icon-120x120-precomposed.png" sizes="120x120" />
+    <link rel="apple-touch-icon-precomposed" type="image/png" href="<%=basePath%>img/apple-touch-icon-144x144-precomposed.png" sizes="144x144" />
+    <link rel="apple-touch-icon-precomposed" type="image/png" href="<%=basePath%>img/apple-touch-icon-152x152-precomposed.png" sizes="152x152" />
     <meta name="msapplication-config" content="browserconfig.xml">
     <meta name="msapplication-TileColor" content="#FFFFFF">
     <meta name="msapplication-TileImage" content="/mstile-144x144.png">
@@ -57,25 +56,9 @@
     <div class="container-fluid">
 
         <div class="navbar__links-container navbar__links-container--left">
-            <a href="/" title="Home &mdash; Unsplash">
-                <img class="navbar__logo " src="https://unsplash.com/assets/core/logo-black-b37a09de4a228cd8fb72adbabc95931c5090611a0cae8e76f1fd077d378ec080.svg" alt="Logo black" />
+            <a href="/home" title="Home &mdash; Unalbum">
+                <img class="navbar__logo " src="<%=basePath%>img/logo-black-b37a09de4a228cd8fb72adbabc95931c5090611a0cae8e76f1fd077d378ec080.svg" alt="Logo black" />
             </a>
-
-            <div class="navbar__element navbar__element--heading navbar__element--search js-search-header">
-                <form class="filter-nav__form" action="/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
-                    <div class="sr-only">
-                        <label for="keyword">Keyword</label>
-                    </div>
-
-                    <div class="search-box">
-                        <input type="text" name="keyword" id="keyword" placeholder="Search photos" tabindex="1" class="js-search-input" />
-
-                        <button name="button" type="submit" class="search-box__submit">
-                            <span class="search-box__submit-icon icon icon-search"></span>
-                            <span class="sr-only">Search</span>
-                        </button>            <a class="search-box__cancel js-dismiss-search">Cancel</a>
-                    </div> <!-- close .search-box -->
-                </form>      </div>
         </div>
 
         <ul class="navbar__links-container navbar__links-container--center navbar__text-links">
@@ -85,9 +68,7 @@
                 <a href="/">主页</a>
             </li>
 
-            <li class="navbar__element navbar__element--heading navbar__element--hide-on-xs">
-                <a href="/collections">Collections</a>
-            </li>
+
         </ul>
 
         <ul class="navbar__links-container navbar__links-container--right">
@@ -97,7 +78,7 @@
                         <a class="btn btn-outline btn--small text-weight--medium hidden-xs" href="/submit">Submit a photo</a>
                     </li>
                     <a href="/@shisheng01">
-                        <img ix-src="https://images.unsplash.com/profile-1516419903601-d1915af40081?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=faces&amp;cs=tinysrgb&amp;fit=crop&amp;h=32&amp;w=32&amp;s=75f161a3894ec604dab02e9dd6e49f7a" sizes="32px" class="avatar avatar--small avatar--small-mobile">
+                        <img ix-src="<%=basePath %>${USER_CONTEXT.photo}" sizes="32px" class="avatar avatar--small avatar--small-mobile">
                         <span class="sr-only">Shi sheng</span>
                     </a>  </ul>
 
@@ -117,13 +98,16 @@
                         <h3 class="nav__heading delta text-sans text-weight--bold">个人设置</h3>
 
                         <li class="active">
-                            <a href="/account">修改个人资料</a>
+                            <a href="<c:url value="/user/account" />">修改个人资料</a>
                         </li>
                         <li class="">
-                            <a href="/account/photos">相册管理</a>
+                            <a href="<c:url value="/user/account/photos" />">相册管理</a>
                         </li>
                         <li class="">
-                            <a href="/account/password">修改密码</a>
+                            <a href="<c:url value="/user/account/profile" />">修改头像</a>
+                        </li>
+                        <li class="">
+                            <a href="<c:url value="/user/account/password" />">修改密码</a>
                         </li>
                     </ul>
 
@@ -135,17 +119,17 @@
 
 
                     <div class="form">
-                        <form class="edit_user" id="edit_user_766708" action="/account" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="_method" value="put" /><input type="hidden" name="authenticity_token" value="S1EN6YqQ2Okb/mWH666UYkxmOzaNPP+UJixqD/FAk9FeJGErXrqHz7i9iXjgPIr0Lkmp7TOH8aZp1BCqq1SuUg==" />
+                        <form class="edit_user" id="edit_user_766708" action="<c:url value="/user/account" />" accept-charset="UTF-8" method="post">
+                            <input name="utf8" type="hidden" value="&#x2713;" />
+                            <input type="hidden" name="id" value="${user.id}" />
                             <div class="row">
                                 <div class="col-xs-12 col-sm-4 text-center">
                                     <a href="#" class="upload-circular-container profile-image-container js-general-uploader-pseudo-file-field">
                                         <div class="upload-circular">
-                                            <img ix-src="https://images.unsplash.com/profile-1516419903601-d1915af40081?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=faces&amp;cs=tinysrgb&amp;fit=crop&amp;h=128&amp;w=128&amp;s=29c24d571c5ef0dc1c1bffd3e506a842" sizes="128px" class="upload-circular__image upload-circular__image--large js-general-uploader-new-upload-target" />
+                                            <img ix-src="<%=basePath %>${USER_CONTEXT.photo}" sizes="128px" class="upload-circular__image upload-circular__image--large js-general-uploader-new-upload-target" />
                                             <div class="upload-circular__progress js-general-uploader-progress-target">
                                             </div> <!-- close .__progress -->
                                         </div> <!-- close .upload-circular -->
-
-                                        <p class="text-center zeta js-edit-profile-image-trigger-text">修改头像</p>
                                     </a> <!-- close .js -->
 
 
@@ -155,7 +139,15 @@
                                 <div class="col-xs-12 col-sm-8">
                                     <div class="form-group">
                                         <label for="user_first_name">用户名</label>
-                                        <input class="form-control" type="text" value="Shi" name="user[first_name]" id="user_first_name" />
+                                        <input class="form-control" type="text" value="${user.userName}" name="userName" id="user_first_name" />
+
+                                    </div> <!-- close .form-group -->
+                                </div> <!-- close .col -->
+
+                                <div class="col-xs-12 col-sm-8">
+                                    <div class="form-group">
+                                        <label for="user_last_name">个人喜好</label><span class="text-secondary">(最多5个，以空格分隔)</span>
+                                        <input class="form-control" type="text" value="${user.userInterests}" name="userInterests" id="user_last_name"/>
 
                                     </div> <!-- close .form-group -->
                                 </div> <!-- close .col -->
@@ -165,10 +157,8 @@
                                 <div class="col-xs-12">
                                     <div class="form-group">
                                         <label for="user_bio">个人简介</label>
-
                                         <div class="input-with-counter js-character-count-container">
-            <textarea class="form-control" rows="3" data-character-count="250" name="userProfile" id="user_bio">
-</textarea>
+                                            <textarea class="form-control" rows="3" data-character-count="250" name="userProfile" id="user_bio">${user.userProfile}</textarea>
                                             <div class="character-count character-count--textarea js-character-count">250</div>
                                         </div>
                                     </div> <!-- close .form-group -->
@@ -176,7 +166,7 @@
 
                                 <div class="col-xs-12 col-sm-6">
                                     <div class="form-group">
-                                        <input type="submit" name="commit" value="Update account" class="btn btn-default btn-block-level" data-disable-with="..." />
+                                        <input type="submit" name="commit" value="确认修改" class="btn btn-default btn-block-level" data-disable-with="..." />
                                     </div> <!-- close .form-group -->
                                 </div> <!-- close .col -->
 
@@ -189,6 +179,37 @@
 
     <div class="push-footer"></div>
 </div>
+
+
+<%--<div class="hide">
+    <form class="js-general-uploader-s3-form js-edit-profile-image-s3-form" data-callback-url="null" data-callback-method="POST" data-callback-param="file" enctype="multipart/form-data" action="https://s3-us-west-2.amazonaws.com/images.unsplash.com/" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" />
+        <input type="hidden" name="key" id="key" value="profile-{timestamp}-fa35a49cce17" />
+        <input type="hidden" name="acl" id="acl" value="public-read" />
+        <input type="hidden" name="AWSAccessKeyId" id="AWSAccessKeyId" value="AKIAJ4ATIV7TEVKIW3RQ" />
+        <input type="hidden" name="policy" id="policy" value="eyJleHBpcmF0aW9uIjoiMjAxOC0wMy0xNFQxOTozMzoxNFoiLCJjb25kaXRpb25zIjpbWyJzdGFydHMtd2l0aCIsIiR1dGY4IiwiIl0sWyJzdGFydHMtd2l0aCIsIiRrZXkiLCJwcm9maWxlIl0sWyJzdGFydHMtd2l0aCIsIiR4LXJlcXVlc3RlZC13aXRoIiwiIl0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwyMDk3MTUyXSxbInN0YXJ0cy13aXRoIiwiJGNvbnRlbnQtdHlwZSIsIiJdLHsiYnVja2V0IjoiaW1hZ2VzLnVuc3BsYXNoLmNvbSJ9LHsiYWNsIjoicHVibGljLXJlYWQifSx7InN1Y2Nlc3NfYWN0aW9uX3N0YXR1cyI6IjIwMSJ9XX0=" /><input type="hidden" name="signature" id="signature" value="1FTmATJyB0dfTjg7PNtEvCmZu7E=" />
+        <input type="hidden" name="success_action_status" id="success_action_status" value="201" />
+        <input type="hidden" name="X-Requested-With" id="X-Requested-With" value="xhr" />
+        <input type="file" name="file" id="file" class="js-general-uploader-s3-file-field" />
+    </form>
+    <form class="js-edit-profile-image-form" action="/account/profile_image" accept-charset="UTF-8" method="post">
+        <input name="utf8" type="hidden" value="&#x2713;" />
+        <input type="hidden" name="_method" value="put" />
+        <input type="hidden" name="authenticity_token" value="ZAVNiCMfjz1xIDEGykAybKU1b4LfkwQ/e5TNfg4tSRmf9/IG9o7Kmp+Fgl3ixbIUgjQ/ByTe30P6/KtygZq5Fw==" />
+
+        <div class="hide js-general-uploader-form">
+        </div>
+
+        <input type="submit" name="commit" value="Save" class="js-general-uploader-form-submit" />
+    </form>
+</div> <!-- close .hide -->
+
+<script class="js-general-uploader-form-template" type="text/x-tmpl">
+  <input name="profile_image[url]" id="profile_image_url" type="text" value="<%= file.url %>">
+  <input name="profile_image[filetype]" id="profile_image_filetype" type="text" value="<%= file.filetype %>">
+  <input name="profile_image[filepath]" id="profile_image_filesize" type="text" value="<%= file.filepath %>">
+  <input name="profile_image[filesize]" id="profile_image_filesize" type="text" value="<%= file.filesize %>">
+</script>--%>
+
 
 <footer class="footer-global js-global-footer">
     <div class="container">
@@ -206,7 +227,7 @@
         <div class="footer-sub">
             <div class="row">
                 <div class="col-sm-12">
-                    <a href="/" title="Home &mdash; Unsplash"><img class="footer-sub__logo" src="img/logo-black-b37a09de4a228cd8fb72adbabc95931c5090611a0cae8e76f1fd077d378ec080.svg" alt="Logo black" /></a>
+                    <a href="/" title="Home &mdash; Unsplash"><img class="footer-sub__logo" src="<%=basePath%>img/logo-black-b37a09de4a228cd8fb72adbabc95931c5090611a0cae8e76f1fd077d378ec080.svg" alt="Logo black" /></a>
                     Make something awesome.
                 </div>
             </div>
@@ -228,8 +249,8 @@
     })(window);
 </script>
 
-<script src="js/global-11cefe86ab47658815b807bc1fdddf1be8832c46b2cf6b516d97d73b9fdf373d.js"></script>
-<script src="js/uploaders-a5c2699a466616babf78a14d3dfb0f31b5f377456f87e138566fb676904129aa.js"></script>
+<script src="<%=basePath%>js/global-11cefe86ab47658815b807bc1fdddf1be8832c46b2cf6b516d97d73b9fdf373d.js"></script>
+<script src="<%=basePath%>js/uploaders-a5c2699a466616babf78a14d3dfb0f31b5f377456f87e138566fb676904129aa.js"></script>
 
 <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

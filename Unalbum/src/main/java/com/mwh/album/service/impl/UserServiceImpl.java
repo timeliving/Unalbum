@@ -32,8 +32,24 @@ public class UserServiceImpl implements UserService {
         userMapper.delete(id);
     }
 
-    public void update(User user) {
-        userMapper.update(user);
+    public void updateProfile(User user) {
+        User ur = userMapper.findById(user.getId());
+        if(user.getUserName() != ur.getUserName()) ur.setUserName(user.getUserName());
+        if(user.getUserInterests() != ur.getUserInterests()) ur.setUserInterests(user.getUserInterests());
+        if(user.getUserProfile() != ur.getUserProfile()) ur.setUserProfile(user.getUserProfile());
+        userMapper.updateProfile(ur);
+    }
+
+    public void updatePassword(int id, String password) {
+        User ur = userMapper.findById(id);
+        if(ur.getPassword() != password) ur.setPassword(password);
+        userMapper.updatePassword(id, password);
+    }
+
+    public void uploadProfile(int id, String photo){
+        User ur = userMapper.findById(id);
+        if(ur.getPhoto() != photo) ur.setPhoto(photo);
+        userMapper.uploadProfile(id, photo);
     }
 
     public List<User> findAll() {

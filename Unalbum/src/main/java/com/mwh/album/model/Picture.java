@@ -18,6 +18,7 @@ public class Picture implements java.io.Serializable {
     private Integer picCategory;                //图片类别
     private String picURL;                      //图片URL地址
     private Date createDate;                    //图片上传时间
+    private Integer picStatus;                  //图片分享状态
 
     public Integer getId() {
         return id;
@@ -57,5 +58,13 @@ public class Picture implements java.io.Serializable {
 
     public void setCreateDate(Date createDate) {
         this.createDate = createDate;
+    }
+
+    public Integer getPicStatus() {
+        return picStatus;
+    }
+
+    public void setPicStatus(Integer picStatus) {
+        this.picStatus = picStatus;
     }
 }

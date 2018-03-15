@@ -36,11 +36,11 @@ public class RegisterController extends BaseController {
     @RequestMapping(value="/doRegister.html",method = RequestMethod.POST)
     public ModelAndView userRegister(HttpServletRequest request, User user){
         ModelAndView view = new ModelAndView();
-        view.setViewName("home");
+        view.setViewName("user/account");
         try {
             userService.save(user);
         } catch (UserExistException e) {
-            view.addObject("errorMsg", "用户名已经存在，请选择其它的名字。");
+            view.addObject("errorMsg", "AH");
             view.setViewName("forward:/register.jsp");
         }
         setSessionUser(request,user);

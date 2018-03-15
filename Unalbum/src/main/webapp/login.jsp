@@ -37,10 +37,16 @@
 
         <h1>Login</h1>
         <h3>Welcome back.</h3>
-        <form class="form" action="<c:url value="/doLogin.html" />" method="post">
-            <input type="text" placeholder="用户名">
-            <input type="password" placeholder="密码">
-            <button type="submit" id="login-button">登录</button>
+        <form class="form" action="<c:url value="/doLogin.html" />" accept-charset="UTF-8" method="post">
+            <input type="text" placeholder="用户名" name="userName"/>
+            <c:if test="${errorMsg.equals('用户名不存在') }">
+                <div style="color:red; font-size:15px;">${ errorMsg }</div>
+            </c:if>
+            <input type="password" placeholder="密码" name="password"/>
+            <c:if test="${errorMsg.equals('用户密码不正确')}">
+                <div style="color:red; font-size:15px;">${ errorMsg }</div>
+            </c:if>
+            <input type="submit" value="登陆"/>
             <p>
                 还未注册? <a href="doRegister.html" style="color: #3c5081;">加入</a>
             </p>

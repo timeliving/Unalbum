@@ -12,15 +12,15 @@ import java.util.List;
 
 public interface PictureService {
 
-    public void save(Picture picture);
+    void save(Picture picture);
 
-    public void delete(int id);
+    void delete(int id);
 
-    public void update(Picture picture);
+    void update(Picture picture);
 
-    public List<Picture> findAll();
-    public Picture findById(int id);
-    public Picture findByPicName(String userName);
-    public List<Picture> findByCategoryID(int picCategory);
+    List<Picture> findAll();
+    Picture findById(int id);
+    Picture findByPicName(String userName);
+    List<Picture> findByCategoryID(int picCategory);
 
 }

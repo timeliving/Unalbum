@@ -11,17 +11,21 @@ import java.util.List;
 public interface UserMapper {
 
     //查找所有用户
-    public List<User> findAll();
+    List<User> findAll();
     //按用户ID查找用户
-    public User findById(int id);
+    User findById(int id);
     //按用户名查找用户
-    public User findByUserName(String userName);
+    User findByUserName(String userName);
 
     //新增用户
-    public int  save(User user);
+    int save(User user);
     //删除用户
-    public int delete(int id);
-    //修改用户
-    public int update(User user);
+    int delete(int id);
+    //修改用户个人资料
+    int updateProfile(User user);
+    //修改用户密码
+    int updatePassword(int id, String password);
+    //上传个人头像
+    int uploadProfile(int id, String photo);
 
 }

@@ -12,7 +12,9 @@
 
 <body>
 <c:if test="${!empty USER_CONTEXT.userName}">
-    <div style="color:red">${ USER_CONTEXT.userName }已登录</div>
+    <div style="color:red">${ USER_CONTEXT.userName }已登录
+    ${USER_CONTEXT.userInterests}
+    </div>
 </c:if>
 <a href="<%=basePath %>doLogin.html">用户登录</a>
 </body>

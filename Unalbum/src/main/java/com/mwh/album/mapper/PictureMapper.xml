@@ -9,6 +9,7 @@
         <result property="picCategory" column="picCategory"/>
         <result property="picURL" column="picURL"/>
         <result property="createDate" column="createDate"/>
+        <result property="picStatus" column="picStatus"/>
     </resultMap>
 
     <insert id="save" parameterType="Picture">

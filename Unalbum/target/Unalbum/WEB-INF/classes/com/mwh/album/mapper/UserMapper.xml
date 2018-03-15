@@ -7,9 +7,10 @@
         <id property="id" column="id"/>
         <result property="userName" column="userName"/>
         <result property="password" column="password"/>
-        <result property="ctreateDate" column="ctreateDate"/>
+        <result property="createDate" column="createDate"/>
         <result property="photo" column="photo"/>
         <result property="userProfile" column="userProfile"/>
+        <result property="userInterests" column="userInterests"/>
     </resultMap>
 
     <insert id="save" parameterType="User">
@@ -20,14 +21,24 @@
     </insert>
 
 
-    <update id="update" parameterType="User" >
+    <update id="updateProfile" parameterType="User" >
         update td_user set
         userName = #{userName},
-        password = #{password},
-        createDate=#{ctreateDate},
-        photo=#{photo},
+        userInterests = #{userInterests},
         userProfile = #{userProfile}
         where id = #{id}
+    </update>
+
+    <update id="updatePassword">
+        update td_user set
+        password = #{1}
+        where id = #{0}
+    </update>
+
+    <update id="uploadProfile">
+        UPDATE td_user SET
+        photo = #{1}
+        WHERE id = #{0}
     </update>
 
     <delete id="delete" parameterType="int">

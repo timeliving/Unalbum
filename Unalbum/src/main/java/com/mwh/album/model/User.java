@@ -18,6 +18,7 @@ public class User implements java.io.Serializable {
     private Date createDate;                     //用户注册时间
     private String photo;                        //用户图像
     private String userProfile;                  //用户个人简介
+    private String userInterests;                //用户个人爱好
 
     // Constructors
     public User() {
@@ -70,5 +71,13 @@ public class User implements java.io.Serializable {
 
     public void setUserProfile(String userProfile) {
         this.userProfile = userProfile;
+    }
+
+    public String getUserInterests() {
+        return userInterests;
+    }
+
+    public void setUserInterests(String userInterests) {
+        this.userInterests = userInterests;
     }
 }

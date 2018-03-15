@@ -38,20 +38,30 @@ public class LoginController extends BaseController {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("forward:/login.jsp");
         if (dbUser == null) {
-            mav.addObject("errorMsg", "用户名不存在");
+            mav.addObject("errorMsg", "用户不存在");
         } else if (!dbUser.getPassword().equals(user.getPassword())) {
             mav.addObject("errorMsg", "用户密码不正确");
         } else {
-
+            user = dbUser;
             setSessionUser(request,dbUser);
             String toUrl = (String)request.getSession().getAttribute(CommonConstant.LOGIN_TO_URL);
             request.getSession().removeAttribute(CommonConstant.LOGIN_TO_URL);
             //如果当前会话中没有保存登录之前的请求URL，则直接跳转到主页
             if(StringUtils.isEmpty(toUrl)){
-                toUrl = "home";
+                toUrl = "user/home";
             }
             mav.setViewName(toUrl);
+            mav.addObject(user);
         }
+        return mav;
+    }
+
+
+
+    @RequestMapping(value="home")
+    public ModelAndView home(HttpServletRequest request){
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("user/home");
         return mav;
     }
 

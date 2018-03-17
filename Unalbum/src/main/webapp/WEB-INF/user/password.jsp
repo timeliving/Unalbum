@@ -92,7 +92,7 @@
 
 
             <li class="navbar__element navbar__element--heading navbar__element--hide-on-xs ">
-                <a href="/">主页</a>
+                <a href="/home">主页</a>
             </li>
 
 
@@ -193,7 +193,7 @@
         <div class="footer-sub">
             <div class="row">
                 <div class="col-sm-12">
-                    <a href="/" title="Home &mdash; Unsplash"><img class="footer-sub__logo" src="<%=basePath%>img/logo-black-b37a09de4a228cd8fb72adbabc95931c5090611a0cae8e76f1fd077d378ec080.svg" alt="Logo black" /></a>
+                    <a href="/home" title="Home &mdash; Unalbum"><img class="footer-sub__logo" src="<%=basePath%>img/logo-black-b37a09de4a228cd8fb72adbabc95931c5090611a0cae8e76f1fd077d378ec080.svg" alt="Logo black" /></a>
                     Make something awesome.
                 </div>
             </div>

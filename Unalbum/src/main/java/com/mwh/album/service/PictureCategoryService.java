@@ -11,13 +11,14 @@ import java.util.List;
  */
 public interface PictureCategoryService {
 
-    public List<PictureCategory> findAll();
+    List<PictureCategory> findAll();
+    PictureCategory findByCategoryName(String categoryName);
 
     //新增图片
-    public void  save(PictureCategory pictureCategory);
+    void  save(PictureCategory pictureCategory);
     //删除图片
-    public void delete(int id);
+    void delete(int id);
     //修改图片
-    public void update(PictureCategory pictureCategory);
+    void update(PictureCategory pictureCategory);
 
 }

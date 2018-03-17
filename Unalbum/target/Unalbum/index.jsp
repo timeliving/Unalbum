@@ -16,6 +16,6 @@
     ${USER_CONTEXT.userInterests}
     </div>
 </c:if>
-<a href="<%=basePath %>doLogin.html">用户登录</a>
+<a href="/login">用户登录</a>
 </body>
 </html>

@@ -37,7 +37,7 @@
 
         <h1>Login</h1>
         <h3>Welcome back.</h3>
-        <form class="form" action="<c:url value="/doLogin.html" />" accept-charset="UTF-8" method="post">
+        <form class="form" action="<c:url value="/login" />" accept-charset="UTF-8" method="post">
             <input type="text" placeholder="用户名" name="userName"/>
             <c:if test="${errorMsg.equals('用户名不存在') }">
                 <div style="color:red; font-size:15px;">${ errorMsg }</div>
@@ -48,7 +48,7 @@
             </c:if>
             <input type="submit" value="登陆"/>
             <p>
-                还未注册? <a href="doRegister.html" style="color: #3c5081;">加入</a>
+                还未注册? <a href="register" style="color: #3c5081;">加入</a>
             </p>
         </form>
 

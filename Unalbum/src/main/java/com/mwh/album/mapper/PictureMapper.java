@@ -13,20 +13,23 @@ import java.util.List;
 public interface PictureMapper {
 
     //查找所有图片
-    public List<Picture> findAll();
+    List<Picture> findAll();
     //按图片ID查找图片
-    public Picture findById(int id);
+    Picture findById(int id);
     //按图片名查找图片
-    public Picture findByPicName(String picName);
+    Picture findByPicName(String picName);
     //按图片类别ID查找图片
-    public List<Picture> findByCategoryID(int picCategory);
+    List<Picture> findByCategoryID(int picCategory);
 
     //新增图片
-    public int  save(Picture picture);
+    int  save(Picture picture);
     //删除图片
-    public int delete(int id);
+    int delete(int id);
     //修改图片
-    public int update(Picture picture);
+    int update(Picture picture);
+
+    //修改图片喜欢数 +1/-1
+    int updatePictureLikes(int id, int picLikes);
 
 
 }

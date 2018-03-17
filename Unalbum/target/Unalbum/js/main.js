@@ -160,7 +160,7 @@
 	      e.stopPropagation();
 	   });
 
-	   searchField.attr({placeholder: 'Type Your Keywords', autocomplete: 'off'});
+	   searchField.attr({placeholder: 'Search for', autocomplete: 'off'});
 
    };
 	 
@@ -571,7 +571,7 @@
 				});
 
 			// add custom buttons for the zoom-in/zoom-out on the map
-			function CustomZoomControl(controlDiv, map) {
+			(function CustomZoomControl(controlDiv, map) {
 			
 				// grap the zoom elements from the DOM and insert them in the map 
 			 	var controlUIzoomIn= document.getElementById('map-zoom-in'),
@@ -588,7 +588,7 @@
 					map.setZoom(map.getZoom()-1)
 				});
 					
-			}
+			})();
 
 			var zoomControlDiv = document.createElement('div');
 			var zoomControl = new CustomZoomControl(zoomControlDiv, map);

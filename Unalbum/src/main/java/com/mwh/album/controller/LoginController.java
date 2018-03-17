@@ -19,7 +19,7 @@ public class LoginController extends BaseController {
     private UserService userService;
 
 
-    @RequestMapping(value="/doLogin.html",method=RequestMethod.GET)
+    @RequestMapping(value="login",method=RequestMethod.GET)
     public ModelAndView userLogin(HttpServletRequest request){
         ModelAndView mav = new ModelAndView();
         mav.setViewName("redirect:/login.jsp");
@@ -32,11 +32,11 @@ public class LoginController extends BaseController {
      * @param user
      * @return
      */
-    @RequestMapping(value="/doLogin.html",method= RequestMethod.POST)
+    @RequestMapping(value="login",method= RequestMethod.POST)
     public ModelAndView userLogin(HttpServletRequest request, User user){
         User dbUser = userService.findByUserName(user.getUserName());
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("forward:/login.jsp");
+        mav.setViewName("redirect:/login.jsp");
         if (dbUser == null) {
             mav.addObject("errorMsg", "用户不存在");
         } else if (!dbUser.getPassword().equals(user.getPassword())) {

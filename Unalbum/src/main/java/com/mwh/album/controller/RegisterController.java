@@ -20,7 +20,7 @@ public class RegisterController extends BaseController {
      * @param request
      * @return
      */
-    @RequestMapping(value="/doRegister.html",method = RequestMethod.GET)
+    @RequestMapping(value="register",method = RequestMethod.GET)
     public ModelAndView userRegister(HttpServletRequest request){
         ModelAndView view = new ModelAndView();
         view.setViewName("redirect:/register.jsp");
@@ -33,7 +33,7 @@ public class RegisterController extends BaseController {
      * @param user
      * @return
      */
-    @RequestMapping(value="/doRegister.html",method = RequestMethod.POST)
+    @RequestMapping(value="register",method = RequestMethod.POST)
     public ModelAndView userRegister(HttpServletRequest request, User user){
         ModelAndView view = new ModelAndView();
         view.setViewName("user/account");
@@ -41,7 +41,7 @@ public class RegisterController extends BaseController {
             userService.save(user);
         } catch (UserExistException e) {
             view.addObject("errorMsg", "AH");
-            view.setViewName("forward:/register.jsp");
+            view.setViewName("redirect:/register.jsp");
         }
         setSessionUser(request,user);
         return view;

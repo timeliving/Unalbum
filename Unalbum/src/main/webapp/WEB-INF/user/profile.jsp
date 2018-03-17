@@ -76,7 +76,7 @@
 
 
             <li class="navbar__element navbar__element--heading navbar__element--hide-on-xs ">
-                <a href="/">主页</a>
+                <a href="/home">主页</a>
             </li>
 
 
@@ -86,7 +86,7 @@
             <li class="navbar__element navbar__element--heading navbar__element--half-spacing">
                 <ul class="nav">
                     <li class="navbar__element navbar__element--full-spacing">
-                        <a class="btn btn-outline btn--small text-weight--medium hidden-xs" href="/submit">Submit a photo</a>
+                        <a class="btn btn-outline btn--small text-weight--medium hidden-xs" href="/submit">上传图片</a>
                     </li>
                     <a href="/@shisheng01">
                         <img ix-src="<%=basePath %>${USER_CONTEXT.photo}" sizes="32px" class="avatar avatar--small avatar--small-mobile">
@@ -182,7 +182,7 @@
         <div class="footer-sub">
             <div class="row">
                 <div class="col-sm-12">
-                    <a href="/" title="Home &mdash; Unsplash"><img class="footer-sub__logo" src="<%=basePath%>img/logo-black-b37a09de4a228cd8fb72adbabc95931c5090611a0cae8e76f1fd077d378ec080.svg" alt="Logo black" /></a>
+                    <a href="/" title="Home &mdash; Unalbum"><img class="footer-sub__logo" src="<%=basePath%>img/logo-black-b37a09de4a228cd8fb72adbabc95931c5090611a0cae8e76f1fd077d378ec080.svg" alt="Logo black" /></a>
                     Make something awesome.
                 </div>
             </div>

@@ -70,7 +70,7 @@
             <form role="search" method="get" class="search-form" action="#">
                 <label>
                     <span class="hide-content">Search for:</span>
-                    <input type="search" class="search-field" placeholder="搜索图片" value="" name="s" title="Search for:" autocomplete="off">
+                    <input type="search" class="search-field" placeholder="Search for" value="" name="s" title="Search for:" autocomplete="off">
                 </label>
                 <input type="submit" class="search-submit" value="Search">
             </form>
@@ -83,7 +83,7 @@
             <li class="navbar__element navbar__element--heading navbar__element--half-spacing">
                 <ul class="nav">
                     <li class="navbar__element navbar__element--full-spacing">
-                        <a class="btn btn-outline btn--small text-weight--medium hidden-xs" href="/submit">上传图片</a>
+                        <a class="btn btn-outline btn--small text-weight--medium hidden-xs" href="picture/submit">上传图片</a>
                     </li>
                     <c:if test="${!empty USER_CONTEXT.photo}">
                         <a href="/@shisheng01">
@@ -93,10 +93,10 @@
                     </c:if>
                     <c:if test="${empty USER_CONTEXT.photo}">
                         <li class="navbar__element navbar__element--full-spacing">
-                            <a class="btn btn-outline btn--small text-weight--medium hidden-xs" href="/submit">立即登陆</a>
+                            <a class="btn btn-outline btn--small text-weight--medium hidden-xs" href="/login">立即登陆</a>
                         </li>
                         <li class="navbar__element navbar__element--full-spacing">
-                            <a class="btn btn-outline btn--small text-weight--medium hidden-xs" href="/submit">现在加入</a>
+                            <a class="btn btn-outline btn--small text-weight--medium hidden-xs" href="/register">现在加入</a>
                         </li>
                     </c:if>
                 </ul>
@@ -127,7 +127,16 @@
 
                                             <div class="post-background" style="background-image:url('img/thumbs/featured/featured-1.jpg');"></div>
 
+                                            <div class="overlay"></div>
 
+                                            <div class="post-content">
+                                                <ul class="entry-meta">
+                                                    <li>August 29, 2016</li>
+                                                    <li><a href="#">Sasuke Uchiha</a></li>
+                                                </ul>
+
+                                                <h1 class="slide-title">每日精选</h1>
+                                            </div>
                                         </div>
                                     </li> <!-- /slide -->
 
@@ -136,7 +145,16 @@
 
                                             <div class="post-background" style="background-image:url('img/thumbs/featured/featured-2.jpg');"></div>
 
+                                            <div class="overlay"></div>
 
+                                            <div class="post-content">
+                                                <ul class="entry-meta">
+                                                    <li>August 29, 2016</li>
+                                                    <li><a href="#">Sasuke Uchiha</a></li>
+                                                </ul>
+
+                                                <h1 class="slide-title">每日精选</h1>
+                                            </div>
 
                                         </div>
                                     </li> <!-- /slide -->
@@ -146,7 +164,16 @@
 
                                             <div class="post-background" style="background-image:url('img/thumbs/featured/featured-3.jpg');;"></div>
 
+                                            <div class="overlay"></div>
 
+                                            <div class="post-content">
+                                                <ul class="entry-meta">
+                                                    <li>August 29, 2016</li>
+                                                    <li><a href="#">Sasuke Uchiha</a></li>
+                                                </ul>
+
+                                                <h1 class="slide-title">每日精选</h1>
+                                            </div>
                                         </div>
                                     </li> <!-- end slide -->
 
@@ -159,22 +186,44 @@
 
                         <div class="entry-thumb">
                             <a href="#" class="thumb-link">
-                                <img src="img/thumbs/diagonal-building.jpg" alt="building">
+                                <img src="img/thumbs/diagonal-building.jpg" alt="Shutterbug">
                             </a>
                         </div>
 
+                        <div class="entry-text">
+                            <div class="entry-header">
 
+                                <h1 class="entry-title">
+							<span class="cat-links">
+								风景
+               				</span>
+                                </h1>
+
+                            </div>
+                        </div>
 
                     </article> <!-- end article -->
 
                     <article class="brick entry format-standard animate-this">
 
                         <div class="entry-thumb">
-                            <a href="#" class="thumb-link">
-                                <img src="img/thumbs/ferris-wheel.jpg" alt="ferris wheel">
-                            </a>
+                            <div class="post-slider flexslider">
+                                <a href="#" class="thumb-link">
+                                    <img src="img/thumbs/ferris-wheel.jpg" alt="Shutterbug">
+                                </a>
+                            </div>
                         </div>
+                        <div class="entry-text">
+                            <div class="entry-header">
 
+                                <h1 class="entry-title">
+							<span class="cat-links">
+								人物
+               				</span>
+                                </h1>
+
+                            </div>
+                        </div>
 
 
                     </article> <!-- end article -->
@@ -184,22 +233,61 @@
                     <article class="brick entry format-audio animate-this">
 
                         <div class="entry-thumb">
-                            <a href="#" class="thumb-link">
-                                <img src="img/thumbs/concert.jpg" alt="concert">
-                            </a>
+                            <div class="post-slider flexslider">
+                                <a href="#" class="thumb-link">
+                                    <img src="img/thumbs/concert.jpg" alt="Shutterbug">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="entry-text">
+                            <div class="entry-header">
+
+                                <h1 class="entry-title">
+							<span class="cat-links">
+								自然
+               				</span>
+                                </h1>
+
+                            </div>
                         </div>
 
                     </article> <!-- /article -->
 
-                    <article class="brick entry format-quote animate-this" >
+                    <article class="brick entry format-gallery group animate-this">
 
                         <div class="entry-thumb">
-                            <a href="#" class="thumb-link">
-                                <img src="img/thumbs/concert.jpg" alt="concert">
-                            </a>
+
+                            <div class="post-slider flexslider">
+                                <ul class="slides">
+                                    <li>
+                                        <img src="img/thumbs/gallery/work1.jpg">
+                                    </li>
+                                    <li>
+                                        <img src="img/thumbs/gallery/work2.jpg">
+                                    </li>
+                                    <li>
+                                        <img src="img/thumbs/gallery/work3.jpg">
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+
+                        <div class="entry-text">
+                            <div class="entry-header">
+
+                                <div class="entry-meta">
+                                    <h1 class="entry-title">
+							<span class="cat-links">
+								交通
+               				</span>
+                                    </h1>
+                                </div>
+                            </div>
                         </div>
 
                     </article> <!-- end article -->
+
 
                     <article class="brick entry animate-this">
 
@@ -207,6 +295,18 @@
                             <a href="#" class="thumb-link">
                                 <img src="img/thumbs/shutterbug.jpg" alt="Shutterbug">
                             </a>
+
+                        </div>
+                        <div class="entry-text">
+                            <div class="entry-header">
+
+                                <h1 class="entry-title">
+							<span class="cat-links">
+								建筑
+               				</span>
+                                </h1>
+
+                            </div>
                         </div>
 
                     </article> <!-- end article -->
@@ -217,6 +317,18 @@
                             <a href="#" class="thumb-link">
                                 <img src="img/thumbs/usaf-rocket.jpg" alt="USAF rocket">
                             </a>
+                        </div>
+
+                        <div class="entry-text">
+                            <div class="entry-header">
+
+                                <h1 class="entry-title">
+                                    <span class="cat-links">
+                                        自然
+                                    </span>
+                                </h1>
+
+                            </div>
                         </div>
                     </article> <!-- end article -->
 
@@ -230,6 +342,17 @@
                                 <img src="img/thumbs/diagonal-pattern.jpg" alt="Pattern">
                             </a>
                         </div>
+                        <div class="entry-text">
+                            <div class="entry-header">
+
+                                <h1 class="entry-title">
+							<span class="cat-links">
+								车辆
+               				</span>
+                                </h1>
+
+                            </div>
+                        </div>
 
                     </article> <!-- end article -->
 
@@ -241,6 +364,18 @@
                             </a>
                         </div>
 
+                        <div class="entry-text">
+                            <div class="entry-header">
+
+                                <h1 class="entry-title">
+							<span class="cat-links">
+								道路
+               				</span>
+                                </h1>
+
+                            </div>
+                        </div>
+
                     </article> <!-- end article -->
 
                     <article class="brick entry animate-this">
@@ -250,24 +385,45 @@
                                 <img src="img/thumbs/lighthouse.jpg" alt="Lighthouse">
                             </a>
                         </div>
+                        <div class="entry-text">
+                            <div class="entry-header">
 
+                                <h1 class="entry-title">
+							<span class="cat-links">
+								标志
+               				</span>
+                                </h1>
+
+                            </div>
+                        </div>
 
                     </article> <!-- end article -->
 
-                    <article class="brick entry animate-this">
+                    <%--<article class="brick entry animate-this">
 
                         <div class="entry-thumb">
                             <a href="#" class="thumb-link">
                                 <img src="img/thumbs/liberty.jpg" alt="Liberty">
                             </a>
                         </div>
-                    </article> <!-- end article -->
+                        <div class="entry-text">
+                            <div class="entry-header">
+
+                                <h1 class="entry-title">
+							<span class="cat-links">
+								爱
+               				</span>
+                                </h1>
+
+                            </div>
+                        </div>
+                    </article> --%><!-- end article -->
 
                 </div> <!-- end brick-wrapper -->
 
             </div> <!-- end row -->
 
-            <div class="row">
+            <%--<div class="row">
 
                 <nav class="pagination">
                     <span class="page-numbers prev inactive">Prev</span>
@@ -283,17 +439,12 @@
                     <a href="#" class="page-numbers next">Next</a>
                 </nav>
 
-            </div>
+            </div>--%>
 
         </section> <!-- end bricks -->
     </div>
 </div>
-<!-- footer
-================================================== -->
 
-<div id="preloader">
-    <div id="loader"></div>
-</div>
 
 <script>
     (function (window) {
@@ -342,8 +493,7 @@
 ================================================== -->
 <script src="<%=basePath%>js/jquery-2.1.3.min.js"></script>
 <script src="<%=basePath%>js/plugins.js"></script>
-<script src="<%=basePath%>js/jquery.appear.js"></script>
-<script src="<%=basePath%>js/main.js"></script>
+<script src="<%=basePath%>js/main.js" type="text/javascript" charset="utf-8"></script>
 
 </body>
 

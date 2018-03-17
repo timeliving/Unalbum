@@ -13,13 +13,15 @@ import java.util.List;
 public interface PictureCategoryMapper {
 
     //查找所有图片类别
-    public List<PictureCategory> findAll();
+    List<PictureCategory> findAll();
+
+    PictureCategory findByCategoryName(String categoryName);
 
     //新增图片
-    public int  save(PictureCategory pictureCategory);
+    int  save(PictureCategory pictureCategory);
     //删除图片
-    public int delete(int id);
+    int delete(int id);
     //修改图片
-    public int update(PictureCategory pictureCategory);
+    int update(PictureCategory pictureCategory);
 
 }

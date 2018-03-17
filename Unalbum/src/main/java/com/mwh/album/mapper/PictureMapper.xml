@@ -9,14 +9,16 @@
         <result property="picCategory" column="picCategory"/>
         <result property="picURL" column="picURL"/>
         <result property="createDate" column="createDate"/>
-        <result property="picStatus" column="picStatus"/>
+        <result property="picLikes" column="picLikes"/>
+        <result property="picCollection" column="picCollection"/>
+        <result property="user" column="user"/>
     </resultMap>
 
     <insert id="save" parameterType="Picture">
         insert into td_picture
         values
         (null,#{picName},#{picCategory},#{picURL},
-        #{createDate})
+        #{createDate},#{picLikes},#{picCollection},#{user})
     </insert>
 
 
@@ -26,6 +28,12 @@
         picCategory = #{picCategory},
         picURL=#{picURL}
         where id = #{id}
+    </update>
+
+    <update id="updatePictureLikes">
+        update td_picture SET
+        picLikes = #{1}
+        where id = #{0}
     </update>
 
     <delete id="delete" parameterType="int">

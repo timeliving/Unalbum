@@ -96,7 +96,6 @@ public class UserController extends BaseController {
             String uuid = UUID.randomUUID().toString().replaceAll("-","");
             //获得文件类型 返回image/后缀
             String contentType=file.getContentType();
-            System.out.println(contentType);
             //获得文件后缀名称
             String imageName=contentType.substring(contentType.indexOf("/")+1);
             //String localpath="D:"+File.separator+"imagies"+File.separator+uuid+"."+imageName;
@@ -111,7 +110,6 @@ public class UserController extends BaseController {
                 e.printStackTrace();
             }
         }
-        System.out.println(path);
         return path;
     }
 

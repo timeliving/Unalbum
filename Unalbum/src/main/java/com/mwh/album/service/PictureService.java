@@ -22,5 +22,6 @@ public interface PictureService {
     Picture findById(int id);
     Picture findByPicName(String userName);
     List<Picture> findByCategoryID(int picCategory);
+    Picture findByDateMostClose(String categoryName);
 
 }

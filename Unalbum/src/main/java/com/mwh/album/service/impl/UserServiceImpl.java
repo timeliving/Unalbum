@@ -59,14 +59,23 @@ public class UserServiceImpl implements UserService {
     }
 
     public User findById(int id) {
-        User user = new User();
-        user = userMapper.findById(id);
+        User user = userMapper.findById(id);
         return user;
     }
 
     public User findByUserName(String userName) {
         User user = userMapper.findByUserName(userName);
         return user;
+    }
+
+    public List<String> findUserInterests(int id) {
+        String userInterests = userMapper.findUserInterests(id);
+        String[] interests = userInterests.split(" ");
+        List<String> interest = new ArrayList<String>();
+        for(String inter : interests){
+            interest.add(inter);
+        }
+        return interest;
     }
 
     @Resource

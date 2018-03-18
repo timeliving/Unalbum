@@ -1,6 +1,7 @@
 package com.mwh.album.mapper;
 
 import com.mwh.album.model.Picture;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -20,6 +21,8 @@ public interface PictureMapper {
     Picture findByPicName(String picName);
     //按图片类别ID查找图片
     List<Picture> findByCategoryID(int picCategory);
+    //根据图片分类ID查询最新发表的一张图片
+    Picture findByDateMostClose(@Param(value = "categoryName") String categoryName);
 
     //新增图片
     int  save(Picture picture);

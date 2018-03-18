@@ -30,4 +30,6 @@ public interface UserService {
 
     User findByUserName(String userName);
 
+    List<String> findUserInterests(int id);
+
 }

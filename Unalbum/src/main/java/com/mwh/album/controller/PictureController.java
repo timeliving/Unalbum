@@ -31,6 +31,14 @@ public class PictureController extends BaseController {
     private PictureCategoryService pictureCategoryService;
 
 
+
+    @RequestMapping(value="category")
+    public ModelAndView category(HttpServletRequest request){
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("picture/category");
+        return mav;
+    }
+
     @RequestMapping(value="submit",method= RequestMethod.GET)
     public ModelAndView submit(HttpServletRequest request){
         ModelAndView mav = new ModelAndView();
@@ -77,6 +85,9 @@ public class PictureController extends BaseController {
             String imageType = contentType.substring(contentType.indexOf("/") + 1);
             path = "picture/" + user.getUserName() + "/" + uuid + "." + imageType;
             File file2 = new File(pathRoot + path);
+            if (!file2.exists()){
+                file2.mkdirs();
+            }
             //把图片存进指定目录；
             try {
                 file.transferTo(file2);

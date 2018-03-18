@@ -16,6 +16,8 @@ public interface UserMapper {
     User findById(int id);
     //按用户名查找用户
     User findByUserName(String userName);
+    //按用户ID查找用户兴趣爱好
+    String findUserInterests(int id);
 
     //新增用户
     int save(User user);

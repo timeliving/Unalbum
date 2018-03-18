@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mwh.album.mapper.PictureCategoryMapper">
+    <resultMap id="PictureCategoryList" type="com.mwh.album.model.PictureCategory">
+        <id property="id" column="id"/>
+        <result property="categoryName" column="categoryName"/>
+    </resultMap>
+
+    <select id="findAll" resultMap="PictureCategoryList">
+        select * from td_picture_category
+    </select>
+
+    <select id="findByCategoryName" parameterType="String">
+        SELECT * FROM td_picture_category
+        WHERE categoryName = #{categoryName}
+    </select>
+
+    <insert id="save" parameterType="Picture">
+        insert into td_picture_category
+        values
+        (null,#{categoryName})
+    </insert>
+
+
+    <update id="update" parameterType="Picture" >
+        update td_picture_category set
+        categoryName = #{categoryName},
+        where id = #{id}
+    </update>
+
+    <delete id="delete" parameterType="int">
+        delete from td_picture_category where
+        id = #{id}
+    </delete>
+
+
+</mapper>

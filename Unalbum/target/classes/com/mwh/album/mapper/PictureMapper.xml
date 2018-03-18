@@ -61,4 +61,10 @@
         from td_picture where picCategory=#{picCategory}
     </select>
 
+    <select id="findByDateMostClose" parameterType="String" resultType="Picture">
+        select * from td_picture tp left join td_picture_category tpc on tp.picCategory = tpc.id
+         where tpc.categoryName = #{categoryName} and createDate =
+        (select createDate from td_picture order by createDate desc limit 1)
+    </select>
+
 </mapper>

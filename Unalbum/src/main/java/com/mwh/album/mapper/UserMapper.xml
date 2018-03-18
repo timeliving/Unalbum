@@ -61,5 +61,10 @@
         from td_user where userName=#{userName}
     </select>
 
+    <select id="findUserInterests" parameterType="int" resultType="String">
+        select userInterests
+        from td_user where id=#{id}
+    </select>
+
 
 </mapper>

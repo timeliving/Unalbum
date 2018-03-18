@@ -52,6 +52,10 @@ public class PictureServiceImpl implements PictureService {
         return pictures;
     }
 
+    public Picture findByDateMostClose(String categoryName) {
+        Picture picture = pictureMapper.findByDateMostClose(categoryName);
+        return picture;
+    }
 
     @Resource
     public void setPictureMapper(PictureMapper pictureMapper) {

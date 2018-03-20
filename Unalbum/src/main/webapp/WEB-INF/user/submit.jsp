@@ -110,23 +110,10 @@
                             <h1 class="alpha text-sans text-weight--bold">Submit a photo</h1>
                         </div> <!-- close .col -->
                     </div> <!-- close .row -->
-                    <div class="center-block col-xs-12 col-sm-2 col-sm-2">
-                        <div class="text-center">
-                            <label for="user_interests">
-                                图像类别
-                            </label>
-                            <input type="text" name="pictureCategory" id="user_interests" value="" class="form-control" />
-                        </div>
-                    </div> <!-- close .col -->
 
                 </div> <!-- close .text-center -->
 
             </div> <!-- close .sheet -->
-            <%--<div class="container">
-                <div class="row">
-
-                </div>
-            </div>--%>
 
             <div class="container">
                 <div class="row">

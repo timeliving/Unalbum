@@ -1,11 +1,14 @@
 package com.mwh.album.controller;
 
 
+import com.mwh.album.common.PageUtil;
 import com.mwh.album.model.Picture;
+import com.mwh.album.model.PictureCategory;
 import com.mwh.album.model.User;
 import com.mwh.album.service.PictureCategoryService;
 import com.mwh.album.service.PictureService;
 
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,10 +21,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 @Controller
 @RequestMapping("picture")
@@ -31,33 +31,53 @@ public class PictureController extends BaseController {
     private PictureCategoryService pictureCategoryService;
 
 
-
-    @RequestMapping(value="category")
-    public ModelAndView category(HttpServletRequest request){
+    @RequestMapping(value = "category", method = RequestMethod.GET)
+    public ModelAndView showCategoryPicture(HttpServletRequest request
+            ,@RequestParam(value = "categoryId", required = false)String categoryId
+            ,@RequestParam(value = "currIndex", required = false) String currIndex){
         ModelAndView mav = new ModelAndView();
+        List<Picture> pictureList = pictureService
+                .findByCategoryID(Integer.valueOf(categoryId));
+
+        int pageIndex;
+        int index = 0;
+        int pageSize = 20;
+        if(currIndex == null){
+            currIndex = "";
+        }
+        if (currIndex.equals("")) {
+            index = 0;
+        } else if (!currIndex.equals("")) {
+            pageIndex = Integer.parseInt(currIndex);
+            index = (pageIndex - 1) * 20;
+        }
+        PageUtil<Picture> pageUtil = pictureService
+                .findByCategoryIDOrderByPage(Integer.valueOf(categoryId), index, pageSize);
+        mav.addObject("pageUtil", pageUtil);
+        mav.addObject("categoryId", categoryId);
         mav.setViewName("picture/category");
         return mav;
     }
 
-    @RequestMapping(value="submit",method= RequestMethod.GET)
+    @RequestMapping(value = "submit", method = RequestMethod.GET)
     public ModelAndView submit(HttpServletRequest request){
         ModelAndView mav = new ModelAndView();
         mav.setViewName("user/submit");
         return mav;
     }
 
-    @RequestMapping(value="submit",method= RequestMethod.POST)
+    @RequestMapping(value = "submit",method = RequestMethod.POST)
     public ModelAndView submit(HttpServletRequest request
         ,@RequestParam(value = "pictureCategory", required = false) String pictureCategory
         ,@RequestParam(value = "fileName", required = false) String fileName
         ,@RequestParam(value = "filePath", required = false) String filePath){
         ModelAndView mav = new ModelAndView();
         Picture picture = new Picture();
-        int userId = getSessionUser(request).getId();
+        User user = getSessionUser(request);
         int categoryId = pictureCategoryService
                 .findByCategoryName(pictureCategory).getId();
         picture.setPicName(fileName);
-        picture.setUser(userId);
+        picture.setUser(user);
         picture.setPicCategory(categoryId);
         picture.setPicURL(filePath);
         picture.setPicLikes(0);
@@ -67,6 +87,8 @@ public class PictureController extends BaseController {
         mav.setViewName("user/submit");
         return mav;
     }
+
+
 
     @RequestMapping(value = "uploadFile", method = RequestMethod.POST)
     @ResponseBody

@@ -1,5 +1,6 @@
 package com.mwh.album.service.impl;
 
+import com.mwh.album.common.PageUtil;
 import com.mwh.album.mapper.PictureMapper;
 import com.mwh.album.model.Picture;
 import com.mwh.album.service.PictureService;
@@ -52,10 +53,40 @@ public class PictureServiceImpl implements PictureService {
         return pictures;
     }
 
+    public PageUtil<Picture> findByCategoryIDOrderByPage(int picCategory, int currIndex, int pageSize) {
+        PageUtil<Picture> pageUtil = new PageUtil<Picture>();
+        List<Picture> pictures = new ArrayList<Picture>();
+        pictures = pictureMapper.findByCategoryIDOrderByPage(picCategory, currIndex, pageSize);
+        int ind = currIndex / pageSize + 1;
+        int count = countByCategoryId(picCategory);
+        int pageNumber;
+        if (count % pageSize == 0) {
+            pageNumber = count / pageSize;
+        } else {
+            pageNumber = count / pageSize + 1;
+        }
+        pageUtil.setIndex(ind);
+        pageUtil.setPageSize(pageSize);
+        pageUtil.setCount(count);
+        pageUtil.setPageNumber(pageNumber);
+        pageUtil.setList(pictures);
+        return pageUtil;
+    }
+
     public Picture findByDateMostClose(String categoryName) {
         Picture picture = pictureMapper.findByDateMostClose(categoryName);
         return picture;
     }
+
+    public List<Picture> findByPictureLikes(Date yesterday) {
+        List<Picture> picture = pictureMapper.findByPictureLikes(yesterday);
+        return picture;
+    }
+
+    public int countByCategoryId(int picCategory) {
+        return pictureMapper.countByCategory(picCategory);
+    }
+
 
     @Resource
     public void setPictureMapper(PictureMapper pictureMapper) {

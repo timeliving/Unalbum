@@ -11,14 +11,16 @@
         <result property="createDate" column="createDate"/>
         <result property="picLikes" column="picLikes"/>
         <result property="picCollection" column="picCollection"/>
-        <result property="user" column="user"/>
+        <result property="picProfile" column="picProfile"/>
+        <association property="user" javaType="com.mwh.album.model.User"
+                     select="com.mwh.album.mapper.UserMapper.findById" column="user"/>
     </resultMap>
 
     <insert id="save" parameterType="Picture">
         insert into td_picture
         values
         (null,#{picName},#{picCategory},#{picURL},
-        #{createDate},#{picLikes},#{picCollection},#{user})
+        #{createDate},#{picLikes},#{picCollection},#{user.id})
     </insert>
 
 
@@ -61,10 +63,26 @@
         from td_picture where picCategory=#{picCategory}
     </select>
 
+    <select id="findByCategoryIDOrderByPage" resultMap="PictureList">
+        select *
+        from td_picture where picCategory=#{picCategory} limit #{currIndex}, #{pageSize}
+    </select>
+
     <select id="findByDateMostClose" parameterType="String" resultType="Picture">
         select * from td_picture tp left join td_picture_category tpc on tp.picCategory = tpc.id
-         where tpc.categoryName = #{categoryName} and createDate =
-        (select createDate from td_picture order by createDate desc limit 1)
+         where tpc.categoryName = #{categoryName} ORDER BY createDate DESC LIMIT 1
     </select>
+    
+    <select id="findByPictureLikes" parameterType="Date" resultMap="PictureList">
+        SELECT * FROM td_picture WHERE TO_DAYS(NOW())- TO_DAYS(#{newDate}) = 1 ORDER BY picLikes DESC LIMIT 3
+    </select>
+    
+    <select id="countByCategory" parameterType="int" resultType="int">
+        select count(*) from td_picture where picCategory = #{picCategory}
+    </select>
+
+<!--
+    and createDate = (select createDate from td_picture order by createDate desc limit 1)
+-->
 
 </mapper>

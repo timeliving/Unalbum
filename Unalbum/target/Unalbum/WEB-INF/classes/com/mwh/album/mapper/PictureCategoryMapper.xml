@@ -12,7 +12,7 @@
         select * from td_picture_category
     </select>
 
-    <select id="findByCategoryName" parameterType="String">
+    <select id="findByCategoryName" parameterType="String" resultType="PictureCategory">
         SELECT * FROM td_picture_category
         WHERE categoryName = #{categoryName}
     </select>

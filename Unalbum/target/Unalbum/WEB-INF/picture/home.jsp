@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
     <%
     String path = request.getContextPath();
     String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -121,71 +122,38 @@
                         <div class="entry-content">
                             <div id="featured-post-slider" class="flexslider">
                                 <ul class="slides">
+                                    <c:forEach items="${dayPictures}" var="picture">
+                                        <li>
+                                            <div class="featured-post-slide">
 
-                                    <li>
-                                        <div class="featured-post-slide">
+                                                <div class="post-background" style="background-image:url('<%=basePath%>${picture.picURL}');"></div>
 
-                                            <div class="post-background" style="background-image:url('<%=basePath%>img/thumbs/featured/featured-1.jpg');"></div>
+                                                <div class="overlay"></div>
 
-                                            <div class="overlay"></div>
+                                                <div class="post-content">
+                                                    <ul class="entry-meta">
+                                                        <li>
+                                                            <fmt:formatDate value="${picture.createDate}" pattern="yyyy-MM-dd"/>
+                                                        </li>
+                                                        <li><a href="#">
+                                                            ${picture.user.userName}
+                                                        </a></li>
+                                                    </ul>
 
-                                            <div class="post-content">
-                                                <ul class="entry-meta">
-                                                    <li>August 29, 2016</li>
-                                                    <li><a href="#">Sasuke Uchiha</a></li>
-                                                </ul>
-
-                                                <h1 class="slide-title">每日精选</h1>
+                                                    <h1 class="slide-title">每日精选</h1>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </li> <!-- /slide -->
-
-                                    <li>
-                                        <div class="featured-post-slide">
-
-                                            <div class="post-background" style="background-image:url('<%=basePath%>img/thumbs/featured/featured-2.jpg');"></div>
-
-                                            <div class="overlay"></div>
-
-                                            <div class="post-content">
-                                                <ul class="entry-meta">
-                                                    <li>August 29, 2016</li>
-                                                    <li><a href="#">Sasuke Uchiha</a></li>
-                                                </ul>
-
-                                                <h1 class="slide-title">每日精选</h1>
-                                            </div>
-
-                                        </div>
-                                    </li> <!-- /slide -->
-
-                                    <li>
-                                        <div class="featured-post-slide">
-
-                                            <div class="post-background" style="background-image:url('<%=basePath%>img/thumbs/featured/featured-3.jpg');;"></div>
-
-                                            <div class="overlay"></div>
-
-                                            <div class="post-content">
-                                                <ul class="entry-meta">
-                                                    <li>August 29, 2016</li>
-                                                    <li><a href="#">Sasuke Uchiha</a></li>
-                                                </ul>
-
-                                                <h1 class="slide-title">每日精选</h1>
-                                            </div>
-                                        </div>
-                                    </li> <!-- end slide -->
-
+                                        </li> <!-- /slide -->
+                                    </c:forEach>
                                 </ul> <!-- end slides -->
                             </div> <!-- end featured-post-slider -->
                         </div> <!-- end entry content -->
                     </div>
-                    <c:forEach items="categoryMap" var="category">
+                    <c:forEach items="${categoryList}" var="category">
                         <article class="brick entry format-standard animate-this">
 
                             <div class="entry-thumb">
-                                <a href="#" class="thumb-link">
+                                <a href="/picture/category?categoryId=${category.categoryId}" class="thumb-link">
                                     <img src="<%=basePath%>${category.picURL}" alt="Shutterbug">
                                 </a>
                             </div>

@@ -113,11 +113,11 @@
 }
 
 .slideshow li {
-	width: 660px;
-	height: 560px;
+	width: 1080px;
+	height: 720px;
 	position: absolute;
-	top: 50%;
-	left: 50%;
+	top: 40%;
+	left: 39%;
 	margin: -280px 0 0 -330px;
 	visibility: hidden;
 }

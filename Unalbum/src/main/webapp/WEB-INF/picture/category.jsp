@@ -114,25 +114,39 @@
     <div id="grid-gallery" class="grid-gallery">
         <section class="grid-wrap">
             <ul class="grid">
-                <li class="grid-sizer"></li><!-- for Masonry column width -->
-                <li>
-                    <figure>
-                        <img src="<%=basePath%>img/thumb/1.png" alt="img01"/>
-                    </figure>
-                </li>
+                <c:forEach items="${pageUtil.list}" var="picture">
+                    <li class="grid-sizer"></li><!-- for Masonry column width -->
+                    <li>
+                        <figure>
+                            <img src="<%=basePath%>${picture.picURL}" alt="img01"/>
+                        </figure>
+                    </li>
+                </c:forEach>
             </ul>
         </section><!-- // grid-wrap -->
         <section class="slideshow">
             <ul>
-                <li>
-                    <figure>
-                        <figcaption>
-                            <h3>Letterpress asymmetrical</h3>
-                            <p>Kale chips lomo biodiesel stumptown Godard Tumblr, mustache sriracha tattooed cray aute slow-carb placeat delectus. Letterpress asymmetrical fanny pack art party est pour-over skateboard anim quis, ullamco craft beer.</p>
-                        </figcaption>
-                        <img src="<%=basePath%>img/large/1.png" alt="img01"/>
-                    </figure>
-                </li>
+                <c:forEach items="${pageUtil.list}" var="picture">
+                    <li>
+                        <figure>
+                            <figcaption>
+                                <h3>
+                                        ${picture.picName}
+                                </h3>
+                                <p>${picture.picProfile}</p>
+                                <div class="navbar__links-container navbar__links-container--right">
+                                    <a class="btn btn-outline btn--small text-weight--medium hidden-xs"
+                                       style="width: 70px;height: 35px;float: right;margin-bottom: 10px;margin-left: 10px">喜欢</a>
+                                    <a class="btn btn-outline btn--small text-weight--medium hidden-xs"
+                                       style="width: 70px;height: 35px;float: right;margin-bottom: 10px">收藏</a>
+                                </div>
+                            </figcaption>
+                            <img src="<%=basePath%>${picture.picURL}" alt="img01"/>
+
+
+                        </figure>
+                    </li>
+                </c:forEach>
             </ul>
             <nav>
                 <span class="icon nav-prev"></span>
@@ -145,17 +159,34 @@
     <div class="row">
 
         <nav class="pagination">
-            <span class="page-numbers prev inactive">Prev</span>
-            <span class="page-numbers current">1</span>
-            <a href="#" class="page-numbers">2</a>
-            <a href="#" class="page-numbers">3</a>
-            <a href="#" class="page-numbers">4</a>
-            <a href="#" class="page-numbers">5</a>
-            <a href="#" class="page-numbers">6</a>
-            <a href="#" class="page-numbers">7</a>
-            <a href="#" class="page-numbers">8</a>
-            <a href="#" class="page-numbers">9</a>
-            <a href="#" class="page-numbers next">Next</a>
+            <c:if test="${pageUtil.index == 1}">
+                <span class="page-numbers prev inactive">
+                    Prev
+                </span>
+            </c:if>
+            <c:if test="${pageUtil.index != 1}">
+                <a class="page-numbers prev" href="/picture/category?currIndex=${pageUtil.index-1}&categoryId=${categoryId}">
+                    Prev
+                </a>
+            </c:if>
+            <c:forEach begin="1" end="${pageUtil.pageNumber}" var="i">
+                <c:if test="${pageUtil.index == i}">
+                    <span class="page-numbers current">${i}</span>
+                </c:if>
+                <c:if test="${pageUtil.index != i}">
+                    <a href="/picture/category?currIndex=${i}&categoryId=${categoryId}" class="page-numbers">${i}</a>
+                </c:if>
+            </c:forEach>
+            <c:if test="${pageUtil.index == pageUtil.pageNumber}">
+                <span class="page-numbers next inactive">
+                    Next
+                </span>
+            </c:if>
+            <c:if test="${pageUtil.index != pageUtil.pageNumber}">
+                <a class="page-numbers next" href="/picture/category?currIndex=${pageUtil.index+1}&categoryId=${categoryId}">
+                    Next
+                </a>
+            </c:if>
         </nav>
 
     </div>

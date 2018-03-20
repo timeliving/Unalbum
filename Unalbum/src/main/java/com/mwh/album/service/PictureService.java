@@ -1,7 +1,9 @@
 package com.mwh.album.service;
 
+import com.mwh.album.common.PageUtil;
 import com.mwh.album.model.Picture;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -22,6 +24,10 @@ public interface PictureService {
     Picture findById(int id);
     Picture findByPicName(String userName);
     List<Picture> findByCategoryID(int picCategory);
+    PageUtil<Picture> findByCategoryIDOrderByPage(int picCategory, int currIndex, int pageSize);
     Picture findByDateMostClose(String categoryName);
+    List<Picture> findByPictureLikes(Date yesterday);
+
+    int countByCategoryId(int picCategory);
 
 }

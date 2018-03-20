@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mwh.album.mapper.UserLikeCollectionMapper">
+    <resultMap id="UserLikeCollectionList" type="UserLikeCollection">
+        <id property="id" column="id"/>
+        <result property="isLike" column="isLike"/>
+        <result property="isCollection" column="isCollection"/>
+        <result property="createDate" column="createDate"/>
+        <association property="user" javaType="com.mwh.album.model.User"
+                     select="com.mwh.album.mapper.UserMapper.findById" column="user"/>
+        <association property="picture" javaType="com.mwh.album.model.Picture"
+                     select="com.mwh.album.mapper.PictureMapper.findById" column="picture"/>
+    </resultMap>
+
+    <insert id="save" parameterType="UserLikeCollection">
+        insert into td_user_like_collection
+        values
+        (null,#{user.id},#{picture.id},
+        #{createDate},#{isLike},#{isCollection})
+    </insert>
+
+
+    <update id="update" parameterType="UserLikeCollection">
+        UPDATE td_user_like_collection SET
+        isLike = #{isLike},
+        isCollection = #{isCollection}
+        WHERE id = #{id}
+    </update>
+
+    <delete id="delete" parameterType="int">
+        delete from td_user_like_collection where
+        id = #{id}
+    </delete>
+
+    <select id="findByUserIdAndPictureId" resultType="UserLikeCollection">
+        select *
+        from td_user_like_collection where user = #{0} AND picture = #{1}
+    </select>
+
+    <select id="findByUserId" parameterType="int" resultMap="UserLikeCollectionList">
+        select *
+        from td_user_like_collection where user=#{userId}
+    </select>
+
+    <select id="findByPictureId" parameterType="int" resultMap="UserLikeCollectionList">
+        select *
+        from td_user_like_collection where picture=#{pictureId}
+    </select>
+
+
+</mapper>

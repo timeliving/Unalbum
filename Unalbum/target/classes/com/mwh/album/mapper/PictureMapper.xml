@@ -32,10 +32,16 @@
         where id = #{id}
     </update>
 
-    <update id="updatePictureLikes">
+    <update id="updatePictureLikes" parameterType="Picture">
         update td_picture SET
-        picLikes = #{1}
-        where id = #{0}
+        picLikes = #{picLikes}
+        where id = #{id}
+    </update>
+
+    <update id="updatePictureCollection" parameterType="Picture">
+        UPDATE td_picture SET
+        picCollection = #{picCollection}
+        WHERE id = #{id}
     </update>
 
     <delete id="delete" parameterType="int">

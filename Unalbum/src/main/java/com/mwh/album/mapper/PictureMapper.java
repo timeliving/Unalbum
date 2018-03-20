@@ -39,7 +39,9 @@ public interface PictureMapper {
     int update(Picture picture);
 
     //修改图片喜欢数 +1/-1
-    int updatePictureLikes(int id, int picLikes);
+    int updatePictureLikes(Picture picture);
+    //修改图片收藏数 +1/-1
+    int updatePictureCollection(Picture picture);
 
     int countByCategory(@Param(value = "picCategory") int picCategory);
 

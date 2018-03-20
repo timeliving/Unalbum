@@ -130,20 +130,39 @@
                     <li>
                         <figure>
                             <figcaption>
-                                <h3>
-                                        ${picture.picName}
-                                </h3>
+                                <h3>${picture.picName}</h3>
                                 <p>${picture.picProfile}</p>
-                                <div class="navbar__links-container navbar__links-container--right">
-                                    <a class="btn btn-outline btn--small text-weight--medium hidden-xs"
-                                       style="width: 70px;height: 35px;float: right;margin-bottom: 10px;margin-left: 10px">喜欢</a>
-                                    <a class="btn btn-outline btn--small text-weight--medium hidden-xs"
-                                       style="width: 70px;height: 35px;float: right;margin-bottom: 10px">收藏</a>
+                                <div class="navbar__links-container navbar__links-container--right text-center">
+                                        <input type="hidden" value="${picture.id}" id="pictureId">
+                                    <c:if test="${!empty USER_CONTEXT}">
+                                        <input type="hidden" value="${USER_CONTEXT.id}" id="userId"/>
+                                        <div class="hidden" id="unlike_div_${picture.id}">
+                                            <a type="button" class="btn btn-outline btn--small text-weight--medium hidden-xs"
+                                               style="width: 70px;height: 35px;float: right;margin-bottom: 10px;margin-left: 10px;"
+                                               onclick="unlike(this)" id="unlike${picture.id}" name="unlike">取消</a>
+                                        </div>
+                                        <div id="like_div_${picture.id}">
+                                            <a type="button" class="btn btn-outline btn--small text-weight--medium hidden-xs"
+                                               style="width: 70px;height: 35px;float: right;margin-bottom: 10px;margin-left: 10px;"
+                                               onclick="like(this)" id="like${picture.id}" name="like">喜欢</a>
+                                        </div>
+                                        <div class="hidden" id="unollection_div_${picture.id}">
+                                            <a class="btn btn-outline btn--small text-weight--medium hidden-xs"
+                                               style="width: 70px;height: 35px;float: right;margin-bottom: 10px"
+                                               onclick="uncollection(this)" id="uncollection${picture.id}" name="uncollection">取消</a>
+                                        </div>
+                                        <div id="collection_div_${picture.id}">
+                                            <a class="btn btn-outline btn--small text-weight--medium hidden-xs"
+                                               style="width: 70px;height: 35px;float: right;margin-bottom: 10px"
+                                                onclick="collection(this)" id="collection${picture.id}" name="collection">收藏</a>
+                                        </div>
+
+
+                                    </c:if>
+
                                 </div>
                             </figcaption>
                             <img src="<%=basePath%>${picture.picURL}" alt="img01"/>
-
-
                         </figure>
                     </li>
                 </c:forEach>
@@ -192,31 +211,6 @@
     </div>
 </div>
 </div>
-
-<%--<footer class="footer-global js-global-footer">
-    <div class="container">
-
-        <div class="footer-main">
-            <div class="row">
-                <div class="col-sm-4">
-                    <h6 class="epsilon footer-main__header text-sans text-weight--bold">Unalbum</h6>
-                    <p class="footer-main__paragraph">Beautiful, free photos gifted by the world’s most generous community of photographers.</p>
-                </div>
-            </div>
-        </div> <!-- close .footer-main -->
-
-        <div class="footer-sub">
-            <div class="row">
-                <div class="col-sm-12">
-                    <a href="/home" title="Home &mdash; Unalbum"><img class="footer-sub__logo" src="<%=basePath%>img/logo-black-b37a09de4a228cd8fb72adbabc95931c5090611a0cae8e76f1fd077d378ec080.svg" alt="Logo black" /></a>
-                    Make something awesome.
-                </div>
-            </div>
-        </div> <!-- close .footer-sub -->
-
-    </div> <!-- close .container -->
-</footer>--%> <!-- close .footer-global -->
-
 <script>
     (function (window) {
         var currentUser = {
@@ -232,10 +226,7 @@
         window.currentUser = currentUser;
     })(window);
 </script>
-<!--<script src="js/global-11cefe86ab47658815b807bc1fdddf1be8832c46b2cf6b516d97d73b9fdf373d.js"></script>
-<script src="js/uploaders-7662daade56961ed5512519d9ae33bd18ac55090ceb4c8f61bc18ad9f491d6b2.js"></script>
-<script src="js/dropzone.js"></script>
-<script src="js/jquery-2.1.1.js"></script>-->
+
 
 <script src="<%=basePath%>js/custom-file-input.js"></script>
 <script src="<%=basePath%>js/global-11cefe86ab47658815b807bc1fdddf1be8832c46b2cf6b516d97d73b9fdf373d.js"></script>
@@ -259,6 +250,176 @@
 
     ga('create', 'UA-36049670-4', 'auto');
     ga('send', 'pageview');
+</script>
+
+<script>
+    function like(obj) {
+        var userId = $(obj).parent().prev().prev().val();
+        var pictureId = $(obj).parent().prev().prev().prev().val();
+        var div_unlike_id = $(obj).parent().prev().attr("id");
+        var div_like_id = $(obj).parent().attr("id");
+        var data={};
+        data["pictureId"] = pictureId;
+        data["userId"] = userId;
+        data["div_unlike_id"] =div_unlike_id;
+        data["div_like_id"] = div_like_id;
+        $.ajax({
+            type: "POST",
+            url: "/picture/saveLike",
+            contentType:"application/json",
+            data: JSON.stringify(data),//参数列表
+            dataType:"json",
+            success: function(data){
+                //请求正确之后的操作
+                console.log(data);
+
+                if (Object.keys(data).length === 0) {
+                    alert("操作失败，请重试");
+                }
+                updateLikeButton(data);
+            }
+        });
+    }
+
+    function unlike(obj) {
+        var userId = $(obj).parent().prev().val();
+        var pictureId = $(obj).parent().prev().prev().val();
+        var div_unlike_id = $(obj).parent().attr("id");
+        var div_like_id = $(obj).parent().next().attr("id");
+        var data={};
+        data["pictureId"] = pictureId;
+        data["userId"] = userId;
+        data["div_unlike_id"] =div_unlike_id;
+        data["div_like_id"] = div_like_id;
+        $.ajax({
+            type: "POST",
+            url: "/picture/deleteLike",
+            contentType:"application/json;charset=utf-8",
+            data: JSON.stringify(data),//参数列表
+            dataType:"json",
+            success: function(result){
+                //请求正确之后的操作
+                console.log(data);
+                if (Object.keys(data).length === 0) {
+                    alert("操作失败，请重试");
+                }
+                updateUnLikeButton(data);
+            }
+        });
+    }
+
+    function collection(obj) {
+        var userId = $(obj).parent().prev().prev().val();
+        var pictureId = $(obj).parent().prev().prev().prev().val();
+        var div_uncollection_id = $(obj).parent().prev().attr("id");
+        var div_collection_id = $(obj).parent().attr("id");
+        var data={};
+        data["pictureId"] = pictureId;
+        data["userId"] = userId;
+        data["div_uncollection_id"] =div_uncollection_id;
+        data["div_collection_id"] = div_collection_id;
+        $.ajax({
+            type: "POST",
+            url: "/picture/saveCollection",
+            contentType:"application/json",
+            data: JSON.stringify(data),//参数列表
+            dataType:"json",
+            success: function(data){
+                //请求正确之后的操作
+                console.log(data);
+
+                if (Object.keys(data).length === 0) {
+                    alert("操作失败，请重试");
+                }
+                updateCollectionButton(data);
+            }
+        });
+    }
+
+    function uncollection(obj) {
+        var userId = $(obj).parent().prev().val();
+        var pictureId = $(obj).parent().prev().prev().val();
+        var div_uncollection_id = $(obj).parent().attr("id");
+        var div_collection_id = $(obj).parent().next().attr("id");
+        var data={};
+        data["pictureId"] = pictureId;
+        data["userId"] = userId;
+        data["div_uncollection_id"] =div_uncollection_id;
+        data["div_collection_id"] = div_collection_id;
+        $.ajax({
+            type: "POST",
+            url: "/picture/deleteCollection",
+            contentType:"application/json;charset=utf-8",
+            data: JSON.stringify(data),//参数列表
+            dataType:"json",
+            success: function(result){
+                //请求正确之后的操作
+                console.log(data);
+                if (Object.keys(data).length === 0) {
+                    alert("操作失败，请重试");
+                }
+                updateUnCollectionButton(data);
+            }
+        });
+    }
+
+    function updateLikeButton(data) {
+        var div_like_id = data.div_like_id;
+        var div_unlike_id = data.div_unlike_id;
+        /*$(div_like_id).addClass("hidden")
+        $(div_unlike_id).removeClass("hidden");*/
+        var div_like_id = document.getElementById(div_like_id);
+        addClass(div_like_id, "hidden");
+        var div_unlike_id = document.getElementById(div_unlike_id);
+        removeClass(div_unlike_id, "hidden");
+    }
+    function updateUnLikeButton(data) {
+        var div_like_id = data.div_like_id;
+        var div_unlike_id = data.div_unlike_id;
+        /*$(div_like_id).addClass("hidden")
+        $(div_unlike_id).removeClass("hidden");*/
+        var div_unlike_id = document.getElementById(div_unlike_id);
+        addClass(div_unlike_id, "hidden");
+        var div_like_id = document.getElementById(div_like_id);
+        removeClass(div_like_id, "hidden");
+    }
+    function updateCollectionButton(data) {
+        var div_collection_id = data.div_collection_id;
+        var div_uncollection_id = data.div_uncollection_id;
+        /*$(div_like_id).addClass("hidden")
+        $(div_unlike_id).removeClass("hidden");*/
+        var div_collection_id = document.getElementById(div_collection_id);
+        addClass(div_collection_id, "hidden");
+        var div_uncollection_id = document.getElementById(div_uncollection_id);
+        removeClass(div_uncollection_id, "hidden");
+    }
+    function updateUnCollectionButton(data) {
+        var div_collection_id = data.div_collection_id;
+        var div_uncollection_id = data.div_uncollection_id;
+        /*$(div_like_id).addClass("hidden")
+        $(div_unlike_id).removeClass("hidden");*/
+        var div_unlike_id = document.getElementById(div_unlike_id);
+        addClass(div_unlike_id, "hidden");
+        var div_like_id = document.getElementById(div_like_id);
+        removeClass(div_like_id, "hidden");
+    }
+
+
+    function hasClass(element,cName){        //检查class是否存在
+        return !!element.className.match(new RegExp('(\\s|^)'+cName+'(\\s|$)'));
+    }
+    function addClass(element,cName){        //添加一个class
+        if(!hasClass(element,cName)){
+            element.className +=' '+cName;
+        }
+    }
+    function removeClass(element,cName){        //移除一个class
+        if(hasClass(element,cName)){
+            element.className = element.className.replace(new RegExp('(\\s|^)'+cName+'(\\s|$)'),' ');
+        }
+    }
+
+
 </script>
 
 

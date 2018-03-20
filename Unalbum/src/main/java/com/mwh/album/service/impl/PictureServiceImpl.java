@@ -30,6 +30,22 @@ public class PictureServiceImpl implements PictureService {
         pictureMapper.update(picture);
     }
 
+    public void updatePictureLikes(Picture picture) {
+        Picture picture1 = findById(picture.getId());
+        if (picture1.getPicLikes() != picture.getPicLikes()){
+            picture1.setPicLikes(picture.getPicLikes());
+        }
+        pictureMapper.updatePictureLikes(picture);
+    }
+
+    public void updatePictureCollection(Picture picture) {
+        Picture picture1 = findById(picture.getId());
+        if (picture1.getPicCollection() != picture.getPicCollection()){
+            picture1.setPicCollection(picture.getPicCollection());
+        }
+        pictureMapper.updatePictureCollection(picture);
+    }
+
     public List<Picture> findAll() {
         List<Picture> pictures = new ArrayList<Picture>();
         pictures = pictureMapper.findAll();

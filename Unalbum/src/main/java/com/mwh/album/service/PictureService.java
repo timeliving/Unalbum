@@ -19,7 +19,8 @@ public interface PictureService {
     void delete(int id);
 
     void update(Picture picture);
-
+    void updatePictureLikes(Picture picture);
+    void updatePictureCollection(Picture picture);
     List<Picture> findAll();
     Picture findById(int id);
     Picture findByPicName(String userName);

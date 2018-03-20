@@ -1,23 +1,26 @@
 package com.mwh.album.controller;
 
 
+import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.mwh.album.common.PageUtil;
 import com.mwh.album.model.Picture;
 import com.mwh.album.model.PictureCategory;
 import com.mwh.album.model.User;
+import com.mwh.album.model.UserLikeCollection;
 import com.mwh.album.service.PictureCategoryService;
 import com.mwh.album.service.PictureService;
 
+import com.mwh.album.service.UserLikeCollectionService;
 import com.sun.org.apache.xpath.internal.operations.Mod;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.json.JsonObject;
+import javax.persistence.criteria.CriteriaBuilder;
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
@@ -29,7 +32,7 @@ public class PictureController extends BaseController {
 
     private PictureService pictureService;
     private PictureCategoryService pictureCategoryService;
-
+    private UserLikeCollectionService userLikeCollectionService;
 
     @RequestMapping(value = "category", method = RequestMethod.GET)
     public ModelAndView showCategoryPicture(HttpServletRequest request
@@ -41,7 +44,7 @@ public class PictureController extends BaseController {
 
         int pageIndex;
         int index = 0;
-        int pageSize = 20;
+        int pageSize = 15;
         if(currIndex == null){
             currIndex = "";
         }
@@ -49,7 +52,7 @@ public class PictureController extends BaseController {
             index = 0;
         } else if (!currIndex.equals("")) {
             pageIndex = Integer.parseInt(currIndex);
-            index = (pageIndex - 1) * 20;
+            index = (pageIndex - 1) * 15;
         }
         PageUtil<Picture> pageUtil = pictureService
                 .findByCategoryIDOrderByPage(Integer.valueOf(categoryId), index, pageSize);
@@ -124,6 +127,111 @@ public class PictureController extends BaseController {
         return uploadPicture;
     }
 
+    @RequestMapping(value = "saveLike", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, String> saveLike(@RequestBody final Map<String, Object> map
+            , HttpServletRequest request){
+        Map<String, String> reply = new HashMap<String, String>();
+        Integer pictureId = Integer.valueOf(map.get("pictureId").toString());
+        Integer userId = Integer.valueOf(map.get("userId").toString());
+        Picture picture = pictureService.findById(pictureId);
+        UserLikeCollection userLikeCollection = userLikeCollectionService
+                .findByUserIdAndPictureId(userId, pictureId);
+        if(userLikeCollection.getId() == null){
+            userLikeCollection = new UserLikeCollection();
+            picture.setPicLikes(picture.getPicLikes() + 1);
+            pictureService.updatePictureLikes(picture);
+            userLikeCollection.setIsCollection(0);
+            userLikeCollection.setIsLike(1);
+            userLikeCollection.setUser(getSessionUser(request));
+            userLikeCollection.setCreateDate(new Date());
+            userLikeCollection.setPicture(picture);
+        }else{
+            userLikeCollection.setIsLike(1);
+            userLikeCollection.setUser(getSessionUser(request));
+            userLikeCollection.setPicture(picture);
+        }
+        userLikeCollectionService.save(userLikeCollection);
+        reply.put("success", "成功");
+        reply.put("div_like_id", map.get("div_like_id").toString());
+        reply.put("div_unlike_id", map.get("div_unlike_id").toString());
+        return reply;
+    }
+
+    @RequestMapping(value = "deleteLike", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, String> deleteLike(@RequestBody final Map<String, Object> map
+            , HttpServletRequest request){
+        Map<String, String> reply = new HashMap<String, String>();
+        Integer pictureId = Integer.valueOf(map.get("pictureId").toString());
+        Integer userId = Integer.valueOf(map.get("userId").toString());
+        Picture picture = pictureService.findById(pictureId);
+        picture.setPicLikes(picture.getPicLikes() - 1);
+        pictureService.updatePictureLikes(picture);
+        UserLikeCollection userLikeCollection = userLikeCollectionService
+                .findByUserIdAndPictureId(userId, pictureId);
+        userLikeCollection.setIsLike(0);
+        userLikeCollection.setUser(getSessionUser(request));
+        userLikeCollection.setPicture(picture);
+        userLikeCollectionService.update(userLikeCollection);
+        reply.put("success", "成功");
+        reply.put("div_like_id", map.get("div_like_id").toString());
+        reply.put("div_unlike_id", map.get("div_unlike_id").toString());
+        return reply;
+    }
+
+    @RequestMapping(value = "saveCollection", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, String> saveCollection(@RequestBody final Map<String, Object> map
+            , HttpServletRequest request){
+        Map<String, String> reply = new HashMap<String, String>();
+        Integer pictureId = Integer.valueOf(map.get("pictureId").toString());
+        Integer userId = Integer.valueOf(map.get("userId").toString());
+        Picture picture = pictureService.findById(pictureId);
+        UserLikeCollection userLikeCollection = userLikeCollectionService
+                .findByUserIdAndPictureId(userId, pictureId);
+        if(userLikeCollection == new UserLikeCollection()){
+            picture.setPicCollection(picture.getPicCollection() + 1);
+            pictureService.updatePictureCollection(picture);
+            userLikeCollection.setUser(getSessionUser(request));
+            userLikeCollection.setIsCollection(1);
+            userLikeCollection.setIsLike(0);
+            userLikeCollection.setCreateDate(new Date());
+            userLikeCollection.setPicture(picture);
+        }else{
+            userLikeCollection.setIsLike(1);
+            userLikeCollection.setUser(getSessionUser(request));
+            userLikeCollection.setPicture(picture);
+        }
+        userLikeCollectionService.save(userLikeCollection);
+        reply.put("success", "成功");
+        reply.put("div_like_id", map.get("div_like_id").toString());
+        reply.put("div_unlike_id", map.get("div_unlike_id").toString());
+        return reply;
+    }
+
+    @RequestMapping(value = "deleteCollection", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, String> deleteCollection(@RequestBody final Map<String, Object> map
+            , HttpServletRequest request){
+        Map<String, String> reply = new HashMap<String, String>();
+        Integer pictureId = Integer.valueOf(map.get("pictureId").toString());
+        Integer userId = Integer.valueOf(map.get("userId").toString());
+        Picture picture = pictureService.findById(pictureId);
+        picture.setPicCollection(picture.getPicCollection() - 1);
+        pictureService.updatePictureCollection(picture);
+        UserLikeCollection userLikeCollection = userLikeCollectionService
+                .findByUserIdAndPictureId(userId, pictureId);
+        userLikeCollection.setIsCollection(0);
+        userLikeCollection.setUser(getSessionUser(request));
+        userLikeCollection.setPicture(picture);
+        userLikeCollectionService.save(userLikeCollection);
+        reply.put("success", "成功");
+        reply.put("div_like_id", map.get("div_like_id").toString());
+        reply.put("div_unlike_id", map.get("div_unlike_id").toString());
+        return reply;
+    }
+
 
     @Autowired
     public void setPictureService(PictureService pictureService) {
@@ -133,5 +241,10 @@ public class PictureController extends BaseController {
     @Autowired
     public void setPictureCategoryService(PictureCategoryService pictureCategoryService) {
         this.pictureCategoryService = pictureCategoryService;
+    }
+
+    @Autowired
+    public void setUserLikeCollectionService(UserLikeCollectionService userLikeCollectionService) {
+        this.userLikeCollectionService = userLikeCollectionService;
     }
 }

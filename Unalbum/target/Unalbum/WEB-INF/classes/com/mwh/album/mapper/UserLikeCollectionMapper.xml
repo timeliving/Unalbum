@@ -34,6 +34,12 @@
         id = #{id}
     </delete>
 
+    <delete id="deleteByPictureId" parameterType="int">
+        delete from td_user_like_collection where
+        pictureId = #{pictureId}
+    </delete>
+
+
     <select id="findByUserIdAndPictureId" resultType="UserLikeCollection">
         select *
         from td_user_like_collection where user = #{0} AND picture = #{1}

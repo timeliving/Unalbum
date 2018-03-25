@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mwh.album.mapper.GalleryMapper">
+    <resultMap id="GalleryList" type="Gallery">
+        <id property="id" column="id"/>
+        <result property="galleryName" column="galleryName" />
+        <result property="createDate" column="createDate"/>
+        <association property="user" javaType="com.mwh.album.model.User"
+                     select="com.mwh.album.mapper.UserMapper.findById" column="user"/>
+        <association property="pagePicture" javaType="com.mwh.album.model.Picture"
+                     select="com.mwh.album.mapper.PictureMapper.findById" column="pagePicture"/>
+    </resultMap>
+
+    <insert id="save" parameterType="Gallery">
+        insert into td_gallery
+        values
+        (null,#{td_galleryName},#{user.id},#{createDate},null)
+    </insert>
+
+    <update id="updateGalleryPagePicture">
+        UPDATE td_gallery
+        SET pagePicture = #{pictureId}
+        WHERE id = #{id}
+    </update>
+
+
+    <delete id="delete" parameterType="int">
+        delete from td_gallery where
+        id = #{id}
+    </delete>
+
+    <select id="findAll" resultMap="GalleryList">
+        select * from td_gallery
+    </select>
+
+
+
+
+    <select id="findById" parameterType="int" resultMap="GalleryList">
+        select *
+        from td_gallery where id=#{id}
+    </select>
+
+    <select id="findByUserId" parameterType="int" resultMap="GalleryList">
+        select *
+        from td_gallery where user=#{userId}
+    </select>
+
+    <select id="findUserGallery" resultType="Gallery">
+        select *
+        from td_gallery where user=#{userId} AND galleryName = #{galleryName}
+    </select>
+
+
+</mapper>

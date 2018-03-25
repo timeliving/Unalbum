@@ -5,6 +5,7 @@ import com.mwh.album.model.Picture;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Picture service.
@@ -14,21 +15,39 @@ import java.util.List;
 
 public interface PictureService {
 
-    void save(Picture picture);
+    int save(Picture picture);
 
     void delete(int id);
 
     void update(Picture picture);
     void updatePictureLikes(Picture picture);
     void updatePictureCollection(Picture picture);
-    List<Picture> findAll();
+    PageUtil<Picture> findAllByPage(int currIndex, int pageSize);
+    PageUtil<Map<Object, Object>> findAllByPageWithUserId(int userId
+            , int currIndex, int pageSize);
+    PageUtil<Picture> findAllByTagAndPage(String tagName
+            , int currIndex, int pageSize);
+    PageUtil<Map<Object, Object>> findAllByTagAndPageWithUserId
+            (String tagName,int userId, int currIndex, int pageSize);
+
     Picture findById(int id);
-    Picture findByPicName(String userName);
-    List<Picture> findByCategoryID(int picCategory);
-    PageUtil<Picture> findByCategoryIDOrderByPage(int picCategory, int currIndex, int pageSize);
+    PageUtil<Picture> findByUserIdOrderByPage(int userId, int currIndex, int pageSize);
+
+    PageUtil<Picture> findByUserIdOrderByPageAndDate(int userId, int currIndex, int pageSize, Date beginDate, Date endDate);
+    List<Picture> findByUserId(int userId, int currIndex, int pageSize);
+
+    PageUtil<Picture> findByCategoryIDOrderByPage(int picCategory
+            , int currIndex, int pageSize);
+    PageUtil<Map<Object, Object>> findByCategoryIDOrderByPageWithUserId(int picCategory
+            , int user, int currIndex, int pageSize);
+
     Picture findByDateMostClose(String categoryName);
     List<Picture> findByPictureLikes(Date yesterday);
-
+    List<Picture> findByPictureIdList(List<Integer> pictureIdList);
     int countByCategoryId(int picCategory);
+    int countAll();
+    int countByTag(String tagName);
+    int countByUserId(int userId);
+    int countByDate(int userId, Date beginDate, Date endDate);
 
 }

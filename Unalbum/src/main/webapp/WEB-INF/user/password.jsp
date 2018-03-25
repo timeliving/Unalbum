@@ -22,7 +22,7 @@
     <meta name="apple-mobile-web-app-title" content="Unsplash">
 
     <title>
-        Edit profile | Unalbum
+        Edit password | Unalbum
     </title>
 
     <meta name="description" content="
@@ -33,6 +33,7 @@
     <meta name="csrf-token" content="K2k4+iroqKfdw4oWsPN7tDLDfIdd5fNPdo7zTlXkfIM+HFQ4/sL3gX6AZum7YWUiUOzuXONe/X05donrD/BBAA==" />
 
     <link rel="stylesheet" media="all" href="<%=basePath%>css/unsplash.css" />
+
 
     <link rel="shortcut icon" type="image/x-icon" href="<%=basePath%>img/favicon.ico" />
     <link rel="apple-touch-icon-precomposed" type="image/png" href="<%=basePath%>img/apple-touch-icon-precomposed.png" />
@@ -128,7 +129,7 @@
                             <a href="<c:url value="/user/account" />">修改个人资料</a>
                         </li>
                         <li class="">
-                            <a href="<c:url value="/user/account/photos" />">相册管理</a>
+                            <a href="<c:url value="/user/pictures" />">相片/相册管理</a>
                         </li>
                         <li class="">
                             <a href="<c:url value="/user/account/profile" />">修改头像</a>

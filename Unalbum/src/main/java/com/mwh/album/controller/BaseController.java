@@ -19,6 +19,9 @@ public abstract class BaseController {
      * @return
      */
     protected User getSessionUser(HttpServletRequest request) {
+        if(request.getSession().getAttribute(CommonConstant.USER_CONTEXT) == null){
+            return new User();
+        }
         return (User) request.getSession().getAttribute(
                 CommonConstant.USER_CONTEXT);
     }

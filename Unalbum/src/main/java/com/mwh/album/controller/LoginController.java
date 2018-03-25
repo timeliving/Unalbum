@@ -73,7 +73,7 @@ public class LoginController extends BaseController {
         pictureCategoryList = pictureCategoryService.findAll();
         List<String> userInterests = new ArrayList<String>();
         //List<String> interests = new ArrayList<String>();
-        if(getSessionUser(request) == null){
+        if(getSessionUser(request).getId() == null){
             for (PictureCategory pictureCategory : pictureCategoryList){
                 userInterests.add(pictureCategory.getCategoryName());
             }
@@ -115,7 +115,8 @@ public class LoginController extends BaseController {
         List<Picture> dayPictures = new ArrayList<Picture>();
         Calendar c = Calendar.getInstance();
         c.setTime(new Date());
-        c.add(Calendar.DAY_OF_MONTH, -1);// 今天-1天
+        // 今天-1天
+        c.add(Calendar.DAY_OF_MONTH, -1);
         Date yesterday = c.getTime();
         dayPictures = pictureService.findByPictureLikes(yesterday);
         mav.addObject("dayPictures", dayPictures);

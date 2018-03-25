@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -20,6 +21,10 @@
     <!--- basic page needs
 ================================================== -->
     <meta charset="utf-8">
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
 
     <!-- mobile specific metas
     ================================================== -->
@@ -70,10 +75,10 @@
 
         <div class="search-wrap">
 
-            <form role="search" method="get" class="search-form" action="#">
+            <form role="search" method="get" class="search-form" action="/search/pictureTag">
                 <label>
                     <span class="hide-content">Search for:</span>
-                    <input type="search" class="search-field" placeholder="Search for" value="" name="s" title="Search for:" autocomplete="off">
+                    <input type="search" class="search-field" placeholder="Search for" value="" name="keyword" title="Search for:" autocomplete="off">
                 </label>
                 <input type="submit" class="search-submit" value="Search">
             </form>
@@ -86,7 +91,7 @@
             <li class="navbar__element navbar__element--heading navbar__element--half-spacing">
                 <ul class="nav">
                     <li class="navbar__element navbar__element--full-spacing">
-                        <a class="btn btn-outline btn--small text-weight--medium hidden-xs" href="picture/submit">上传图片</a>
+                        <a class="btn btn-outline btn--small text-weight--medium hidden-xs" href="/picture/submit">上传图片</a>
                     </li>
                     <c:if test="${!empty USER_CONTEXT.photo}">
                         <a href="/@shisheng01">
@@ -136,30 +141,58 @@
                                         <input type="hidden" value="${picture.id}" id="pictureId">
                                     <c:if test="${!empty USER_CONTEXT}">
                                         <input type="hidden" value="${USER_CONTEXT.id}" id="userId"/>
-                                        <div class="hidden" id="unlike_div_${picture.id}">
-                                            <a type="button" class="btn btn-outline btn--small text-weight--medium hidden-xs"
-                                               style="width: 70px;height: 35px;float: right;margin-bottom: 10px;margin-left: 10px;"
-                                               onclick="unlike(this)" id="unlike${picture.id}" name="unlike">取消</a>
-                                        </div>
-                                        <div id="like_div_${picture.id}">
-                                            <a type="button" class="btn btn-outline btn--small text-weight--medium hidden-xs"
-                                               style="width: 70px;height: 35px;float: right;margin-bottom: 10px;margin-left: 10px;"
-                                               onclick="like(this)" id="like${picture.id}" name="like">喜欢</a>
-                                        </div>
-                                        <div class="hidden" id="unollection_div_${picture.id}">
-                                            <a class="btn btn-outline btn--small text-weight--medium hidden-xs"
-                                               style="width: 70px;height: 35px;float: right;margin-bottom: 10px"
-                                               onclick="uncollection(this)" id="uncollection${picture.id}" name="uncollection">取消</a>
-                                        </div>
-                                        <div id="collection_div_${picture.id}">
-                                            <a class="btn btn-outline btn--small text-weight--medium hidden-xs"
-                                               style="width: 70px;height: 35px;float: right;margin-bottom: 10px"
-                                                onclick="collection(this)" id="collection${picture.id}" name="collection">收藏</a>
-                                        </div>
+                                        <c:if test="${picture.isLike == 1}">
+                                            <div id="unlike_div_${picture.id}">
+                                                <a type="button" class="btn btn-outline btn--small text-weight--medium hidden-xs"
+                                                   style="width: 70px;height: 35px;float: right;margin-bottom: 10px;margin-left: 10px;"
+                                                   onclick="unlike(this)" id="unlike${picture.id}" name="unlike">取消</a>
+                                            </div>
+                                            <div id="like_div_${picture.id}" class="hidden">
+                                                <a type="button" class="btn btn-outline btn--small text-weight--medium hidden-xs"
+                                                   style="width: 70px;height: 35px;float: right;margin-bottom: 10px;margin-left: 10px;"
+                                                   onclick="like(this)" id="like${picture.id}" name="like">喜欢</a>
+                                            </div>
+                                        </c:if>
+                                        <c:if test="${picture.isLike == 0}">
+                                            <div id="unlike_div_${picture.id}" class="hidden">
+                                                <a type="button" class="btn btn-outline btn--small text-weight--medium hidden-xs"
+                                                   style="width: 70px;height: 35px;float: right;margin-bottom: 10px;margin-left: 10px;"
+                                                   onclick="unlike(this)" id="unlike${picture.id}" name="unlike">取消</a>
+                                            </div>
+                                            <div id="like_div_${picture.id}">
+                                                <a type="button" class="btn btn-outline btn--small text-weight--medium hidden-xs"
+                                                   style="width: 70px;height: 35px;float: right;margin-bottom: 10px;margin-left: 10px;"
+                                                   onclick="like(this)" id="like${picture.id}" name="like">喜欢</a>
+                                            </div>
+                                        </c:if>
+                                        <c:if test="${picture.isCollection == 1}">
+                                            <div id="unollection_div_${picture.id}">
+                                                <a class="btn btn-outline btn--small text-weight--medium hidden-xs"
+                                                   style="width: 70px;height: 35px;float: right;margin-bottom: 10px"
+                                                   onclick="uncollection(this)" id="uncollection${picture.id}" name="uncollection">移除</a>
+                                            </div>
+                                            <div id="collection_div_${picture.id}" class="hidden">
+                                                <a class="btn btn-outline btn--small text-weight--medium hidden-xs"
+                                                   style="width: 70px;height: 35px;float: right;margin-bottom: 10px"
+                                                   onclick="collection(this)" id="collection${picture.id}" name="collection">收藏</a>
+                                            </div>
+                                        </c:if>
+                                        <c:if test="${picture.isCollection == 0}">
+                                            <div class="hidden" id="unollection_div_${picture.id}">
+                                                <a class="btn btn-outline btn--small text-weight--medium hidden-xs"
+                                                   style="width: 70px;height: 35px;float: right;margin-bottom: 10px"
+                                                   onclick="uncollection(this)" id="uncollection${picture.id}" name="uncollection">移除</a>
+                                            </div>
+                                            <div id="collection_div_${picture.id}">
+                                                <a class="btn btn-outline btn--small text-weight--medium hidden-xs"
+                                                   style="width: 70px;height: 35px;float: right;margin-bottom: 10px"
+                                                   onclick="collection(this)" id="collection${picture.id}" name="collection">收藏</a>
+                                            </div>
+                                        </c:if>
+
 
 
                                     </c:if>
-
                                 </div>
                             </figcaption>
                             <img src="<%=basePath%>${picture.picURL}" alt="img01"/>
@@ -226,8 +259,6 @@
         window.currentUser = currentUser;
     })(window);
 </script>
-
-
 <script src="<%=basePath%>js/custom-file-input.js"></script>
 <script src="<%=basePath%>js/global-11cefe86ab47658815b807bc1fdddf1be8832c46b2cf6b516d97d73b9fdf373d.js"></script>
 <script src="<%=basePath%>js/uploaders-7662daade56961ed5512519d9ae33bd18ac55090ceb4c8f61bc18ad9f491d6b2.js"></script>
@@ -237,11 +268,11 @@
 <script src="<%=basePath%>js/masonry.pkgd.min.js"></script>
 <script src="<%=basePath%>js/classie.js"></script>
 <script src="<%=basePath%>js/cbpGridGallery.js"></script>
+<script src="<%=basePath%>js/plugins.js"></script>
+<script src="<%=basePath%>js/main.js" type="text/javascript" charset="utf-8"></script>
 <script>
     new CBPGridGallery( document.getElementById( 'grid-gallery' ) );
 </script>
-
-
 <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -309,8 +340,8 @@
     }
 
     function collection(obj) {
-        var userId = $(obj).parent().prev().prev().val();
-        var pictureId = $(obj).parent().prev().prev().prev().val();
+        var userId = $(obj).parent().prev().prev().prev().prev().val();
+        var pictureId = $(obj).parent().prev().prev().prev().prev().prev().val();
         var div_uncollection_id = $(obj).parent().prev().attr("id");
         var div_collection_id = $(obj).parent().attr("id");
         var data={};
@@ -337,8 +368,8 @@
     }
 
     function uncollection(obj) {
-        var userId = $(obj).parent().prev().val();
-        var pictureId = $(obj).parent().prev().prev().val();
+        var userId = $(obj).parent().prev().prev().prev().val();
+        var pictureId = $(obj).parent().prev().prev().prev().prev().val();
         var div_uncollection_id = $(obj).parent().attr("id");
         var div_collection_id = $(obj).parent().next().attr("id");
         var data={};
@@ -366,42 +397,35 @@
     function updateLikeButton(data) {
         var div_like_id = data.div_like_id;
         var div_unlike_id = data.div_unlike_id;
-        /*$(div_like_id).addClass("hidden")
-        $(div_unlike_id).removeClass("hidden");*/
-        var div_like_id = document.getElementById(div_like_id);
+        div_like_id = document.getElementById(div_like_id);
         addClass(div_like_id, "hidden");
-        var div_unlike_id = document.getElementById(div_unlike_id);
+        div_unlike_id = document.getElementById(div_unlike_id);
         removeClass(div_unlike_id, "hidden");
     }
     function updateUnLikeButton(data) {
         var div_like_id = data.div_like_id;
         var div_unlike_id = data.div_unlike_id;
-        /*$(div_like_id).addClass("hidden")
-        $(div_unlike_id).removeClass("hidden");*/
-        var div_unlike_id = document.getElementById(div_unlike_id);
+        div_unlike_id = document.getElementById(div_unlike_id);
         addClass(div_unlike_id, "hidden");
-        var div_like_id = document.getElementById(div_like_id);
+        div_like_id = document.getElementById(div_like_id);
         removeClass(div_like_id, "hidden");
     }
+
     function updateCollectionButton(data) {
         var div_collection_id = data.div_collection_id;
         var div_uncollection_id = data.div_uncollection_id;
-        /*$(div_like_id).addClass("hidden")
-        $(div_unlike_id).removeClass("hidden");*/
-        var div_collection_id = document.getElementById(div_collection_id);
+        div_collection_id = document.getElementById(div_collection_id);
         addClass(div_collection_id, "hidden");
-        var div_uncollection_id = document.getElementById(div_uncollection_id);
+        div_uncollection_id = document.getElementById(div_uncollection_id);
         removeClass(div_uncollection_id, "hidden");
     }
     function updateUnCollectionButton(data) {
         var div_collection_id = data.div_collection_id;
         var div_uncollection_id = data.div_uncollection_id;
-        /*$(div_like_id).addClass("hidden")
-        $(div_unlike_id).removeClass("hidden");*/
-        var div_unlike_id = document.getElementById(div_unlike_id);
-        addClass(div_unlike_id, "hidden");
-        var div_like_id = document.getElementById(div_like_id);
-        removeClass(div_like_id, "hidden");
+        div_uncollection_id = document.getElementById(div_uncollection_id);
+        addClass(div_uncollection_id, "hidden");
+        div_collection_id = document.getElementById(div_collection_id);
+        removeClass(div_collection_id, "hidden");
     }
 
 

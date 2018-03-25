@@ -15,9 +15,15 @@
 <!DOCTYPE html>
 <head>
 
+    <title>Picture Home</title>
+
     <!--- basic page needs
     ================================================== -->
     <meta charset="utf-8">
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
 
     <!-- mobile specific metas
     ================================================== -->
@@ -68,10 +74,10 @@
 
         <div class="search-wrap">
 
-            <form role="search" method="get" class="search-form" action="#">
+            <form role="search" method="GET" class="search-form" action="/search/pictureTag">
                 <label>
                     <span class="hide-content">Search for:</span>
-                    <input type="search" class="search-field" placeholder="Search for" value="" name="s" title="Search for:" autocomplete="off">
+                    <input type="search" class="search-field" placeholder="Search for" value="" name="keyword" title="Search for:" autocomplete="off">
                 </label>
                 <input type="submit" class="search-submit" value="Search">
             </form>
@@ -87,7 +93,7 @@
                         <a class="btn btn-outline btn--small text-weight--medium hidden-xs" href="picture/submit">上传图片</a>
                     </li>
                     <c:if test="${!empty USER_CONTEXT.photo}">
-                        <a href="/@shisheng01">
+                        <a href="/user/account">
                             <img src="<%=basePath %>${USER_CONTEXT.photo}" sizes="32px" class="avatar avatar--small avatar--small-mobile">
                             <span class="sr-only">Shi sheng</span>
                         </a>
@@ -135,7 +141,7 @@
                                                         <li>
                                                             <fmt:formatDate value="${picture.createDate}" pattern="yyyy-MM-dd"/>
                                                         </li>
-                                                        <li><a href="#">
+                                                        <li><a href="/gallery/userGalleryHome?id=${picture.user.id}">
                                                             ${picture.user.userName}
                                                         </a></li>
                                                     </ul>

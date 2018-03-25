@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mwh.album.mapper.PictureTagMapper">
+    <resultMap id="PictureTagList" type="PictureTag">
+        <id property="id" column="id"/>
+        <result property="tagId" column="tagId"/>
+        <result property="pictureId" column="pictureId"/>
+        <result property="createDate" column="createDate"/>
+    </resultMap>
+
+    <insert id="save" parameterType="PictureTag">
+        insert into td_picture_tag
+        values
+        (null,#{tagId},#{pictureId},#{createDate})
+    </insert>
+
+    <delete id="delete" parameterType="int">
+        delete from td_picture_tag where
+        id = #{id}
+    </delete>
+
+    <delete id="deleteByPictureId" parameterType="int">
+        delete from td_picture_tag where
+        pictureId = #{pictureId}
+    </delete>
+
+    <select id="findAll" resultMap="PictureTagList">
+        select * from td_picture_tag
+    </select>
+
+
+    <select id="findByPictureId" parameterType="int" resultMap="PictureTagList">
+        select *
+        from td_picture_tag where pictureId=#{pictureId}
+    </select>
+
+    <select id="findByTagId" parameterType="int" resultMap="PictureTagList">
+        select *
+        from td_picture_tag where tagId=#{tagId}
+    </select>
+
+    <select id="findByTagIdAndPictureId" resultType="PictureTag">
+        select *
+        from td_picture_tag where tagId=#{tagId} AND pictureId = #{pictureId}
+    </select>
+
+</mapper>

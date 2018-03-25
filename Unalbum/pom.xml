@@ -208,6 +208,25 @@
       <artifactId>commons-collections4</artifactId>
       <version>4.0</version>
     </dependency>
+    <!-- 处理图片OpenCV -->
+    <dependency>
+      <groupId>org.openpnp</groupId>
+      <artifactId>opencv</artifactId>
+      <version>3.2.0-0</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/net.coobird/thumbnailator -->
+    <dependency>
+      <groupId>net.coobird</groupId>
+      <artifactId>thumbnailator</artifactId>
+      <version>0.4.8</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.mockito/mockito-core -->
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-core</artifactId>
+      <version>2.8.47</version>
+      <scope>test</scope>
+    </dependency>
 
   </dependencies>
 

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mwh.album.mapper.TagMapper">
+    <resultMap id="TagList" type="Tag">
+        <id property="id" column="id"/>
+        <result property="tagName" column="tagName"/>
+        <result property="createDate" column="createDate"/>
+        <association property="user" javaType="com.mwh.album.model.User"
+                     select="com.mwh.album.mapper.UserMapper.findById" column="user"/>
+    </resultMap>
+
+    <insert id="save" parameterType="Tag">
+        insert into td_tag
+        values
+        (null,#{tagName},#{user.id},#{createDate})
+    </insert>
+
+
+    <delete id="delete" parameterType="int">
+        delete from td_tag where
+        id = #{id}
+    </delete>
+
+    <select id="findAll" resultMap="TagList">
+        select * from td_tag
+    </select>
+
+
+    <select id="findById" parameterType="int" resultType="Tag">
+        select *
+        from td_tag where id=#{id}
+    </select>
+
+    <select id="findByTagName" parameterType="String" resultMap="TagList">
+        select *
+        from td_tag where 1=1
+        <if test="tagName != null">
+            AND tagName LIKE #{tagName}
+        </if>
+    </select>
+
+    <select id="findByTagNameNoBlur" parameterType="String" resultType="Tag">
+        select *
+        from td_tag where tagName = #{tagName}
+    </select>
+
+</mapper>

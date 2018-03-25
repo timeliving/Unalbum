@@ -11,6 +11,8 @@
         <result property="photo" column="photo"/>
         <result property="userProfile" column="userProfile"/>
         <result property="userInterests" column="userInterests"/>
+        <association property="role" javaType="com.mwh.album.model.Role"
+                     select="com.mwh.album.mapper.RoleMapper.findById" column="role"/>
     </resultMap>
 
     <insert id="save" parameterType="User">

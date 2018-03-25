@@ -1,5 +1,6 @@
 package com.mwh.album.mapper;
 
+import com.mwh.album.common.PageUtil;
 import com.mwh.album.model.Picture;
 import org.apache.ibatis.annotations.Param;
 
@@ -15,14 +16,33 @@ import java.util.List;
 public interface PictureMapper {
 
     //查找所有图片
-    List<Picture> findAll();
+    List<Picture> findAllByPage(@Param(value = "currIndex") int currIndex
+            ,@Param(value = "pageSize") int pageSize);
+
     //按图片ID查找图片
     Picture findById(int id);
-    //按图片名查找图片
-    Picture findByPicName(String picName);
+    //按图片上传人的ID分页查找
+    List<Picture> findByUserIdOrderByPage(@Param(value = "userId") int userId
+            ,@Param(value = "currIndex") int currIndex
+            ,@Param(value = "pageSize") int pageSize);
+
+    //按图片上传人的ID分页查找
+    List<Picture> findByUserIdOrderByPageAndDate(@Param(value = "userId") int userId
+            ,@Param(value = "currIndex") int currIndex
+            ,@Param(value = "pageSize") int pageSize
+            ,@Param(value = "beginDate") Date beginDate
+            ,@Param(value = "endDate") Date endDate);
+
     //按图片类别ID查找所有图片
     List<Picture> findByCategoryID(@Param(value = "picCategory") int picCategory);
-    //按图片类别ID查找图片
+
+    /**
+     * 在没有用户登录的情况下展示分类图片
+     * @param picCategory
+     * @param currIndex
+     * @param pageSize
+     * @return
+     */
     List<Picture> findByCategoryIDOrderByPage(@Param(value = "picCategory") int picCategory
             ,@Param(value = "currIndex") int currIndex
             ,@Param(value = "pageSize") int pageSize);
@@ -44,6 +64,12 @@ public interface PictureMapper {
     int updatePictureCollection(Picture picture);
 
     int countByCategory(@Param(value = "picCategory") int picCategory);
+    int countAll();
+    int countByTag(@Param(value = "tagName") String tagName);
+    int countByUserId(@Param(value = "userId") int userId);
 
+    int countByDate(@Param(value = "userId") int userId
+            ,@Param(value = "beginDate") Date beginDate
+            ,@Param(value = "endDate") Date endDate);
 
 }

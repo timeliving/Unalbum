@@ -20,8 +20,10 @@ public class Picture implements java.io.Serializable {
     private Date createDate;                    //图片上传时间
     private Integer picLikes;                   //图片收获喜欢数
     private Integer picCollection;              //图片收获收藏数
-    private User user;                       //图片上传人
+    private User user;                          //图片上传人
     private String picProfile;                  //图片简介
+    private Integer isShare;                    //图片是否分享
+
 
     public Integer getId() {
         return id;
@@ -93,5 +95,13 @@ public class Picture implements java.io.Serializable {
 
     public void setPicProfile(String picProfile) {
         this.picProfile = picProfile;
+    }
+
+    public Integer getIsShare() {
+        return isShare;
+    }
+
+    public void setIsShare(Integer isShare) {
+        this.isShare = isShare;
     }
 }

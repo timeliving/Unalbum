@@ -26,9 +26,19 @@
     </title>
 
 
+    <!-- CSS
+  ================================================== -->
     <link rel="stylesheet" media="all" href="<%=basePath%>css/unsplash.css" />
 
-    <link rel="shortcut icon" type="image/x-icon" href="<%=basePath%>img/favicon.ico" />
+    <!-- favicon -->
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
+
+    <!-- script
+    ================================================== -->
+    <script src="<%=basePath%>js/modernizr.js"></script>
+    <script src="<%=basePath%>js/pace.min.js"></script>
+
     <link rel="apple-touch-icon-precomposed" type="image/png" href="<%=basePath%>img/apple-touch-icon-precomposed.png" />
     <link rel="apple-touch-icon-precomposed" type="image/png" href="<%=basePath%>img/apple-touch-icon-60x60-precomposed.png" sizes="60x60" />
     <link rel="apple-touch-icon-precomposed" type="image/png" href="<%=basePath%>img/apple-touch-icon-72x72-precomposed.png" sizes="72x72" />
@@ -68,7 +78,6 @@
                 <a href="/home">主页</a>
             </li>
 
-
         </ul>
 
         <ul class="navbar__links-container navbar__links-container--right">
@@ -77,7 +86,7 @@
                     <li class="navbar__element navbar__element--full-spacing">
                         <a class="btn btn-outline btn--small text-weight--medium hidden-xs" href="/submit">Submit a photo</a>
                     </li>
-                    <a href="/@shisheng01">
+                    <a href="/user/account">
                         <img ix-src="<%=basePath %>${USER_CONTEXT.photo}" sizes="32px" class="avatar avatar--small avatar--small-mobile">
                         <span class="sr-only">Shi sheng</span>
                     </a>  </ul>
@@ -101,7 +110,7 @@
                             <a href="<c:url value="/user/account" />">修改个人资料</a>
                         </li>
                         <li class="">
-                            <a href="<c:url value="/user/account/photos" />">相册管理</a>
+                            <a href="<c:url value="/user/pictures" />">相片/相册管理</a>
                         </li>
                         <li class="">
                             <a href="<c:url value="/user/account/profile" />">修改头像</a>

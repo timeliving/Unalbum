@@ -47,6 +47,10 @@ public class UserLikeCollectionImpl implements UserLikeCollectionService {
         userLikeCollectionMapper.delete(id);
     }
 
+    public void deleteByPictureId(int pictureId) {
+        userLikeCollectionMapper.deleteByPictureId(pictureId);
+    }
+
     public void update(UserLikeCollection userLikeCollection) {
         UserLikeCollection likeCollection = findByUserIdAndPictureId(userLikeCollection.getUser().getId()
                 ,userLikeCollection.getPicture().getId());

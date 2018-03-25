@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mwh.album.mapper.PictureMapper">
-    <resultMap id="PictureList" type="Picture">
+    <resultMap id="PictureList" type="com.mwh.album.model.Picture">
         <id property="id" column="id"/>
         <result property="picName" column="picName"/>
         <result property="picCategory" column="picCategory"/>
@@ -12,15 +12,28 @@
         <result property="picLikes" column="picLikes"/>
         <result property="picCollection" column="picCollection"/>
         <result property="picProfile" column="picProfile"/>
+        <result property="isShare" column="isShare"/>
         <association property="user" javaType="com.mwh.album.model.User"
                      select="com.mwh.album.mapper.UserMapper.findById" column="user"/>
     </resultMap>
 
+<!--
+    <resultMap id="PictureLACList" type="com.mwh.album.model.Picture$LikesAndCollection">
+        <result property="isLike" column="isLike"/>
+        <result property="isCollection" column="isCollection"/>
+        <association property="likeCollectionUser" javaType="com.mwh.album.model.User"
+                select="com.mwh.album.mapper.UserMapper.findById" column="user"/>
+    </resultMap>
+-->
+
     <insert id="save" parameterType="Picture">
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
         insert into td_picture
         values
         (null,#{picName},#{picCategory},#{picURL},
-        #{createDate},#{picLikes},#{picCollection},#{user.id})
+        #{createDate},#{picLikes},#{picCollection},#{user.id},#{picProfile},#{isShare})
     </insert>
 
 
@@ -28,7 +41,8 @@
         update td_picture set
         picName = #{picName},
         picCategory = #{picCategory},
-        picURL=#{picURL}
+        isShare=#{isShare},
+        picProfile=#{picProfile}
         where id = #{id}
     </update>
 
@@ -49,8 +63,9 @@
         id = #{id}
     </delete>
 
-    <select id="findAll" resultMap="PictureList">
-        select * from td_picture
+    <select id="findAllByPage" resultMap="PictureList">
+        select * from td_picture WHERE isShare = 1
+        order by createDate limit #{currIndex}, #{pageSize}
     </select>
 
 
@@ -59,36 +74,90 @@
         from td_picture where id=#{id}
     </select>
 
-    <select id="findByPicName" parameterType="String" resultType="Picture">
+    <select id="findByUserIdOrderByPage" resultMap="PictureList">
         select *
-        from td_picture where userName=#{userName}
+        from td_picture where user=#{userId}
+        ORDER  BY createDate DESC limit #{currIndex}, #{pageSize}
+    </select>
+
+    <select id="findByUserIdOrderByPageAndDate" resultMap="PictureList">
+        select *
+        from td_picture where user=#{userId} AND
+        <choose>
+            <when test="beginDate != null">
+                createDate >= #{beginDate}
+            </when>
+            <when test="beginDate != null and endDate != null">
+                createDate BETWEEN #{beginDate} AND #{endDate}
+            </when>
+            <otherwise>
+                #{endDate} > createDate
+            </otherwise>
+        </choose>
+        ORDER  BY createDate DESC limit #{currIndex}, #{pageSize}
     </select>
 
     <select id="findByCategoryID" parameterType="int" resultMap="PictureList">
         select *
-        from td_picture where picCategory=#{picCategory}
+        from td_picture where isShare = 1 AND picCategory=#{picCategory}
+        order by tp.createDate DESC
     </select>
 
+
     <select id="findByCategoryIDOrderByPage" resultMap="PictureList">
-        select *
-        from td_picture where picCategory=#{picCategory} limit #{currIndex}, #{pageSize}
+        select * from td_picture tp
+        where tp.isShare = 1 AND picCategory=#{picCategory}
+        order by tp.createDate DESC
+        limit #{currIndex}, #{pageSize}
     </select>
+
 
     <select id="findByDateMostClose" parameterType="String" resultType="Picture">
         select * from td_picture tp left join td_picture_category tpc on tp.picCategory = tpc.id
-         where tpc.categoryName = #{categoryName} ORDER BY createDate DESC LIMIT 1
+         where tp.isShare = 1 AND tpc.categoryName = #{categoryName}
+         ORDER BY createDate DESC LIMIT 1
     </select>
     
     <select id="findByPictureLikes" parameterType="Date" resultMap="PictureList">
-        SELECT * FROM td_picture WHERE TO_DAYS(NOW())- TO_DAYS(#{newDate}) = 1 ORDER BY picLikes DESC LIMIT 3
+        SELECT * FROM td_picture
+        WHERE isShare = 1 AND TO_DAYS(NOW())- TO_DAYS(#{newDate}) = 1
+        ORDER BY picLikes DESC LIMIT 3
     </select>
     
     <select id="countByCategory" parameterType="int" resultType="int">
-        select count(*) from td_picture where picCategory = #{picCategory}
+        select count(*) from td_picture where isShare = 1 AND picCategory = #{picCategory}
     </select>
 
-<!--
-    and createDate = (select createDate from td_picture order by createDate desc limit 1)
--->
+    <select id="countAll" resultType="int">
+        select count(*) FROM td_picture where isShare = 1
+    </select>
+
+    <select id="countByTag" parameterType="String" resultType="int">
+        select count(*) from td_picture tp
+        LEFT JOIN td_picture_tag tpt ON tp.id = tpt.pictureId
+        LEFT JOIN td_tag tt ON tpt.tagId = tt.id
+         where tp.isShare = 1 AND tt.tagName LIKE #{tagName}
+    </select>
+
+    <select id="countByUserId" parameterType="int" resultType="int">
+        select count(*) from td_picture where user = #{userId}
+    </select>
+
+    <select id="countByDate" resultType="int">
+        select count(*)
+        from td_picture where user=#{userId} AND
+        <choose>
+            <when test="beginDate != null and endDate != null">
+                createDate BETWEEN #{beginDate} AND #{endDate}
+            </when>
+            <when test="beginDate != null">
+                createDate >= #{beginDate}
+            </when>
+            <when test="endDate != null">
+                #{endDate} >= createDate
+            </when>
+        </choose>
+    </select>
+
 
 </mapper>

@@ -17,6 +17,8 @@ public interface UserLikeCollectionService {
     void save(UserLikeCollection userLikeCollection);
     //删除记录
     void delete(int id);
+    //根据图片ID删除记录
+    void deleteByPictureId(int pictureId);
     //修改用户喜欢收藏
     void update(UserLikeCollection userLikeCollection);
 

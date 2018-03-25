@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mwh.album.mapper.GalleryPictureMapper">
+    <resultMap id="GalleryPictureList" type="GalleryPicture">
+        <id property="id" column="id"/>
+        <result property="pictureId" column="pictureId"/>
+        <result property="createDate" column="createDate"/>
+        <association property="gallery" javaType="com.mwh.album.model.Gallery"
+                     select="com.mwh.album.mapper.GalleryMapper.findById" column="gallery"/>
+    </resultMap>
+
+    <insert id="save" parameterType="GalleryPicture">
+        insert into td_gallery_picture
+        values
+        (null,#{gallery.id},#{pictureId},#{createDate})
+    </insert>
+
+
+    <delete id="delete" parameterType="int">
+        delete from td_gallery_picture where
+        id = #{id}
+    </delete>
+
+    <select id="findAll" resultMap="GalleryPictureList">
+        select * from td_gallery_picture
+    </select>
+
+    <select id="findMostColsePicture" parameterType="int" resultMap="GalleryPictureList">
+        select * from td_gallery_picture WHERE gallery = #{galleryId}
+        ORDER  BY createDate DESC limit 1
+    </select>
+
+
+    <select id="findById" parameterType="int" resultType="Gallery">
+        select *
+        from td_gallery_picture where id=#{id}
+    </select>
+
+    <select id="findPicturesByGalleryId" parameterType="int" resultMap="com.mwh.album.mapper.PictureMapper.PictureList">
+        select *
+        from td_gallery_picture tgp LEFT JOIN td_picture tp ON tgp.pictureId = tp.id
+        where tgp.gallery = #{galleryId}
+    </select>
+
+    <select id="deleteByGalleryIdAndPictureId" >
+        delete from td_gallery_picture where
+        gallery = #{galleryId} AND pictureId =#{pictureId}
+    </select>
+
+
+</mapper>

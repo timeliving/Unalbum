@@ -71,7 +71,10 @@
             </li>
 
 
+
         </ul>
+
+
 
         <ul class="navbar__links-container navbar__links-container--right">
             <li class="navbar__element navbar__element--heading navbar__element--half-spacing">
@@ -79,7 +82,7 @@
                     <li class="navbar__element navbar__element--full-spacing">
                         <a class="btn btn-outline btn--small text-weight--medium hidden-xs" href="/submit">上传图片</a>
                     </li>
-                    <a href="/@shisheng01">
+                    <a href="/user/account">
                         <img ix-src="<%=basePath %>${USER_CONTEXT.photo}" sizes="32px" class="avatar avatar--small avatar--small-mobile">
                         <span class="sr-only">Shi sheng</span>
                     </a>  </ul>
@@ -238,11 +241,9 @@
         uploadMultiple:false,//允许dropzone一次提交多个文件
         maxFiles: 1,//最大可上传的文件个数
         maxFilesize: 10,//MB
-        acceptedFiles: ".jpg,.gif", //可接受的文件类型
+        acceptedFiles: ".jpg,.gif,.png", //可接受的文件类型
         autoProcessQueue: true,//阻止自动上传
         success:function(file,data){
-            //    console.log(this.getAcceptedFiles().length);//获取上传的文件总数
-            //data=JSON.parse(data);
             console.log(data);
             if (Object.keys(data).length === 0) {
                 return false // 失败

@@ -80,12 +80,12 @@
             <li class="navbar__element navbar__element--heading navbar__element--half-spacing">
                 <ul class="nav">
                     <li class="navbar__element navbar__element--full-spacing">
-                        <a class="btn btn-outline btn--small text-weight--medium hidden-xs" href="/submit">上传图片</a>
+                        <a class="btn btn-outline btn--small text-weight--medium hidden-xs" href="/picture/submit">上传图片</a>
                     </li>
                     <a href="/user/account">
                         <img ix-src="<%=basePath %>${USER_CONTEXT.photo}" sizes="32px" class="avatar avatar--small avatar--small-mobile">
-                        <span class="sr-only">Shi sheng</span>
-                    </a>  </ul>
+                    </a>
+                </ul>
 
             </li>
         </ul>

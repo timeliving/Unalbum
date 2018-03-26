@@ -12,6 +12,8 @@ public interface GalleryService {
     Gallery findById(int id);
     //根据用户ID查找相册
     List<Gallery> findByUserId(int userId);
+    //根据用户ID查找默认相册之外的相册
+    List<Gallery> findUserGalleryWithOutDefault(int userId);
     //根据用户ID查找用户默认相册
     Gallery findUserGallery(int userId,String galleryName);
 
@@ -19,6 +21,8 @@ public interface GalleryService {
 
     //新增相册
     void save(Gallery gallery);
+    //修改相册
+    void update(Gallery gallery);
     //删除相册
     void delete(int id);
     //修改封面图片

@@ -7,6 +7,7 @@
         <id property="id" column="id"/>
         <result property="galleryName" column="galleryName" />
         <result property="createDate" column="createDate"/>
+        <result property="isShare" column="isShare" />
         <association property="user" javaType="com.mwh.album.model.User"
                      select="com.mwh.album.mapper.UserMapper.findById" column="user"/>
         <association property="pagePicture" javaType="com.mwh.album.model.Picture"
@@ -16,8 +17,15 @@
     <insert id="save" parameterType="Gallery">
         insert into td_gallery
         values
-        (null,#{td_galleryName},#{user.id},#{createDate},null)
+        (null,#{galleryName},#{user.id},#{createDate},null,#{isShare})
     </insert>
+
+    <update id="update" parameterType="Gallery">
+        UPDATE td_gallery
+        SET galleryName = #{galleryName},
+        isShare = #{isShare}
+        WHERE id = #{id}
+    </update>
 
     <update id="updateGalleryPagePicture">
         UPDATE td_gallery
@@ -46,6 +54,13 @@
     <select id="findByUserId" parameterType="int" resultMap="GalleryList">
         select *
         from td_gallery where user=#{userId}
+
+    </select>
+
+    <select id="findUserGalleryWithOutDefault" parameterType="int" resultMap="GalleryList">
+        select *
+        from td_gallery where user=#{userId}
+        AND galleryName != "默认相册" AND galleryName != "ta的收藏"
     </select>
 
     <select id="findUserGallery" resultType="Gallery">

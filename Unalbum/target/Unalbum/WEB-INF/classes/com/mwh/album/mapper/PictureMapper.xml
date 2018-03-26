@@ -17,14 +17,6 @@
                      select="com.mwh.album.mapper.UserMapper.findById" column="user"/>
     </resultMap>
 
-<!--
-    <resultMap id="PictureLACList" type="com.mwh.album.model.Picture$LikesAndCollection">
-        <result property="isLike" column="isLike"/>
-        <result property="isCollection" column="isCollection"/>
-        <association property="likeCollectionUser" javaType="com.mwh.album.model.User"
-                select="com.mwh.album.mapper.UserMapper.findById" column="user"/>
-    </resultMap>
--->
 
     <insert id="save" parameterType="Picture">
         <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
@@ -84,14 +76,14 @@
         select *
         from td_picture where user=#{userId} AND
         <choose>
-            <when test="beginDate != null">
-                createDate >= #{beginDate}
-            </when>
             <when test="beginDate != null and endDate != null">
                 createDate BETWEEN #{beginDate} AND #{endDate}
             </when>
+            <when test="beginDate != null">
+                createDate >= #{beginDate}
+            </when>
             <otherwise>
-                #{endDate} > createDate
+                #{endDate} >= createDate
             </otherwise>
         </choose>
         ORDER  BY createDate DESC limit #{currIndex}, #{pageSize}

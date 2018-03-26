@@ -23,6 +23,11 @@
         id = #{id}
     </delete>
 
+    <delete id="deleteByGalleryId" parameterType="int">
+        delete from td_gallery_picture where
+        gallery = #{galleryId}
+    </delete>
+
     <select id="findAll" resultMap="GalleryPictureList">
         select * from td_gallery_picture
     </select>
@@ -40,6 +45,12 @@
 
     <select id="findPicturesByGalleryId" parameterType="int" resultMap="com.mwh.album.mapper.PictureMapper.PictureList">
         select *
+        from td_gallery_picture tgp LEFT JOIN td_picture tp ON tgp.pictureId = tp.id
+        where tgp.gallery = #{galleryId}
+    </select>
+
+    <select id="findPictureIdByGalleryId" parameterType="int" resultType="int">
+        select tp.id
         from td_gallery_picture tgp LEFT JOIN td_picture tp ON tgp.pictureId = tp.id
         where tgp.gallery = #{galleryId}
     </select>

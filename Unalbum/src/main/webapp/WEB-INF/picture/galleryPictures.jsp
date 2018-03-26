@@ -48,7 +48,10 @@
                     <img src="/${user.photo}"  class="img-circle profile">
                     <h3 class="animated bounceInUp">相册名称</h3>
                     <p class="animated bounceInLeft">${gallery.galleryName}</p>
-                    <div><a href="/gallery/userGalleryHome?id=${user.id}" class="btn btn-default">返回</a></div>
+                    <div>
+                        <a href="#works" class="btn btn-default explore">查看全部</a>&nbsp;
+                        <a href="/gallery/userGalleryHome?id=${user.id}" class="btn btn-default">返回</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -112,34 +115,6 @@
     console.log($("#imgBack").css("height"));
     $("#imgBack").css("height" , height);
     console.log($("#imgBack").css("height"));
-
-    /*function showPictures(obj1, obj2){
-        var data={};
-        data["galleryId"] = obj1;
-        data["userId"] = obj2;
-        $.ajax({
-            type: "POST",
-            url: "/gallery/pictures",
-            contentType:"application/json",
-            data: JSON.stringify(data),//参数列表
-            dataType:"json",
-            success: function(data){
-                //请求正确之后的操作
-                console.log(data);
-                var pictureList = eval(data["galleryPictureList"]);
-                var galleryId = data["galleryId"];
-                galleryId = "#" + galleryId;
-                console.log(pictureList);
-                for(var i in pictureList){
-                    $(galleryId)
-                        .after("<a href=" + pictureList[i].picURL + "data-gallery>查看相册</a>");
-                }
-            },
-            error: function (data) {
-                alert("查询失败，请重试");
-            }
-        });
-    }*/
 </script>
 
 </body>

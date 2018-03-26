@@ -82,6 +82,16 @@
                 </div>
             </div>
         </c:if>
+        <c:if test="${code eq '个人相册管理'}">
+            <ul class="layui-tab-title">
+                <li>个人相册管理</li>
+            </ul>
+            <div class="layui-tab-content">
+                <div class="layui-tab-item layui-show">
+                    <iframe src='/gallery/galleryByUser' frameborder="0" scrolling="yes" class="x-iframe"></iframe>
+                </div>
+            </div>
+        </c:if>
     </div>
 </div>
 <div class="page-content-bg"></div>

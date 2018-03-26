@@ -158,9 +158,10 @@
 }
 
 .slideshow figcaption h3 {
-	font-weight: 300;
-	font-size: 200%;
+	font-weight: 200;
+	font-size: 150%;
 }
+
 
 /* Navigation */
 .slideshow nav span {

@@ -35,17 +35,23 @@
 
     <link rel="stylesheet" type="text/css" href="<%=basePath%>css/demo1.css" />
     <link rel="stylesheet" type="text/css" href="<%=basePath%>css/component1.css" />
+    <link rel="stylesheet" type="text/css" href="/lib/layui/css/layui.css"/>
 
     <link rel="stylesheet" href="<%=basePath%>css/base.css">
     <link rel="stylesheet" href="<%=basePath%>css/vendor.css">
     <link rel="stylesheet" href="<%=basePath%>css/main.css">
     <link rel="stylesheet" href="<%=basePath%>css/unsplash.css" />
 
+
+
     <!-- script
     ================================================== -->
     <script src="<%=basePath%>js/modernizr.js"></script>
     <script src="<%=basePath%>js/pace.min.js"></script>
     <script src="<%=basePath%>js/modernizr.custom.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="<%=basePath%>js/jquery-3.3.1.min.js"></script>
+    <script src="/lib/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" src="<%=basePath%>js/xadmin.js" charset="UTF-8"></script>
 </head>
 <body>
 
@@ -135,10 +141,19 @@
                     <li>
                         <figure>
                             <figcaption>
-                                <h3>${picture.picName}</h3>
+                                <h3>${picture.picName} </h3>
                                 <p>${picture.picProfile}</p>
+                                <div class="inline navbar__links-container navbar__links-container--left text-center">
+                                    <a href="/gallery/userGalleryHome?id=${picture.user.id}"
+                                       style="color:#a2a2a2;text-decoration:none;float: left;margin-bottom: 10px">@${picture.user.userName}</a>
+                                    <c:if test="${!empty USER_CONTEXT}">
+                                        <a  onclick="x_admin_show('加入相册','/gallery/getGalleryList?id=${picture.id}',300,400)" class="btn btn-outline btn--small text-weight--medium hidden-xs" style="float: left;margin-bottom: 10px;margin-left: 10px;">加入相册</a>
+                                    </c:if>
+
+                                </div>
                                 <div class="navbar__links-container navbar__links-container--right text-center">
                                         <input type="hidden" value="${picture.id}" id="pictureId">
+
                                     <c:if test="${!empty USER_CONTEXT}">
                                         <input type="hidden" value="${USER_CONTEXT.id}" id="userId"/>
                                         <c:if test="${picture.isLike == 1}">
@@ -189,9 +204,6 @@
                                                    onclick="collection(this)" id="collection${picture.id}" name="collection">收藏</a>
                                             </div>
                                         </c:if>
-
-
-
                                     </c:if>
                                 </div>
                             </figcaption>

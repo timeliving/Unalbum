@@ -42,7 +42,7 @@ public class PictureServiceImpl implements PictureService {
             if(pic.getPicName().equals(picture.getPicName())){
                 pic.setPicName(picture.getPicName());
             }
-            if(pic.getPicCategory().equals(picture.getPicCategory())){
+            if(pic.getPicCategory() != picture.getPicCategory()){
                 pic.setPicCategory(picture.getPicCategory());
             }
             if(pic.getPicProfile() == picture.getPicProfile()){
@@ -315,6 +315,8 @@ public class PictureServiceImpl implements PictureService {
                     pictureMap.put("picName",picture.getPicName());
                     pictureMap.put("picURL", picture.getPicURL());
                     pictureMap.put("picCategory", picture.getPicCategory());
+                    pictureMap.put("user", picture.getUser());
+                    pictureMap.put("picProfile", picture.getPicProfile());
                     pictureMap.put("isLike", userLikeCollection.getIsLike());
                     pictureMap.put("isCollection", userLikeCollection.getIsCollection());
                 }
@@ -326,6 +328,8 @@ public class PictureServiceImpl implements PictureService {
                 pictureMap.put("picName",picture.getPicName());
                 pictureMap.put("picURL", picture.getPicURL());
                 pictureMap.put("picCategory", picture.getPicCategory());
+                pictureMap.put("user", picture.getUser());
+                pictureMap.put("picProfile", picture.getPicProfile());
                 pictureMap.put("isLike", 0);
                 pictureMap.put("isCollection", 0);
                 pictureList.add(pictureMap);

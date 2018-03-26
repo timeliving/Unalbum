@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -42,7 +43,15 @@ public class GalleryPictureServiceImpl implements GalleryPictureService {
         return pictureListByGallery;
     }
 
+    public List<Integer> findPictureIdByGalleryId(int galleryId) {
+        List<Integer> pictureIdListByGallery = galleryPictureMapper.findPictureIdByGalleryId(galleryId);
+        return pictureIdListByGallery;
+    }
+
+
     public void save(GalleryPicture galleryPicture) {
+        galleryPicture.setCreateDate(new Date());
+
         galleryPictureMapper.save(galleryPicture);
     }
 
@@ -52,6 +61,10 @@ public class GalleryPictureServiceImpl implements GalleryPictureService {
 
     public void deleteByGalleryIdAndPictureId(int galleryId, int pictureId) {
         galleryPictureMapper.deleteByGalleryIdAndPictureId(galleryId, pictureId);
+    }
+
+    public void deleteByGalleryId(int galleryId) {
+        galleryPictureMapper.deleteByGalleryId(galleryId);
     }
 
     @Resource

@@ -16,6 +16,8 @@ public interface GalleryPictureMapper {
     //根据相册ID查找对应的图片
     List<Picture> findPicturesByGalleryId(
             @Param(value = "galleryId") int galleryId);
+    List<Integer> findPictureIdByGalleryId(
+            @Param(value = "galleryId") int galleryId);
     //查找最新加入相册的一张图片
     GalleryPicture findMostColsePicture(@Param(value = "galleryId") int galleryId);
 
@@ -27,4 +29,7 @@ public interface GalleryPictureMapper {
     //根据相册ID和照片ID删除
     int deleteByGalleryIdAndPictureId(@Param(value = "galleryId") int galleryId
             ,@Param(value = "pictureId") int pictureId);
+    //根据相册ID删除
+    int deleteByGalleryId(@Param(value = "galleryId") int galleryId);
+
 }

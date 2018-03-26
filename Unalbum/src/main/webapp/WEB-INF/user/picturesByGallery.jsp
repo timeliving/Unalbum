@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: mwh
-  Date: 2018/3/25
-  Time: 21:41
+  Date: 2018/3/26
+  Time: 16:40
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -50,7 +50,6 @@
                     <p class="animated bounceInLeft">${gallery.galleryName}</p>
                     <div>
                         <a href="#works" class="btn btn-default explore">查看全部</a>&nbsp;
-                        <a href="/gallery/userGalleryHome?id=${user.id}" class="btn btn-default">返回</a>
                     </div>
                 </div>
             </div>

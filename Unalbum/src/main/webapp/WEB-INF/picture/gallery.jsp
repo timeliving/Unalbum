@@ -48,7 +48,10 @@
                     <img src="/${user.photo}"  class="img-circle profile">
                     <h3 class="animated bounceInUp">喜好</h3>
                     <p class="animated bounceInLeft">${user.userInterests}</p>
-                    <div class="animated bounceInDown"><a href="#works" class="btn btn-default explore">查看全部</a></div>
+                    <div class="animated bounceInDown">
+                        <a href="#works" class="btn btn-default explore">查看全部</a>&nbsp;
+                        <a href="/home" class="btn btn-default">返回</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -65,14 +68,6 @@
                     <h2>${gallery.galleryName}</h2>
 
                     <p><a href="/gallery/picturesByGalleryId?galleryId=${gallery.id}&userId=${user.id}" id="${gallery.id}"llery>查看相册</a></p>
-
-                        <%--<c:forEach items="${galleryListPictures}" var="pictures" varStatus="pictureSatus" begin="0" step="1">
-                            <c:if test="${galleryStatus.count == pictureSatus.count}">
-                                <c:forEach items="${pictures}" var="picture">
-                                    <a href="/${picture.picURL}" title="1" data-gallery>查看相册</a>
-                                </c:forEach>
-                            </c:if>
-                        </c:forEach>--%>
                 </figcaption>
             </figure>
         </c:forEach>

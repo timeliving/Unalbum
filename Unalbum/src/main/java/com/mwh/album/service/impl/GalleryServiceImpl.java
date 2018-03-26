@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -33,6 +34,11 @@ public class GalleryServiceImpl implements GalleryService{
         return galleryList;
     }
 
+    public List<Gallery> findUserGalleryWithOutDefault(int userId) {
+        List<Gallery> galleryList = galleryMapper.findUserGalleryWithOutDefault(userId);
+        return galleryList;
+    }
+
     public Gallery findUserGallery(int userId, String galleryName) {
         Gallery gallery = galleryMapper.findUserGallery(userId, galleryName);
         if(gallery == null){
@@ -42,6 +48,8 @@ public class GalleryServiceImpl implements GalleryService{
     }
 
     public void save(Gallery gallery) {
+        gallery.setCreateDate(new Date());
+        gallery.setIsShare(1);
         galleryMapper.save(gallery);
     }
 
@@ -56,6 +64,19 @@ public class GalleryServiceImpl implements GalleryService{
                 galleryMapper.updateGalleryPagePicture(pictureId, id);
             }
         }
+    }
+
+    public void update(Gallery gallery) {
+        Gallery gallery1 = findById(gallery.getId());
+        if(gallery1.getId() != null){
+            if(!gallery1.getGalleryName().equals(gallery.getGalleryName())){
+                gallery1.setGalleryName(gallery.getGalleryName());
+            }
+            if(!gallery1.getIsShare().equals(gallery.getIsShare())){
+                gallery1.setIsShare(gallery.getIsShare());
+            }
+        }
+        galleryMapper.update(gallery);
     }
 
     @Resource

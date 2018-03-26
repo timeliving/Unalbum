@@ -14,6 +14,7 @@ public interface GalleryPictureService {
     GalleryPicture findById(int id);
     //根据相册ID查找对应的图片
     List<Picture> findPicturesByGalleryId(int galleryId);
+    List<Integer> findPictureIdByGalleryId(int galleryId);
     //查找最新加入相册的一张图片
     GalleryPicture findMostColsePicture(int galleryId);
 
@@ -24,5 +25,8 @@ public interface GalleryPictureService {
     void delete(int id);
     //根据相册ID和照片ID删除
     void deleteByGalleryIdAndPictureId(int galleryId, int pictureId);
+    //根据相册ID删除
+    void deleteByGalleryId(int galleryId);
+
 
 }

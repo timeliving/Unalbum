@@ -14,6 +14,7 @@ public class Gallery implements java.io.Serializable {
     private User user;
     private Date createDate;
     private Picture pagePicture;
+    private Integer isShare;
 
     public Integer getId() {
         return id;
@@ -53,5 +54,13 @@ public class Gallery implements java.io.Serializable {
 
     public void setPagePicture(Picture pagePicture) {
         this.pagePicture = pagePicture;
+    }
+
+    public Integer getIsShare() {
+        return isShare;
+    }
+
+    public void setIsShare(Integer isShare) {
+        this.isShare = isShare;
     }
 }

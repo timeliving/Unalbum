@@ -98,7 +98,6 @@ PictureController extends BaseController {
             galleryPicture.setGallery(gallery);
         }
         galleryPicture.setPictureId(id);
-        galleryPicture.setCreateDate(new Date());
         galleryPictureService.save(galleryPicture);
         galleryService.updateGalleryPagePicture(id, gallery.getId());
         mav.setViewName("user/submit");

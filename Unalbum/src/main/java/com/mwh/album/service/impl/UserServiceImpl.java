@@ -1,7 +1,13 @@
 package com.mwh.album.service.impl;
 
 import com.mwh.album.exception.UserExistException;
+import com.mwh.album.mapper.GalleryMapper;
+import com.mwh.album.mapper.PictureMapper;
+import com.mwh.album.mapper.RoleMapper;
 import com.mwh.album.mapper.UserMapper;
+import com.mwh.album.model.Gallery;
+import com.mwh.album.model.Picture;
+import com.mwh.album.model.Role;
 import com.mwh.album.model.User;
 import com.mwh.album.service.UserService;
 import org.springframework.stereotype.Service;
@@ -18,13 +24,30 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
 
     private UserMapper userMapper;
+    private GalleryMapper galleryMapper;
+    private PictureMapper pictureMapper;
+    private RoleMapper roleMapper;
     public void save(User user) throws UserExistException {
         User ur = this.findByUserName(user.getUserName());
         if(ur != null){
             throw new UserExistException("用户名已经存在");
         }else{
             user.setCreateDate(new Date());
+            user.setUserProfile("");
+            user.setUserInterests("");
+            user.setPhoto("img/user-default-photo.jpg");
+            Role role = roleMapper.findByName("用户");
+            user.setRole(role);
             userMapper.save(user);
+            Gallery gallery = new Gallery();
+            gallery.setPagePicture(pictureMapper.findById(1));
+            gallery.setUser(user);
+            gallery.setIsShare(1);
+            gallery.setCreateDate(new Date());
+            gallery.setGalleryName("默认相册");
+            galleryMapper.save(gallery);
+            gallery.setGalleryName("ta的收藏");
+            galleryMapper.save(gallery);
         }
     }
 
@@ -81,5 +104,18 @@ public class UserServiceImpl implements UserService {
     @Resource
     public void setUserMapper(UserMapper userMapper) {
         this.userMapper = userMapper;
+    }
+    @Resource
+    public void setRoleMapper(RoleMapper roleMapper) {
+        this.roleMapper = roleMapper;
+    }
+
+    @Resource
+    public void setGalleryMapper(GalleryMapper galleryMapper) {
+        this.galleryMapper = galleryMapper;
+    }
+    @Resource
+    public void setPictureMapper(PictureMapper pictureMapper) {
+        this.pictureMapper = pictureMapper;
     }
 }

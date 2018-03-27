@@ -116,7 +116,7 @@
                 </c:if>
             </td>
             <td class="td-manage">
-                <a title="编辑" onclick="x_admin_show('编辑','/user/picture/edit?pictureId=${picture.id}')"
+                <a title="编辑" onclick="x_admin_show('编辑','/user/picture/edit?pictureId=${picture.id}',700,700)"
                    href="javascript:;">
                     <i class="layui-icon">&#xe642;</i>
                 </a>

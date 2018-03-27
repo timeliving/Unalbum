@@ -52,7 +52,7 @@
         <i class="layui-icon" style="line-height:30px">ဂ</i></a>
 </div>
 <div class="x-body">
-    <button class="btn-default btn" style="color: #286090" onclick="x_admin_show('添加相册','/gallery/add',300,200)"><i class="layui-icon"></i>添加</button>
+    <button class="btn-default btn" style="color: #286090" onclick="x_admin_show('添加相册','/gallery/add',300,190)"><i class="layui-icon"></i>添加</button>
     <xblock>
         <span class="x-right" style="line-height:40px">最多创建9个相册</span>
     </xblock>
@@ -85,14 +85,20 @@
                     <fmt:formatDate value="${gallery.createDate}" pattern="yyyy-MM-dd  HH:mm:ss"/>
                 </td>
                 <td>
-                    <img src="/${gallery.pagePicture.picURL}" id="picURL" style="width: 100%; vertical-align: middle;"  />
+                    <c:if test="${!empty gallery.pagePicture.picURL}">
+                        <img src="/${gallery.pagePicture.picURL}" id="picURL" style="width: 100%; vertical-align: middle;"  />
+                    </c:if>
+                    <c:if test="${empty gallery.pagePicture.picURL}">
+                        <div style="background-color: #f5f5f5">
+                        </div>
+                    </c:if>
                 </td>
 
                 <td class="td-status">
                     <c:if test="${gallery.isShare == 1}">
                         <c:choose>
                             <c:when test="${gallery.galleryName eq '默认相册' or gallery.galleryName eq 'ta的收藏'}">
-                                <input type="button" class="layui-btn layui-btn-danger layui-btn-mini"
+                                <input type="button" class="layui-btn layui-btn-normal layui-btn-mini"
                                         id="unShare-${gallery.id}" name="${gallery.id}" value="默认分享"/>
                             </c:when>
                             <c:otherwise>
@@ -107,24 +113,33 @@
                     </c:if>
                 </td>
                 <td class="td-status">
-                    <input type="button" class="layui-btn layui-btn-danger layui-btn-mini"
+                    <input type="button" class="layui-btn layui-btn-normal layui-btn-mini"
                            onclick="location.href='/gallery/picturesByUserGalleryId?galleryId=${gallery.id}&userId=${gallery.user.id}'"
                            id="galleryId" name="${gallery.galleryName}" value="访问"/>
                 </td>
                 <td class="td-status">
-                    <input type="button" class="layui-btn layui-btn-danger layui-btn-mini"
-                           onclick="location.href='/gallery/pictureListByGalleryId?galleryId=${gallery.id}&userId=${gallery.user.id}'"
+                    <input type="button" class="layui-btn layui-btn-normal layui-btn-mini"
+                           onclick="location.href='/gallery/pictureListByUserGalleryId?galleryId=${gallery.id}'"
                            id="galleryId" name="${gallery.galleryName}" value="管理该相册"/>
                 </td>
                 <td class="td-manage">
-                    <a title="编辑" onclick="x_admin_show('编辑','/gallery/edit?galleryId=${gallery.id}', 500, 450)"
-                       href="javascript:;">
-                        <i class="layui-icon">&#xe642;</i>
-                    </a>
 
-                    <a title="删除" onclick="member_del(this,${gallery.id})" href="javascript:;">
-                        <i class="layui-icon">&#xe640;</i>
-                    </a>
+                    <c:choose>
+                        <c:when test="${gallery.galleryName eq '默认相册' or gallery.galleryName eq 'ta的收藏'}">
+                        </c:when>
+                        <c:otherwise>
+                            <a title="编辑" onclick="x_admin_show('编辑','/gallery/edit?galleryId=${gallery.id}', 500, 450)"
+                               href="javascript:;">
+                                <i class="layui-icon">&#xe642;</i>
+                            </a>
+
+                            <a title="删除" onclick="member_del(this,${gallery.id})" href="javascript:;">
+                                <i class="layui-icon">&#xe640;</i>
+                            </a>
+                        </c:otherwise>
+                    </c:choose>
+
+
                 </td>
 
             </tr>
@@ -136,9 +151,9 @@
 <script type="text/javascript" src="/js/dcalendar.picker.js"></script>
 
 <script>
-
     /*用户-删除*/
     function member_del(obj,id){
+        var data={};
         data["galleryId"] = id;
         layer.confirm('确认要删除吗？',function(index){
             //发异步删除数据

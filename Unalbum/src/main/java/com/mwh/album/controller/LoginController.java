@@ -80,21 +80,18 @@ public class LoginController extends BaseController {
         }else{
             userInterests = userService
                     .findUserInterests(getSessionUser(request).getId());
-
-            if(userInterests != null){
-                //CollectionUtils.addAll(userInterests, new String[interests.size()]);
-                //Collections.copy(userInterests, interests);
+            if(userInterests == null || "".equals(userInterests.get(0))){
+                if(userInterests != null && "".equals(userInterests.get(0))){
+                    userInterests.remove(0);
+                }
+                for (PictureCategory pictureCategory : pictureCategoryList){
+                    userInterests.add(pictureCategory.getCategoryName());
+                }
+            }else{
                 for(PictureCategory pictureCategory : pictureCategoryList){
                     if(!userInterests.contains(pictureCategory.getCategoryName())){
                         userInterests.add(pictureCategory.getCategoryName());
                     }
-                }
-                for (String userInterest : userInterests){
-
-                }
-            }else{
-                for (PictureCategory pictureCategory : pictureCategoryList){
-                    userInterests.add(pictureCategory.getCategoryName());
                 }
             }
         }

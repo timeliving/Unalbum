@@ -13,5 +13,9 @@
         select *
         from td_role where id=#{id}
     </select>
+    <select id="findByName" parameterType="String" resultType="Role">
+        select *
+        from td_role where roleName=#{roleName}
+    </select>
 
 </mapper>

@@ -100,9 +100,8 @@
                         <a class="btn btn-outline btn--small text-weight--medium hidden-xs" href="/picture/submit">上传图片</a>
                     </li>
                     <c:if test="${!empty USER_CONTEXT.photo}">
-                        <a href="/@shisheng01">
+                        <a href="/user/account">
                             <img src="<%=basePath %>${USER_CONTEXT.photo}" sizes="32px" class="avatar avatar--small avatar--small-mobile">
-                            <span class="sr-only">Shi sheng</span>
                         </a>
                     </c:if>
                     <c:if test="${empty USER_CONTEXT.photo}">

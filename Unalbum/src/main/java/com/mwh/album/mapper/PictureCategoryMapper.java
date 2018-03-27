@@ -16,6 +16,8 @@ public interface PictureCategoryMapper {
     List<PictureCategory> findAll();
 
     PictureCategory findByCategoryName(String categoryName);
+    //根据ID查找
+    PictureCategory findById(int id);
 
     //新增图片
     int  save(PictureCategory pictureCategory);

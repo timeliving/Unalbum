@@ -63,10 +63,14 @@
     <div id="works"  class=" clearfix grid">
         <c:forEach items="${galleryList}" var="gallery"  varStatus="galleryStatus" begin="0" step="1">
             <figure class="effect-oscar  wowload fadeInUp">
-                <img src="/${gallery.pagePicture.picURL}" alt="img01"/>
+                <c:if test="${empty gallery.pagePicture.picURL}">
+                    <div style="background-color: #f5f5f5"></div>
+                </c:if>
+                <c:if test="${!empty gallery.pagePicture.picURL}">
+                    <img src="/${gallery.pagePicture.picURL}" alt="img01"/>
+                </c:if>
                 <figcaption>
                     <h2>${gallery.galleryName}</h2>
-
                     <p><a href="/gallery/picturesByGalleryId?galleryId=${gallery.id}&userId=${user.id}" id="${gallery.id}"llery>查看相册</a></p>
                 </figcaption>
             </figure>

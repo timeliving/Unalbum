@@ -21,6 +21,14 @@ public class PictureCategoryServiceImpl implements PictureCategoryService {
         return categories;
     }
 
+    public PictureCategory findById(int id) {
+        PictureCategory pictureCategory = pictureCategoryMapper.findById(id);
+        if(pictureCategory == null){
+            pictureCategory = new PictureCategory();
+        }
+        return pictureCategory;
+    }
+
     public PictureCategory findByCategoryName(String categoryName) {
         return pictureCategoryMapper.findByCategoryName(categoryName);
     }

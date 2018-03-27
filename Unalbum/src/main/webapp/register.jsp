@@ -24,7 +24,7 @@
 
     <link rel="stylesheet" media="all" href="css/unsplash.css" />
 
-    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico" />
     <link rel="apple-touch-icon-precomposed" type="image/png" href="img/apple-touch-icon-precomposed.png" />
     <link rel="apple-touch-icon-precomposed" type="image/png" href="img/apple-touch-icon-60x60-precomposed.png" sizes="60x60" />
     <link rel="apple-touch-icon-precomposed" type="image/png" href="img/apple-touch-icon-72x72-precomposed.png" sizes="72x72" />
@@ -53,7 +53,7 @@
                     document.all("password").value = "";
                     document.all("confirm_password").value="";
                     return false;
-                }else if(document.all("password").value.length <= 6){
+                }else if(document.all("password").value.length < 6){
                     alert("密码太短，请更正。");
                     document.all("password").focus();
                     document.all("password").value = "";
@@ -99,7 +99,7 @@
                     <div class="col-xs-12">
 
                         <div class="form">
-                            <form class="new_#&lt;User:0x007f394f409a90&gt;" id="new_#&lt;User:0x007f394f409a90&gt;"  action="<c:url value="/doRegister.html" />" accept-charset="UTF-8" method="post">
+                            <form class="new_#&lt;User:0x007f394f409a90&gt;" id="new_#&lt;User:0x007f394f409a90&gt;"  action="<c:url value="/register" />" accept-charset="UTF-8" method="post">
 
                                 <input name="utf8" type="hidden" value="&#x2713;" />
                                 <div class="form-group">

@@ -214,6 +214,7 @@ public class UserController extends BaseController {
         Integer pictureId = Integer.valueOf(map.get("pictureId").toString());
         String picName = map.get("picName").toString();
         Integer picCategory = Integer.valueOf(map.get("picCategory").toString());
+
         String tags = map.get("tags").toString();
         String picProfile = map.get("picProfile").toString();
         if(picProfile == null){
@@ -347,6 +348,14 @@ public class UserController extends BaseController {
             }
         }
         return path;
+    }
+
+    @RequestMapping(value="logout",method=RequestMethod.GET)
+    public ModelAndView userLogin(HttpServletRequest request){
+        ModelAndView mav = new ModelAndView();
+        setSessionUser(request,null);
+        mav.setViewName("forward:/home");
+        return mav;
     }
 
     @Autowired

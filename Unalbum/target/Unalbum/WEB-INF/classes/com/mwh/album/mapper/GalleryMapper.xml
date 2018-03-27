@@ -17,7 +17,7 @@
     <insert id="save" parameterType="Gallery">
         insert into td_gallery
         values
-        (null,#{galleryName},#{user.id},#{createDate},null,#{isShare})
+        (null,#{galleryName},#{user.id},#{createDate},#{pagePicture.id},#{isShare})
     </insert>
 
     <update id="update" parameterType="Gallery">

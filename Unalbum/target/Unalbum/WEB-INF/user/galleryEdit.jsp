@@ -61,7 +61,13 @@
                 缩略图
             </label>
             <div class="layui-input-inline">
-                <img src="<%=basePath %>${gallery.pagePicture.picURL}" id="picURL" style="width: 100%; vertical-align: middle;"  />
+                <c:if test="${!empty gallery.pagePicture.picURL}">
+                    <img src="/${gallery.pagePicture.picURL}" id="picURL" style="width: 100%; vertical-align: middle;"  />
+                </c:if>
+                <c:if test="${empty gallery.pagePicture.picURL}">
+                    <div style="background-color: #f5f5f5">
+                    </div>
+                </c:if>
             </div>
         </div>
         <div class="layui-form-item">

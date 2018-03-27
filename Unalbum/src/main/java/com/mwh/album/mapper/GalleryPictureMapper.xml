@@ -24,10 +24,17 @@
         id = #{id}
     </delete>
 
+    <delete id="deleteByGalleryIdAndPictureId" >
+        delete from td_gallery_picture where
+        gallery = #{galleryId} AND pictureId =#{pictureId}
+    </delete>
+
     <delete id="deleteByGalleryId" parameterType="int">
         delete from td_gallery_picture where
         gallery = #{galleryId}
     </delete>
+
+
 
     <select id="findAll" resultMap="GalleryPictureList">
         select * from td_gallery_picture
@@ -47,16 +54,16 @@
     <select id="findPicturesByGalleryId" parameterType="int" resultMap="com.mwh.album.mapper.PictureMapper.PictureList">
         select *
         from td_gallery_picture tgp LEFT JOIN td_picture tp ON tgp.pictureId = tp.id
-        where tgp.gallery = #{galleryId} ORDER  BY createDate DESC
+        where tgp.gallery = #{galleryId} ORDER  BY tgp.createDate DESC
     </select>
 
     <select id="findPictureListByIdOrderByPage" resultMap="com.mwh.album.mapper.PictureMapper.PictureList">
         select *
         from td_gallery_picture tgp LEFT JOIN td_picture tp ON tgp.pictureId = tp.id
-        where tgp.gallery = #{galleryId} ORDER  BY createDate DESC limit ${currIndex}, ${pageSize}
+        where tgp.gallery = #{galleryId} ORDER  BY tgp.createDate DESC limit ${currIndex}, ${pageSize}
     </select>
     
-    <select id="findGPListByIdOrderByPage" resultMap="GalleryPictureList">
+    <select id="findGalleryPictureByIdOrderByPage" resultMap="GalleryPictureList">
         select *
         from td_gallery_picture
         where gallery = #{galleryId} ORDER  BY createDate DESC limit ${currIndex}, ${pageSize}
@@ -68,9 +75,10 @@
         where tgp.gallery = #{galleryId}
     </select>
 
-    <select id="deleteByGalleryIdAndPictureId" >
-        delete from td_gallery_picture where
-        gallery = #{galleryId} AND pictureId =#{pictureId}
+
+
+    <select id="countByGalleryId" parameterType="int" resultType="int">
+        select count(*) FROM td_gallery_picture WHERE gallery = #{galleryId}
     </select>
 
 

@@ -45,7 +45,7 @@ public class PictureServiceImpl implements PictureService {
             if(pic.getPicCategory() != picture.getPicCategory()){
                 pic.setPicCategory(picture.getPicCategory());
             }
-            if(pic.getPicProfile() == picture.getPicProfile()){
+            if(pic.getPicProfile() != picture.getPicProfile()){
                 pic.setPicProfile(picture.getPicProfile());
             }
             if(pic.getIsShare().equals(picture.getIsShare())){

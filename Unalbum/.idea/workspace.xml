@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AnalysisUIOptions">
-    <option name="GROUP_BY_SEVERITY" value="true" />
-  </component>
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
       <artifact name="Unalbum:war exploded" />
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="54dab6bf-8efd-48b3-a970-0b6693df9a70" name="Default" comment="" />
+    <list default="true" id="521d4fcc-9f51-4678-a0da-f2929518a2cf" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,16 +15,23 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FavoritesManager">
-    <favorites_list name="Unalbum" />
-  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="GalleryController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/mwh/album/controller/GalleryController.java">
+      <file leaf-file-name="home.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/picture/home.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="73" column="0" lean-forward="false" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+            <state relative-caret-position="5980">
+              <caret line="222" column="38" lean-forward="false" selection-start-line="222" selection-start-column="32" selection-end-line="222" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="category.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/picture/category.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="555">
+              <caret line="104" column="0" lean-forward="false" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -36,41 +40,28 @@
       <file leaf-file-name="pictureListByGallery.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/user/pictureListByGallery.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-391">
-              <caret line="6" column="4" lean-forward="false" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
+            <state relative-caret-position="1031">
+              <caret line="133" column="95" lean-forward="false" selection-start-line="133" selection-start-column="95" selection-end-line="133" selection-end-column="95" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GalleryPictureMapper.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/mwh/album/mapper/GalleryPictureMapper.xml">
+      <file leaf-file-name="galleryUser.jsp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/user/galleryUser.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="52" column="46" lean-forward="false" selection-start-line="52" selection-start-column="16" selection-end-line="52" selection-end-column="46" />
-              <folding>
-                <marker date="1522077748626" expanded="true" signature="703:804" ph="insert into td_gallery_picture... " />
-                <marker date="1522077748626" expanded="true" signature="874:929" ph="delete from td_gallery... " />
-                <marker date="1522077748626" expanded="true" signature="1009:1076" ph="delete from td_gallery_picture... " />
-                <marker date="1522077748626" expanded="true" signature="1157:1189" ph="select * fro... td_gallery" />
-                <marker date="1522077748626" expanded="true" signature="1303:1406" ph="select * fro... td_gallery_picture" />
-                <marker date="1522077748626" expanded="true" signature="1499:1554" ph="select * fro... td_gallery" />
-                <marker date="1522077748626" expanded="true" signature="1699:1833" ph="select * fro... td_gallery" />
-                <marker date="1522077748626" expanded="true" signature="1699:1859" ph="select * fro... td_gallery_picture" />
-                <marker date="1522077748626" expanded="true" signature="1991:2183" ph="select * fro... td_gallery_picture" />
-                <marker date="1522077748626" expanded="true" signature="2286:2421" ph="select * fro... td_gallery_picture" />
-                <marker date="1522077748626" expanded="true" signature="2525:2663" ph="select tp.id... td_gallery_picture" />
-                <marker date="1522077748626" expanded="true" signature="2736:2831" ph="delete from td_gallery_picture... " />
-              </folding>
+            <state relative-caret-position="136">
+              <caret line="54" column="110" lean-forward="false" selection-start-line="54" selection-start-column="110" selection-end-line="54" selection-end-column="110" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GalleryPictureMapper.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/mwh/album/mapper/GalleryPictureMapper.java">
+      <file leaf-file-name="gallery.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/picture/gallery.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="412">
-              <caret line="24" column="54" lean-forward="false" selection-start-line="24" selection-start-column="54" selection-end-line="24" selection-end-column="54" />
+            <state relative-caret-position="246">
+              <caret line="66" column="57" lean-forward="false" selection-start-line="66" selection-start-column="32" selection-end-line="66" selection-end-column="57" />
               <folding />
             </state>
           </provider>
@@ -78,45 +69,16 @@
       </file>
     </leaf>
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="FxmlFile" />
-        <option value="Interface" />
-        <option value="Class" />
-        <option value="Enum" />
-        <option value="Jsp File" />
-      </list>
-    </option>
-  </component>
-  <component name="FindBugs-IDEA-Workspace">
-    <toolWindowScrollToSource>false</toolWindowScrollToSource>
-    <toolWindowEditorPreview>false</toolWindowEditorPreview>
-    <toolWindowGroupBy>Class</toolWindowGroupBy>
-  </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>e</find>
-      <find>js-general-uploader-pseudo-file-field</find>
-      <find>images</find>
-      <find>navbar__element--heading</find>
-      <find>Type Your Keyword</find>
-      <find>Search for</find>
-      <find>dz-size</find>
-      <find>fmt</find>
-      <find>upload</find>
-      <find>fileToImg</find>
-      <find>laydate-footer-btns</find>
-      <find>占用</find>
-      <find>现在</find>
-      <find>/images/bg.jpg</find>
-      <find>bg</find>
-      <find>saveCollection</find>
+      <find>findGalleryPictureByGalleryId</find>
+      <find>findPictureIdByGalleryId</find>
+      <find>findGalleryPictureByIdOrderByPage</find>
+      <find>deleteByGalleryIdAndPictureId</find>
+      <find>delete</find>
+      <find>google</find>
+      <find>edit</find>
       <find>metricsgraphics.css</find>
-      <find>a</find>
-      <find>.layui-btn-normal</find>
-      <find>.page span.current</find>
-      <find>galleryByUser</find>
     </findStrings>
   </component>
   <component name="GradleLocalSettings">
@@ -127,57 +89,37 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/webapp/js/xadmin.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/lib/layui/layui.js" />
-        <option value="$PROJECT_DIR$/target/Unalbum/lib/layui/lay/modules/laydate.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/lib/layui/layui.all.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mwh/album/mapper/PictureMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/user/picturesUserByDate.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mwh/album/controller/UserController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mwh/album/mapper/GalleryPicture.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/spring-mvc.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mwh/album/service/impl/GalleryPictureImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/assets/animate/set.css" />
-        <option value="$PROJECT_DIR$/target/Unalbum/assets/animate/set.css" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mwh/album/service/PictureService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mwh/album/model/GalleryPicture.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/css/component1.css" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/user/pictureEdit.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mwh/album/controller/PictureController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mwh/album/common/IsIn.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/picture/category.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/css/bootstrap.css" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/picture/galleryPictures.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/picture/gallery.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/lib/layui/css/layui.css" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mwh/album/mapper/PictureMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/picture/home.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/user/account.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/user/password.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/user/profile.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/user/submit.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mwh/album/service/impl/PictureServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mwh/album/model/Gallery.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mwh/album/mapper/PictureCategoryMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mwh/album/service/GalleryPictureService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mwh/album/service/impl/GalleryPictureServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mwh/album/mapper/GalleryMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mwh/album/service/GalleryService.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/user/picturesUser.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/user/picturesByGalery.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/picture/galleryAddPicture.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/user/picturesByGallery.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/user/galleryAdd.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/css/xadmin.css" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/user/galleryEdit.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/mwh/album/service/impl/GalleryServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/picture/gallery.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mwh/album/service/PictureCategoryService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mwh/album/service/impl/PictureCategoryServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mwh/album/mapper/PictureCategoryMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mwh/album/mapper/GalleryPictureMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mwh/album/service/impl/GalleryPictureServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mwh/album/mapper/GalleryPictureMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/user/galleryEdit.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/mwh/album/mapper/GalleryMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/user/pictures.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/user/galleryUser.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mwh/album/controller/GalleryController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/img/logo-white-d6de700c647597b70cb24484a22ea0e43a4a28c563144e4a49c38f291fc2eb61.svg" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/user/pictureListByGallery.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mwh/album/mapper/GalleryPictureMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mwh/album/mapper/GalleryPictureMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mwh/album/controller/GalleryController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/login.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/user/account.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mwh/album/controller/RegisterController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/register.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mwh/album/mapper/UserMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mwh/album/mapper/RoleMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mwh/album/mapper/RoleMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mwh/album/service/impl/UserServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mwh/album/controller/LoginController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mwh/album/controller/UserController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mwh/album/service/impl/PictureServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/user/picturesUser.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/css/metricsgraphics.css" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/picture/category.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/user/galleryUser.jsp" />
       </list>
     </option>
   </component>
@@ -194,38 +136,19 @@
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
   </component>
-  <component name="MavenProjectNavigator">
-    <treeState>
-      <expand>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="Unalbum Maven Webapp" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-        </path>
-      </expand>
-      <select />
-    </treeState>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="createModuleGroups" value="true" />
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="327" />
-    <option name="y" value="303" />
-    <option name="width" value="1337" />
-    <option name="height" value="843" />
-  </component>
-  <component name="ProjectInspectionProfilesVisibleTreeState">
-    <entry key="Project Default">
-      <profile-state>
-        <expanded-state>
-          <State>
-            <id />
-          </State>
-        </expanded-state>
-        <selected-state>
-          <State>
-            <id>AngularJS</id>
-          </State>
-        </selected-state>
-      </profile-state>
-    </entry>
+    <option name="x" value="260" />
+    <option name="y" value="25" />
+    <option name="width" value="1400" />
+    <option name="height" value="1000" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -242,6 +165,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -298,6 +224,34 @@
               <item name="Unalbum" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="album" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Unalbum" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Unalbum" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="album" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Unalbum" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Unalbum" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="album" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="impl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Unalbum" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Unalbum" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -321,7 +275,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Unalbum" type="b2602c69:ProjectViewProjectNode" />
@@ -347,51 +301,24 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-              <item name="search" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Unalbum" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Unalbum" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
               <item name="user" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
-    <property name="com.intellij.ide.scratch.LRUPopupBuilder$2/Languages" value="XML" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Problems" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://D:/Work/IDEA/Unalbum/src/main/webapp/WEB-INF/user/pictureEdit.jsp" />
+    <property name="settings.editor.selected.configurable" value="preferences.customizations" />
+    <property name="SearchEverywhereHistoryKey" value="Google&#9;null&#9;null&#10;ParameterMap&#9;PSI&#9;JAVA://com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory#makeParameterizedTypeMapping&#10;ParameterMap &#9;PSI&#9;JAVA://javax.print.MimeType.ParameterMap" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Work\IDEA\Unalbum\src\main\webapp\lib" />
-      <recent name="D:\Work\IDEA\Unalbum\src\main\webapp\WEB-INF\picture" />
-      <recent name="D:\Work\IDEA\Unalbum\src\main\webapp\picture\user" />
-      <recent name="D:\Work\IDEA\Unalbum\src\main\webapp" />
-      <recent name="D:\Work\IDEA\Unalbum\src\main\webapp\img" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Work\IDEA\Unalbum\src\main\webapp\img" />
-      <recent name="D:\Work\IDEA\Unalbum\src\main\webapp\assets" />
-      <recent name="D:\Work\IDEA\Unalbum\src\main\webapp" />
-      <recent name="D:\Work\IDEA\Unalbum\src\main\webapp\js" />
-      <recent name="D:\Work\IDEA\Unalbum\src\main\webapp\css" />
+      <recent name="D:\IDEA\Unalbum\src\main\webapp\img" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -482,8 +409,7 @@
       <properties />
       <listeners />
     </configuration>
-    <configuration name="Tomcat9" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.0.M26" ALTERNATIVE_JRE_ENABLED="false">
-      <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
+    <configuration name="Tomcat9" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.6" ALTERNATIVE_JRE_ENABLED="false">
       <option name="START_JAVASCRIPT_DEBUGGER" value="true" />
       <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
       <option name="UPDATE_CLASSES_ON_FRAME_DEACTIVATION" value="true" />
@@ -505,10 +431,7 @@
       <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="2634" />
-      </RunnerSettings>
-      <RunnerSettings RunnerId="JRebel Debug">
-        <option name="DEBUG_PORT" value="9285" />
+        <option name="DEBUG_PORT" value="60438" />
       </RunnerSettings>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
         <option name="USE_ENV_VARIABLES" value="true" />
@@ -526,36 +449,6 @@
         </SHUTDOWN>
       </ConfigurationWrapper>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="JRebel Debug">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="JRebel Executor">
         <option name="USE_ENV_VARIABLES" value="true" />
         <STARTUP>
           <option name="USE_DEFAULT" value="true" />
@@ -598,11 +491,6 @@
       <predefined_log_file id="idea.log" enabled="true" />
     </configuration>
   </component>
-  <component name="SbtLocalSettings">
-    <option name="externalProjectsViewState">
-      <projects_view />
-    </option>
-  </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
@@ -611,97 +499,58 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="54dab6bf-8efd-48b3-a970-0b6693df9a70" name="Default" comment="" />
-      <created>1520841082967</created>
+      <changelist id="521d4fcc-9f51-4678-a0da-f2929518a2cf" name="Default" comment="" />
+      <created>1522115344465</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1520841082967</updated>
-      <workItem from="1520841089906" duration="28119000" />
-      <workItem from="1520996302529" duration="6343000" />
-      <workItem from="1521006083941" duration="17488000" />
-      <workItem from="1521073897494" duration="12610000" />
-      <workItem from="1521099742387" duration="15745000" />
-      <workItem from="1521160202899" duration="15859000" />
-      <workItem from="1521267274879" duration="59000" />
-      <workItem from="1521267430068" duration="15960000" />
-      <workItem from="1521357222640" duration="18861000" />
-      <workItem from="1521419560362" duration="8936000" />
-      <workItem from="1521429036382" duration="332000" />
-      <workItem from="1521429397549" duration="627000" />
-      <workItem from="1521430060179" duration="23316000" />
-      <workItem from="1521505827915" duration="4601000" />
-      <workItem from="1521511122599" duration="43000" />
-      <workItem from="1521511459238" duration="1054000" />
-      <workItem from="1521512561497" duration="3238000" />
-      <workItem from="1521515834865" duration="126000" />
-      <workItem from="1521515993303" duration="222000" />
-      <workItem from="1521516239937" duration="694000" />
-      <workItem from="1521516959515" duration="28787000" />
-      <workItem from="1521591682275" duration="38904000" />
-      <workItem from="1521678438908" duration="6958000" />
-      <workItem from="1521687530908" duration="6600000" />
-      <workItem from="1521695646729" duration="12009000" />
-      <workItem from="1521707894207" duration="13573000" />
-      <workItem from="1521764524660" duration="13620000" />
-      <workItem from="1521780468213" duration="46299000" />
-      <workItem from="1522023820212" duration="2037000" />
-      <workItem from="1522026397825" duration="29780000" />
-      <workItem from="1522069331874" duration="6473000" />
+      <updated>1522115344465</updated>
+      <workItem from="1522115347136" duration="1563000" />
+      <workItem from="1522116940461" duration="118000" />
+      <workItem from="1522117083663" duration="19208000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="379273000" />
-  </component>
-  <component name="TodoView">
-    <todo-panel id="selected-file">
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-    <todo-panel id="all">
-      <are-packages-shown value="true" />
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
+    <option name="totallyTimeSpent" value="20889000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="FindBugs-IDEA" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2932331" sideWeight="0.48707908" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32867885" sideWeight="0.4978678" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="JRebel Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32948583" sideWeight="0.5125" order="16" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="JRebel Executor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32948583" sideWeight="0.4875" order="17" side_tool="false" content_ui="tabs" />
-      <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39955106" sideWeight="0.50289017" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32996634" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2244898" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" x="22" y="246" width="1876" height="700" />
-      <window_info id="Tail" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="18" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33082706" sideWeight="0.5129209" order="9" side_tool="false" content_ui="tabs" x="22" y="429" width="1876" height="191" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24704619" sideWeight="0.46145833" order="15" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2623295" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18230277" sideWeight="0.48154092" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18070363" sideWeight="0.5184591" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="JRebel" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1893815" sideWeight="0.5065574" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4032258" sideWeight="0.49710983" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19349681" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32942432" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -713,523 +562,486 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/mwh/album/service/impl/TagServiceImpl.java</url>
-          <line>34</line>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/mwh/album/controller/GalleryController.java</url>
+          <line>135</line>
           <properties />
-          <option name="timeStamp" value="82" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/mwh/album/controller/LoginController.java</url>
-          <line>115</line>
-          <properties />
-          <option name="timeStamp" value="84" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/mwh/album/service/impl/TagServiceImpl.java</url>
-          <line>42</line>
-          <properties />
-          <option name="timeStamp" value="104" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/mwh/album/service/impl/PictureTagServiceImpl.java</url>
-          <line>37</line>
-          <properties />
-          <option name="timeStamp" value="105" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/mwh/album/service/impl/TagServiceImpl.java</url>
-          <line>50</line>
-          <properties />
-          <option name="timeStamp" value="110" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/mwh/album/service/impl/TagServiceImpl.java</url>
-          <line>26</line>
-          <properties />
-          <option name="timeStamp" value="112" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/mwh/album/service/impl/PictureTagServiceImpl.java</url>
-          <line>45</line>
-          <properties />
-          <option name="timeStamp" value="114" />
-        </line-breakpoint>
-        <line-breakpoint type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/mwh/album/service/impl/UserLikeCollectionImpl.java</url>
-          <line>49</line>
-          <properties class="com.mwh.album.service.impl.UserLikeCollectionImpl" method="deleteByPictureId">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="92" />
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
-      <breakpoints-dialog>
-        <breakpoints-dialog />
-      </breakpoints-dialog>
-      <option name="time" value="153" />
+      <option name="time" value="17" />
     </breakpoint-manager>
-    <watches-manager>
-      <configuration name="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory">
-        <watch expression="category" />
-        <watch expression="this" />
-        <watch expression="picture" />
-        <watch expression="picture.get(1)" />
-      </configuration>
-    </watches-manager>
+    <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mwh/album/service/impl/PictureCategoryServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mwh/album/service/PictureService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mwh/album/model/GalleryPicture.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="41" column="33" lean-forward="false" selection-start-line="41" selection-start-column="33" selection-end-line="41" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mwh/album/service/PictureCategoryService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="11" column="17" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/css/unsplash.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="0" column="861" lean-forward="false" selection-start-line="0" selection-start-column="861" selection-end-line="0" selection-end-column="861" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/css/vendor.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-28">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/css/component1.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="162" column="1" lean-forward="false" selection-start-line="162" selection-start-column="1" selection-end-line="162" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/xadmin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="139" column="9" lean-forward="false" selection-start-line="139" selection-start-column="9" selection-end-line="139" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/user/picturesUserByDate.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="673">
-          <caret line="261" column="17" lean-forward="false" selection-start-line="247" selection-start-column="16" selection-end-line="261" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/css/bootstrap.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="1099" column="10" lean-forward="false" selection-start-line="1099" selection-start-column="10" selection-end-line="1099" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/search/pictureTag.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="449">
-          <caret line="413" column="51" lean-forward="true" selection-start-line="408" selection-start-column="8" selection-end-line="413" selection-end-column="51" />
-          <folding>
-            <element signature="n#c:if#3;n#c:if#0;n#c:forEach#1;n#jsp:root#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mwh/album/common/IsIn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
-          <caret line="2" column="11" lean-forward="false" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/lib/layui/layui.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mwh/album/mapper/PictureCategoryMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="484">
+          <caret line="11" column="41" lean-forward="true" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
           <folding>
-            <marker date="1521440184583" expanded="true" signature="499:532" ph="select * fro... td_picture_category" />
-            <marker date="1521440184583" expanded="true" signature="645:723" ph="SELECT * FRO... td_picture_category" />
-            <marker date="1521440184583" expanded="true" signature="794:871" ph="insert into td_picture_category... " />
-            <marker date="1521440184583" expanded="true" signature="946:1041" ph="update td_picture_category... " />
-            <marker date="1521440184583" expanded="true" signature="1110:1166" ph="delete from td_picture_category... " />
+            <marker date="1522126890073" expanded="true" signature="499:532" ph="select * fro... td_picture_category" />
+            <marker date="1522126890073" expanded="true" signature="632:682" ph="select * fro... td_picture_category" />
+            <marker date="1522126890073" expanded="true" signature="795:873" ph="SELECT * FRO... td_picture_category" />
+            <marker date="1522126890073" expanded="true" signature="944:1021" ph="insert into td_picture_category... " />
+            <marker date="1522126890073" expanded="true" signature="1096:1191" ph="update td_picture_category... " />
+            <marker date="1522126890073" expanded="true" signature="1260:1316" ph="delete from td_picture_category... " />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/user/profile.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mwh/album/mapper/GalleryPictureMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="93" column="0" lean-forward="false" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
+        <state relative-caret-position="23">
+          <caret line="22" column="58" lean-forward="false" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="58" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mwh/album/mapper/PictureMapper.xml">
+    <entry file="file://$PROJECT_DIR$/target/Unalbum/picture/user/traffic1.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/target/Unalbum/picture/user/travel1.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/img/icon.svg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/img/logo-white-d6de700c647597b70cb24484a22ea0e43a4a28c563144e4a49c38f291fc2eb61.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/img/logo-white-d6de700c647597b70cb24484a22ea0e43a4a28c563144e4a49c38f291fc2eb61.ico">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/img/favicon.ico">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/img/logo-black-b37a09de4a228cd8fb72adbabc95931c5090611a0cae8e76f1fd077d378ec080.svg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/user/pictures.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-818">
-          <caret line="85" column="29" lean-forward="false" selection-start-line="85" selection-start-column="29" selection-end-line="85" selection-end-column="29" />
+        <state relative-caret-position="171">
+          <caret line="36" column="136" lean-forward="false" selection-start-line="36" selection-start-column="136" selection-end-line="36" selection-end-column="136" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/img/logo-white-d6de700c647597b70cb24484a22ea0e43a4a28c563144e4a49c38f291fc2eb61.svg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mwh/album/service/impl/GalleryPictureServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1458">
+          <caret line="106" column="0" lean-forward="false" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
           <folding>
-            <marker date="1522046533537" expanded="true" signature="1164:1340" ph="insert into td_picture... " />
-            <marker date="1522046533537" expanded="true" signature="1415:1590" ph="update td_picture... " />
-            <marker date="1522046533537" expanded="true" signature="1675:1752" ph="update td_picture... " />
-            <marker date="1522046533537" expanded="true" signature="1842:1929" ph="UPDATE td_picture... " />
-            <marker date="1522046533537" expanded="true" signature="1998:2045" ph="delete from td_picture... " />
-            <marker date="1522046533537" expanded="true" signature="2125:2149" ph="select * fro... td_picture" />
-            <marker date="1522046533537" expanded="true" signature="2125:2227" ph="select * fro... td_picture" />
-            <marker date="1522046533537" expanded="true" signature="2320:2367" ph="select * fro... td_picture" />
-            <marker date="1522046533537" expanded="true" signature="2457:2510" ph="select * fro... td_picture" />
-            <marker date="1522046533537" expanded="true" signature="2457:2576" ph="select * fro... td_picture" />
-            <marker date="1522046533537" expanded="true" signature="2673:2711" ph="select * fro... td_picture" />
-            <marker date="1522046533537" expanded="true" signature="2673:3175" ph="select * fro... td_picture" />
-            <marker date="1522046533537" expanded="true" signature="3278:3359" ph="select * fro... td_picture" />
-            <marker date="1522046533537" expanded="true" signature="3278:3395" ph="select * fro... td_picture" />
-            <marker date="1522046533537" expanded="true" signature="3490:3653" ph="select * fro... td_picture" />
-            <marker date="1522046533537" expanded="true" signature="3760:3959" ph="select * fro... td_picture" />
-            <marker date="1522046533537" expanded="true" signature="4069:4202" ph="SELECT * FRO... td_picture" />
-            <marker date="1522046533537" expanded="true" signature="4301:4383" ph="select count... td_picture" />
-            <marker date="1522046533537" expanded="true" signature="4451:4482" ph="select count... td_picture" />
-            <marker date="1522046533537" expanded="true" signature="4451:4500" ph="select count... td_picture" />
-            <marker date="1522046533537" expanded="true" signature="4593:4799" ph="select count... td_picture" />
-            <marker date="1522046533537" expanded="true" signature="4892:4945" ph="select count... td_picture" />
-            <marker date="1522046533537" expanded="true" signature="4892:4946" ph="select count... td_picture" />
+            <element signature="e#1924#1945#0" expanded="true" />
+            <element signature="e#4556#4557#0" expanded="true" />
+            <element signature="e#4627#4628#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mwh/album/controller/GalleryController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="49">
+          <caret line="72" column="25" lean-forward="false" selection-start-line="72" selection-start-column="25" selection-end-line="72" selection-end-column="25" />
+          <folding>
+            <element signature="e#12995#12996#0" expanded="true" />
+            <element signature="e#13047#13048#0" expanded="true" />
+            <element signature="e#13291#13292#0" expanded="true" />
+            <element signature="e#13337#13338#0" expanded="true" />
+            <element signature="e#13420#13421#0" expanded="true" />
+            <element signature="e#13472#13473#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/user/password.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="106" column="0" lean-forward="false" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
+        <state relative-caret-position="-138">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mwh/album/service/impl/PictureServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/target/Unalbum/WEB-INF/user/home.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mwh/album/model/Gallery.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/user/home.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="16" column="27" lean-forward="false" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/user/submit.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="447">
-          <caret line="83" column="0" lean-forward="false" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
+        <state relative-caret-position="-1877">
+          <caret line="25" column="42" lean-forward="false" selection-start-line="25" selection-start-column="42" selection-end-line="25" selection-end-column="42" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mwh/album/service/GalleryPictureService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="28" column="42" lean-forward="false" selection-start-line="28" selection-start-column="42" selection-end-line="28" selection-end-column="42" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mwh/album/mapper/GalleryMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="597">
-          <caret line="31" column="32" lean-forward="false" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
-        </state>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/img/apple-touch-icon-precomposed.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/lib/layui/css/layui.css">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/login.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-22">
-          <caret line="1" column="230" lean-forward="false" selection-start-line="1" selection-start-column="230" selection-end-line="1" selection-end-column="230" />
+        <state relative-caret-position="575">
+          <caret line="24" column="21" lean-forward="false" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/user/picturesUser.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mwh/album/common/CommonConstant.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="67" column="11" lean-forward="true" selection-start-line="67" selection-start-column="11" selection-end-line="69" selection-end-column="17" />
+        <state relative-caret-position="494">
+          <caret line="19" column="31" lean-forward="false" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/picture/galleryPictures.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mwh/album/controller/BaseController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
-          <caret line="51" column="87" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="120" selection-end-column="7" />
+        <state relative-caret-position="271">
+          <caret line="35" column="22" lean-forward="false" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/user/account.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="112" column="51" lean-forward="false" selection-start-line="112" selection-start-column="51" selection-end-line="112" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mwh/album/controller/PictureController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-779">
-          <caret line="103" column="19" lean-forward="false" selection-start-line="103" selection-start-column="19" selection-end-line="103" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mwh/album/service/impl/GalleryPictureServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="66" column="58" lean-forward="false" selection-start-line="66" selection-start-column="58" selection-end-line="66" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/user/galleryAdd.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="88" column="31" lean-forward="false" selection-start-line="88" selection-start-column="31" selection-end-line="88" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/user/picturesByGallery.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/css/xadmin.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2361">
-          <caret line="340" column="20" lean-forward="false" selection-start-line="340" selection-start-column="20" selection-end-line="340" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.m2/repository/org/springframework/spring-web/4.0.2.RELEASE/spring-web-4.0.2.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="137" column="0" lean-forward="false" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/picture/category.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2342">
-          <caret line="42" column="52" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/picture/galleryAddPicture.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1038">
-          <caret line="79" column="37" lean-forward="false" selection-start-line="79" selection-start-column="37" selection-end-line="79" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mwh/album/service/impl/GalleryServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="64" column="18" lean-forward="false" selection-start-line="64" selection-start-column="18" selection-end-line="64" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mwh/album/controller/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="70">
-          <caret line="182" column="46" lean-forward="true" selection-start-line="182" selection-start-column="46" selection-end-line="182" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/picture/home.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="144" column="65" lean-forward="true" selection-start-line="144" selection-start-column="65" selection-end-line="144" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mwh/album/controller/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="72" column="0" lean-forward="false" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/picture/gallery.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-93">
-          <caret line="51" column="87" lean-forward="false" selection-start-line="51" selection-start-column="87" selection-end-line="51" selection-end-column="87" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/css/font.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="8" column="1" lean-forward="false" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/user/pictures.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
-          <caret line="60" column="40" lean-forward="false" selection-start-line="60" selection-start-column="40" selection-end-line="60" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mwh/album/controller/GalleryController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="73" column="0" lean-forward="false" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/user/pictureEdit.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="117" column="24" lean-forward="true" selection-start-line="117" selection-start-column="24" selection-end-line="117" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/user/galleryEdit.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mwh/album/service/UserService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
-          <caret line="54" column="42" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="120" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/user/pictureListByGallery.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-391">
-          <caret line="6" column="4" lean-forward="false" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mwh/album/mapper/PictureMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="46" column="12" lean-forward="true" selection-start-line="46" selection-start-column="12" selection-end-line="47" selection-end-column="52" />
+          <caret line="14" column="9" lean-forward="false" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mwh/album/mapper/GalleryPictureMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="52" column="46" lean-forward="false" selection-start-line="52" selection-start-column="16" selection-end-line="52" selection-end-column="46" />
+        <state relative-caret-position="667">
+          <caret line="29" column="13" lean-forward="false" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
           <folding>
-            <marker date="1522077748626" expanded="true" signature="703:804" ph="insert into td_gallery_picture... " />
-            <marker date="1522077748626" expanded="true" signature="874:929" ph="delete from td_gallery... " />
-            <marker date="1522077748626" expanded="true" signature="1009:1076" ph="delete from td_gallery_picture... " />
-            <marker date="1522077748626" expanded="true" signature="1157:1189" ph="select * fro... td_gallery" />
-            <marker date="1522077748626" expanded="true" signature="1303:1406" ph="select * fro... td_gallery_picture" />
-            <marker date="1522077748626" expanded="true" signature="1499:1554" ph="select * fro... td_gallery" />
-            <marker date="1522077748626" expanded="true" signature="1699:1833" ph="select * fro... td_gallery" />
-            <marker date="1522077748626" expanded="true" signature="1699:1859" ph="select * fro... td_gallery_picture" />
-            <marker date="1522077748626" expanded="true" signature="1991:2183" ph="select * fro... td_gallery_picture" />
-            <marker date="1522077748626" expanded="true" signature="2286:2421" ph="select * fro... td_gallery_picture" />
-            <marker date="1522077748626" expanded="true" signature="2525:2663" ph="select tp.id... td_gallery_picture" />
-            <marker date="1522077748626" expanded="true" signature="2736:2831" ph="delete from td_gallery_picture... " />
+            <marker date="1522128267728" expanded="true" signature="703:804" ph="insert into td_gallery_picture... " />
+            <marker date="1522128267728" expanded="true" signature="874:929" ph="delete from td_gallery_picture... " />
+            <marker date="1522128267728" expanded="true" signature="1002:1097" ph="delete from td_gallery_picture... " />
+            <marker date="1522128267728" expanded="true" signature="1177:1244" ph="delete from td_gallery_picture... " />
+            <marker date="1522128267728" expanded="true" signature="1327:1359" ph="select * fro... td_gallery_picture" />
+            <marker date="1522128267728" expanded="true" signature="1473:1576" ph="select * fro... td_gallery_picture" />
+            <marker date="1522128267728" expanded="true" signature="1669:1724" ph="select * fro... td_gallery_picture" />
+            <marker date="1522128267728" expanded="true" signature="1869:2033" ph="select * fro... td_gallery_picture" />
+            <marker date="1522128267728" expanded="true" signature="2165:2361" ph="select * fro... td_gallery_picture" />
+            <marker date="1522128267728" expanded="true" signature="2472:2607" ph="select * fro... td_gallery_picture" />
+            <marker date="1522128267728" expanded="true" signature="2711:2849" ph="select tp.id... td_gallery_picture" />
+            <marker date="1522128267728" expanded="true" signature="2947:3015" ph="select count... td_gallery_picture" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mwh/album/mapper/PicureCategoryMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1522115202947" expanded="true" signature="471:504" ph="select * fro... td_picture_category" />
+            <marker date="1522115202947" expanded="true" signature="588:666" ph="SELECT * FRO... td_picture_category" />
+            <marker date="1522115202947" expanded="true" signature="737:814" ph="insert into td_picture_category... " />
+            <marker date="1522115202947" expanded="true" signature="889:984" ph="update td_picture_category... " />
+            <marker date="1522115202947" expanded="true" signature="1053:1109" ph="delete from td_picture_category... " />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mwh/album/mapper/GalleryMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="53" column="60" lean-forward="true" selection-start-line="53" selection-start-column="60" selection-end-line="53" selection-end-column="60" />
+        <state relative-caret-position="437">
+          <caret line="19" column="70" lean-forward="false" selection-start-line="19" selection-start-column="70" selection-end-line="19" selection-end-column="70" />
           <folding>
-            <marker date="1522073616486" expanded="true" signature="898:1006" ph="insert into td_tag... " />
-            <marker date="1522073616486" expanded="true" signature="1079:1192" ph="UPDATE td_gallery... " />
-            <marker date="1522073616486" expanded="true" signature="1259:1340" ph="UPDATE td_gallery... " />
-            <marker date="1522073616486" expanded="true" signature="1410:1457" ph="delete from td_tag... " />
-            <marker date="1522073616486" expanded="true" signature="1531:1555" ph="select * fro... td_gallery" />
-            <marker date="1522073616486" expanded="true" signature="1651:1698" ph="select * fro... td_tag" />
-            <marker date="1522073616486" expanded="true" signature="1797:1850" ph="select * fro... td_gallery" />
-            <marker date="1522073616486" expanded="true" signature="1797:1866" ph="select * fro... td_gallery" />
-            <marker date="1522073616486" expanded="true" signature="1797:1867" ph="select * fro... td_gallery" />
-            <marker date="1522073616486" expanded="true" signature="1983:2036" ph="select * fro... td_gallery" />
-            <marker date="1522073616486" expanded="true" signature="1983:2097" ph="select * fro... td_gallery" />
-            <marker date="1522073616486" expanded="true" signature="2176:2262" ph="select * fro... td_gallery" />
+            <marker date="1522129422236" expanded="true" signature="898:1019" ph="insert into td_gallery... " />
+            <marker date="1522129422236" expanded="true" signature="1092:1205" ph="UPDATE td_gallery... " />
+            <marker date="1522129422236" expanded="true" signature="1272:1353" ph="UPDATE td_gallery... " />
+            <marker date="1522129422236" expanded="true" signature="1423:1470" ph="delete from td_gallery... " />
+            <marker date="1522129422236" expanded="true" signature="1544:1568" ph="select * fro... td_gallery" />
+            <marker date="1522129422236" expanded="true" signature="1664:1711" ph="select * fro... td_gallery" />
+            <marker date="1522129422236" expanded="true" signature="1810:1879" ph="select * fro... td_gallery" />
+            <marker date="1522129422236" expanded="true" signature="1996:2110" ph="select * fro... td_gallery" />
+            <marker date="1522129422236" expanded="true" signature="2189:2275" ph="select * fro... td_gallery" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mwh/album/service/GalleryService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/user/account.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="13" column="18" lean-forward="false" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
+        <state relative-caret-position="655">
+          <caret line="182" column="150" lean-forward="false" selection-start-line="182" selection-start-column="144" selection-end-line="182" selection-end-column="150" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mwh/album/mapper/UserMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="10" column="17" lean-forward="false" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mwh/album/mapper/UserMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="24" column="72" lean-forward="false" selection-start-line="24" selection-start-column="72" selection-end-line="24" selection-end-column="72" />
+          <folding>
+            <marker date="1522133040437" expanded="true" signature="1017:1165" ph="insert into td_user... " />
+            <marker date="1522133040437" expanded="true" signature="1244:1398" ph="update td_user... " />
+            <marker date="1522133040437" expanded="true" signature="1455:1521" ph="update td_user... " />
+            <marker date="1522133040437" expanded="true" signature="1577:1640" ph="UPDATE td_user... " />
+            <marker date="1522133040437" expanded="true" signature="1709:1753" ph="delete from td_user... " />
+            <marker date="1522133040437" expanded="true" signature="1824:1845" ph="select * fro... td_user" />
+            <marker date="1522133040437" expanded="true" signature="1935:1979" ph="select * fro... td_user" />
+            <marker date="1522133040437" expanded="true" signature="2077:2133" ph="select * fro... td_user" />
+            <marker date="1522133040437" expanded="true" signature="2233:2289" ph="select userI... td_user" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/register.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="101" column="149" lean-forward="false" selection-start-line="101" selection-start-column="149" selection-end-line="101" selection-end-column="149" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mwh/album/model/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-198">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mwh/album/mapper/RoleMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="17" column="46" lean-forward="false" selection-start-line="17" selection-start-column="46" selection-end-line="17" selection-end-column="46" />
+          <folding>
+            <marker date="1522133264039" expanded="true" signature="446:490" ph="select * fro... td_role" />
+            <marker date="1522133264039" expanded="true" signature="583:639" ph="select * fro... td_role" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mwh/album/mapper/RoleMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="9" column="19" lean-forward="false" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mwh/album/controller/RegisterController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="35" column="35" lean-forward="false" selection-start-line="35" selection-start-column="27" selection-end-line="35" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mwh/album/service/PictureService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="43" column="53" lean-forward="true" selection-start-line="43" selection-start-column="53" selection-end-line="43" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mwh/album/controller/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="897">
+          <caret line="98" column="0" lean-forward="false" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
+          <folding>
+            <element signature="e#5018#5019#0" expanded="true" />
+            <element signature="e#5064#5065#0" expanded="true" />
+            <element signature="e#5322#5323#0" expanded="true" />
+            <element signature="e#5374#5375#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mwh/album/service/impl/UserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1081">
+          <caret line="32" column="52" lean-forward="true" selection-start-line="32" selection-start-column="52" selection-end-line="32" selection-end-column="52" />
+          <folding>
+            <element signature="e#3701#3702#0" expanded="true" />
+            <element signature="e#3745#3746#0" expanded="true" />
+            <element signature="e#3824#3825#0" expanded="true" />
+            <element signature="e#3874#3875#0" expanded="true" />
+            <element signature="e#3952#3953#0" expanded="true" />
+            <element signature="e#4002#4003#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/global-11cefe86ab47658815b807bc1fdddf1be8832c46b2cf6b516d97d73b9fdf373d.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="0" column="565" lean-forward="false" selection-start-line="0" selection-start-column="515" selection-end-line="0" selection-end-column="565" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/user/picturesUser.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="734">
+          <caret line="118" column="103" lean-forward="true" selection-start-line="118" selection-start-column="103" selection-end-line="118" selection-end-column="103" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/user/pictureEdit.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1302">
+          <caret line="122" column="28" lean-forward="false" selection-start-line="122" selection-start-column="18" selection-end-line="122" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mwh/album/mapper/PictureMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-50">
+          <caret line="21" column="8" lean-forward="false" selection-start-line="21" selection-start-column="8" selection-end-line="23" selection-end-column="20" />
+          <folding>
+            <marker date="1522115202947" expanded="true" signature="1415:1590" ph="update td_picture... " />
+            <marker date="1522115202947" expanded="true" signature="1675:1752" ph="update td_picture... " />
+            <marker date="1522115202947" expanded="true" signature="1842:1929" ph="UPDATE td_picture... " />
+            <marker date="1522115202947" expanded="true" signature="1998:2045" ph="delete from td_picture... " />
+            <marker date="1522115202947" expanded="true" signature="2125:2227" ph="select * fro... td_picture" />
+            <marker date="1522115202947" expanded="true" signature="2320:2367" ph="select * fro... td_picture" />
+            <marker date="1522115202947" expanded="true" signature="2457:2576" ph="select * fro... td_picture" />
+            <marker date="1522115202947" expanded="true" signature="2673:3175" ph="select * fro... td_picture" />
+            <marker date="1522115202947" expanded="true" signature="3278:3395" ph="select * fro... td_picture" />
+            <marker date="1522115202947" expanded="true" signature="3490:3653" ph="select * fro... td_picture" />
+            <marker date="1522115202947" expanded="true" signature="3760:3959" ph="select * fro... td_picture" />
+            <marker date="1522115202947" expanded="true" signature="4069:4202" ph="SELECT * FRO... td_picture" />
+            <marker date="1522115202947" expanded="true" signature="4301:4383" ph="select count... td_picture" />
+            <marker date="1522115202947" expanded="true" signature="4451:4500" ph="select count... td_picture" />
+            <marker date="1522115202947" expanded="true" signature="4593:4799" ph="select count... td_picture" />
+            <marker date="1522115202947" expanded="true" signature="4892:4946" ph="select count... td_picture" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mwh/album/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="246" column="23" lean-forward="true" selection-start-line="246" selection-start-column="23" selection-end-line="246" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mwh/album/service/impl/PictureServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="359">
+          <caret line="47" column="38" lean-forward="false" selection-start-line="47" selection-start-column="38" selection-end-line="47" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/user/galleryEdit.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="70" column="0" lean-forward="false" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/css/metricsgraphics.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="4264" lean-forward="false" selection-start-line="0" selection-start-column="4264" selection-end-line="0" selection-end-column="4264" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/css/unsplash.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-734">
+          <caret line="0" column="31" lean-forward="false" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/picture/gallery.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="66" column="57" lean-forward="false" selection-start-line="66" selection-start-column="32" selection-end-line="66" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/picture/home.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5980">
+          <caret line="222" column="38" lean-forward="false" selection-start-line="222" selection-start-column="32" selection-end-line="222" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/picture/category.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="104" column="0" lean-forward="false" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/user/picturesByGallery.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-690">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/user/pictureListByGallery.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1031">
+          <caret line="133" column="95" lean-forward="false" selection-start-line="133" selection-start-column="95" selection-end-line="133" selection-end-column="95" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/user/galleryUser.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="413">
-          <caret line="115" column="82" lean-forward="false" selection-start-line="115" selection-start-column="60" selection-end-line="115" selection-end-column="82" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mwh/album/mapper/GalleryPictureMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="412">
-          <caret line="24" column="54" lean-forward="false" selection-start-line="24" selection-start-column="54" selection-end-line="24" selection-end-column="54" />
+        <state relative-caret-position="136">
+          <caret line="54" column="110" lean-forward="false" selection-start-line="54" selection-start-column="110" selection-end-line="54" selection-end-column="110" />
           <folding />
         </state>
       </provider>
@@ -1237,82 +1049,9 @@
   </component>
   <component name="masterDetails">
     <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <last-edited>Unalbum:war</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-                <option value="0.5" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <last-edited>Spring</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <last-edited>Spring|Unalbum</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
       <state key="ProjectJDKs.UI">
         <settings>
           <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
-          <last-edited>Maven: aopalliance:aopalliance:1.0</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

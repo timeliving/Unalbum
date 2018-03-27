@@ -17,10 +17,10 @@ public interface GalleryPictureMapper {
     //根据相册ID查找对应的图片
     List<Picture> findPicturesByGalleryId(
             @Param(value = "galleryId") int galleryId);
-    List<GalleryPicture> findGPListByIdOrderByPage(@Param(value = "galleryId") int galleryId
+    List<Picture> findPictureListByIdOrderByPage(@Param(value = "galleryId") int galleryId
             ,@Param(value = "currIndex") int currIndex
             ,@Param(value = "pageSize") int pageSize);
-    List<Picture> findPictureListByIdOrderByPage(@Param(value = "galleryId") int galleryId
+    List<GalleryPicture> findGalleryPictureByIdOrderByPage(@Param(value = "galleryId") int galleryId
             ,@Param(value = "currIndex") int currIndex
             ,@Param(value = "pageSize") int pageSize);
     List<Integer> findPictureIdByGalleryId(
@@ -38,5 +38,8 @@ public interface GalleryPictureMapper {
             ,@Param(value = "pictureId") int pictureId);
     //根据相册ID删除
     int deleteByGalleryId(@Param(value = "galleryId") int galleryId);
+    //根据相册ID查找相册中相片的数量
+    int countByGalleryId(@Param(value = "galleryId") int galleryId);
+
 
 }

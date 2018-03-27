@@ -1,6 +1,7 @@
 package com.mwh.album.controller;
 
 import com.mwh.album.common.IsIn;
+import com.mwh.album.common.PageUtil;
 import com.mwh.album.model.Gallery;
 import com.mwh.album.model.GalleryPicture;
 import com.mwh.album.model.Picture;
@@ -62,19 +63,30 @@ public class GalleryController extends BaseController {
         return mav;
     }
 
-    @RequestMapping(value = "picturesByUserGalleryId",method = RequestMethod.GET)
+    @RequestMapping(value = "pictureListByUserGalleryId",method = RequestMethod.GET)
     public ModelAndView pictureListByGalleryId(@RequestParam(value = "galleryId", required = false) Integer galleryId
-            ,@RequestParam(value = "userId") Integer userId
+            ,@RequestParam(value = "currIndex", required = false) String currIndex
             , HttpServletRequest request){
         ModelAndView mav = new ModelAndView();
-        List<Picture> galleryPictureList = galleryPictureService
-                .findPicturesByGalleryId(galleryId);
-
-        Gallery gallery = galleryService.findById(galleryId);
-        mav.addObject("galleryPictureList", galleryPictureList);
-        mav.addObject("gallery", gallery);
-
-        mav.setViewName("/user/picturesByGallery");
+        int pageIndex;
+        int index = 0;
+        int pageSize = 10;
+        if(currIndex == null){
+            currIndex = "";
+        }
+        if (currIndex.equals("")) {
+            index = 0;
+        } else if (!currIndex.equals("")) {
+            pageIndex = Integer.parseInt(currIndex);
+            index = (pageIndex - 1) * 10;
+        }
+        PageUtil<Map<Object, Object>> pageUtil =new PageUtil<Map<Object, Object>>();
+        pageUtil = galleryPictureService
+                .findPictureListByIdOrderByPage(galleryId
+                        , index, pageSize);
+        mav.addObject("pageUtil", pageUtil);
+        mav.addObject("galleryId", galleryId);
+        mav.setViewName("/user/pictureListByGallery");
         return mav;
     }
 
@@ -121,7 +133,7 @@ public class GalleryController extends BaseController {
         Gallery gallery = new Gallery();
         gallery.setGalleryName(galleryName);
         gallery.setUser(getSessionUser(request));
-
+        gallery.setPagePicture(pictureService.findById(1));
         galleryService.save(gallery);
         reply.put("success", "成功");
         return reply;
@@ -262,8 +274,29 @@ public class GalleryController extends BaseController {
             , HttpServletRequest request){
         Map<String, String> reply = new HashMap<String, String>();
         Integer galleryId = Integer.valueOf(map.get("galleryId").toString());
-        pictureService.delete(galleryId);
+        galleryService.delete(galleryId);
         galleryPictureService.deleteByGalleryId(galleryId);
+        reply.put("success", "成功");
+        return reply;
+    }
+
+    @RequestMapping(value = "picture/delete", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String,String> galleryPictureDelete(@RequestBody final Map<String, Object> map
+            , HttpServletRequest request){
+        Map<String, String> reply = new HashMap<String, String>();
+        Integer galleryId = Integer.valueOf(map.get("galleryId").toString());
+        Integer pictureId = Integer.valueOf(map.get("pictureId").toString());
+        galleryPictureService.deleteByGalleryIdAndPictureId(galleryId, pictureId);
+        Gallery gallery = galleryService.findById(galleryId);
+        if(gallery.getPagePicture().getId() == pictureId){
+            GalleryPicture galleryPicture = galleryPictureService.findMostColsePicture(galleryId);
+            if(galleryPicture.getId() == null){
+                galleryService.updateGalleryPagePicture(1, galleryId);
+            }else{
+                galleryService.updateGalleryPagePicture(galleryPicture.getPictureId(), galleryId);
+            }
+        }
         reply.put("success", "成功");
         return reply;
     }

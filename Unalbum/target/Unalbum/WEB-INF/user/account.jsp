@@ -178,9 +178,14 @@
                                         <input type="submit" name="commit" value="确认修改" class="btn btn-default btn-block-level" data-disable-with="..." />
                                     </div> <!-- close .form-group -->
                                 </div> <!-- close .col -->
-
+                                <div class="col-xs-12 col-sm-6">
+                                    <div class="form-group">
+                                        <input type="button" value="确认退出" class="btn btn-default btn-block-level" onclick="location.href='/user/logout'" data-disable-with="..." />
+                                    </div> <!-- close .form-group -->
+                                </div> <!-- close .col -->
                             </div> <!-- close .row -->
-                        </form></div> <!-- close .form -->
+                        </form>
+                    </div> <!-- close .form -->
                 </div>
             </div> <!-- close .row -->
         </div> <!-- close .sheet -->

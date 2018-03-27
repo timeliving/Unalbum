@@ -8,6 +8,15 @@
         <result property="categoryName" column="categoryName"/>
     </resultMap>
 
+    <select id="findAll" resultMap="PictureCategoryList">
+        select * from td_picture_category
+    </select>
+
+    <select id="findByCategoryName" parameterType="String">
+        SELECT * FROM td_picture_category
+        WHERE categoryName = #{categoryName}
+    </select>
+
     <insert id="save" parameterType="Picture">
         insert into td_picture_category
         values

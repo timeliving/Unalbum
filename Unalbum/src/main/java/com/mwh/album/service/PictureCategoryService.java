@@ -13,6 +13,8 @@ public interface PictureCategoryService {
 
     List<PictureCategory> findAll();
     PictureCategory findByCategoryName(String categoryName);
+    PictureCategory findById(int id);
+
 
     //新增图片
     void  save(PictureCategory pictureCategory);

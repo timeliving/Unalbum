@@ -34,7 +34,7 @@
 <!-- 顶部开始 -->
 <div class="container">
     <div class="logo"><a href="/home">
-        <img class="navbar__logo " src="<%=basePath%>img/favicon.ico" alt="Logo black" />
+        <img class="navbar__logo " src="<%=basePath%>img/logo-white-d6de700c647597b70cb24484a22ea0e43a4a28c563144e4a49c38f291fc2eb61.svg" alt="Logo black" />
     </a></div>
     <div class="left_open">
         <i title="展开左侧栏" class="iconfont">&#xe699;</i>

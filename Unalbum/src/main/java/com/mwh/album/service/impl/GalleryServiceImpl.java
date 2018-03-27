@@ -50,6 +50,7 @@ public class GalleryServiceImpl implements GalleryService{
     public void save(Gallery gallery) {
         gallery.setCreateDate(new Date());
         gallery.setIsShare(1);
+
         galleryMapper.save(gallery);
     }
 

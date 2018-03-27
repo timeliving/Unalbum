@@ -10,6 +10,7 @@
         <association property="gallery" javaType="com.mwh.album.model.Gallery"
                      select="com.mwh.album.mapper.GalleryMapper.findById" column="gallery"/>
     </resultMap>
+    
 
     <insert id="save" parameterType="GalleryPicture">
         insert into td_gallery_picture
@@ -46,7 +47,19 @@
     <select id="findPicturesByGalleryId" parameterType="int" resultMap="com.mwh.album.mapper.PictureMapper.PictureList">
         select *
         from td_gallery_picture tgp LEFT JOIN td_picture tp ON tgp.pictureId = tp.id
-        where tgp.gallery = #{galleryId}
+        where tgp.gallery = #{galleryId} ORDER  BY createDate DESC
+    </select>
+
+    <select id="findPictureListByIdOrderByPage" resultMap="com.mwh.album.mapper.PictureMapper.PictureList">
+        select *
+        from td_gallery_picture tgp LEFT JOIN td_picture tp ON tgp.pictureId = tp.id
+        where tgp.gallery = #{galleryId} ORDER  BY createDate DESC limit ${currIndex}, ${pageSize}
+    </select>
+    
+    <select id="findGPListByIdOrderByPage" resultMap="GalleryPictureList">
+        select *
+        from td_gallery_picture
+        where gallery = #{galleryId} ORDER  BY createDate DESC limit ${currIndex}, ${pageSize}
     </select>
 
     <select id="findPictureIdByGalleryId" parameterType="int" resultType="int">

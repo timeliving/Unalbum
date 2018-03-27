@@ -51,14 +51,14 @@
         <ul id="nav">
             <li>
                 <a _href="/user/picturesByUser">
-                    <i class="iconfont">&#xe6b8;</i>
+                    <i class="layui-icon">&#xe60d;</i>
                     <cite>个人相片管理</cite>
                     <i class="iconfont nav_right">&#xe697;</i>
                 </a>
             </li>
             <li>
                 <a _href="/gallery/galleryByUser">
-                    <i class="iconfont">&#xe723;</i>
+                    <i class="layui-icon">&#xe638;</i>
                     <cite>个人相册管理</cite>
                     <i class="iconfont nav_right">&#xe697;</i>
                 </a>

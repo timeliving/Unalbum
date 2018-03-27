@@ -35,7 +35,6 @@ public class GalleryController extends BaseController {
         List<Picture> galleryPictureList = galleryPictureService
                 .findPicturesByGalleryId(galleryId);
 
-        List<Picture> pictureByUserList = pictureService.findByUserId(userId, 0, 10);
         Gallery gallery = galleryService.findById(galleryId);
         mav.addObject("user", user);
         mav.addObject("galleryPictureList", galleryPictureList);
@@ -54,7 +53,6 @@ public class GalleryController extends BaseController {
         List<Picture> galleryPictureList = galleryPictureService
                 .findPicturesByGalleryId(galleryId);
 
-        List<Picture> pictureByUserList = pictureService.findByUserId(userId, 0, 10);
         Gallery gallery = galleryService.findById(galleryId);
         mav.addObject("user", user);
         mav.addObject("galleryPictureList", galleryPictureList);
@@ -63,6 +61,23 @@ public class GalleryController extends BaseController {
         mav.setViewName("/user/picturesByGallery");
         return mav;
     }
+
+    @RequestMapping(value = "picturesByUserGalleryId",method = RequestMethod.GET)
+    public ModelAndView pictureListByGalleryId(@RequestParam(value = "galleryId", required = false) Integer galleryId
+            ,@RequestParam(value = "userId") Integer userId
+            , HttpServletRequest request){
+        ModelAndView mav = new ModelAndView();
+        List<Picture> galleryPictureList = galleryPictureService
+                .findPicturesByGalleryId(galleryId);
+
+        Gallery gallery = galleryService.findById(galleryId);
+        mav.addObject("galleryPictureList", galleryPictureList);
+        mav.addObject("gallery", gallery);
+
+        mav.setViewName("/user/picturesByGallery");
+        return mav;
+    }
+
 
 
     @RequestMapping(value = "userGalleryHome",method = RequestMethod.GET)
@@ -182,6 +197,8 @@ public class GalleryController extends BaseController {
                 if(pictureOfGalleryList.size() == listSize){
                     pictureOfGalleryList.add("notIn");
                 }
+            }else{
+                pictureOfGalleryList.add("notIn");
             }
         }
         mav.addObject("galleryListByUser", galleryListByUser);

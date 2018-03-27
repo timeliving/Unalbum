@@ -44,8 +44,6 @@
     </select>
 
 
-
-
     <select id="findById" parameterType="int" resultMap="GalleryList">
         select *
         from td_gallery where id=#{id}
@@ -53,7 +51,7 @@
 
     <select id="findByUserId" parameterType="int" resultMap="GalleryList">
         select *
-        from td_gallery where user=#{userId}
+        from td_gallery where user=#{userId} AND isShare = 1
 
     </select>
 

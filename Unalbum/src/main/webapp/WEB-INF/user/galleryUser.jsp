@@ -68,6 +68,7 @@
             <th>相册封面缩略图</th>
             <th>是否分享</th>
             <th>访问相册</th>
+            <th>管理相册</th>
             <th>操作</th>
         </tr>
         </thead>
@@ -109,6 +110,11 @@
                     <input type="button" class="layui-btn layui-btn-danger layui-btn-mini"
                            onclick="location.href='/gallery/picturesByUserGalleryId?galleryId=${gallery.id}&userId=${gallery.user.id}'"
                            id="galleryId" name="${gallery.galleryName}" value="访问"/>
+                </td>
+                <td class="td-status">
+                    <input type="button" class="layui-btn layui-btn-danger layui-btn-mini"
+                           onclick="location.href='/gallery/pictureListByGalleryId?galleryId=${gallery.id}&userId=${gallery.user.id}'"
+                           id="galleryId" name="${gallery.galleryName}" value="管理该相册"/>
                 </td>
                 <td class="td-manage">
                     <a title="编辑" onclick="x_admin_show('编辑','/gallery/edit?galleryId=${gallery.id}', 500, 450)"
@@ -190,7 +196,7 @@
         var galleryId = data["galleryId"];
         galleryId ="share" + galleryId;
         var unShareButton = document.getElementById(input_unShare_id);
-        unShareButton.value = "分享相片";
+        unShareButton.value = "分享相册";
         unShareButton.setAttribute("id", galleryId);
         unShareButton.setAttribute("onclick", "share(this)");
         removeClass(unShareButton, "layui-btn-danger");

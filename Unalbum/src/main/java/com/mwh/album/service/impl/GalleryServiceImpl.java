@@ -60,7 +60,10 @@ public class GalleryServiceImpl implements GalleryService{
     public void updateGalleryPagePicture(int pictureId, int id) {
         Gallery gallery = findById(id);
         if(gallery.getId() != null){
-            if(!gallery.getPagePicture().getId().equals(pictureId)){
+            if(gallery.getPagePicture() == null){
+                galleryMapper.updateGalleryPagePicture(pictureId, id);
+            }else if(gallery.getPagePicture()!=null &&
+                    !gallery.getPagePicture().getId().equals(pictureId)){
                 galleryMapper.updateGalleryPagePicture(pictureId, id);
             }
         }

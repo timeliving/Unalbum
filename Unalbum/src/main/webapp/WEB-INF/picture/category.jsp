@@ -77,6 +77,47 @@
                 <a class="search-trigger"><i class="fa fa-search">搜索</i></a>
             </li>
 
+            <li class="navbar__element navbar__element--heading navbar__element--hide-on-xs">
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle" id="super-dropdown" data-toggle="dropdown">
+                        <svg class="ellipsis-icon" version="1.1" viewBox="0 0 32 32" width="32" height="32" aria-hidden="false">
+                            <path d="M7 15.5c0 1.9-1.6 3.5-3.5 3.5s-3.5-1.6-3.5-3.5 1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5zm21.5-3.5c-1.9 0-3.5 1.6-3.5 3.5s1.6 3.5 3.5 3.5 3.5-1.6 3.5-3.5-1.6-3.5-3.5-3.5zm-12.5 0c-1.9 0-3.5 1.6-3.5 3.5s1.6 3.5 3.5 3.5 3.5-1.6 3.5-3.5-1.6-3.5-3.5-3.5z"></path>
+                        </svg>
+                    </a>
+
+                    <ul class="dropdown-menu dropdown-menu-left">
+
+                        <li>
+                            <a rel="nofollow" href="https://medium.com/unsplash">Community</a>
+                        </li>
+
+                        <li>
+                            <a rel="nofollow" href="https://store.unsplash.com/">Store</a>
+                        </li>
+
+                        <li>
+                            <a rel="nofollow" href="/history">History</a>
+                        </li>
+
+                        <li>
+                            <a target="_blank" href="https://madewith.unsplash.com/">Made with Unsplash</a>
+                        </li>
+
+                        <li role="presentation">
+                            <a role="menuitem" tabindex="-1" rel="nofollow" href="/tag">Tag photos</a>
+                        </li>
+
+                        <li>
+                            <a href="/developers">API/Developers</a>
+                        </li>
+
+                        <li>
+                            <a rel="nofollow" href="https://medium.com/unsplash/tagged/help">Help</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
         </ul>
 
         <div class="search-wrap">

@@ -65,8 +65,8 @@
         <figure class="effect-oscar  wowload fadeInUp">
             <img src="/${picture.picURL}" alt="img01"/>
             <figcaption>
-                <h2>${picture.picName}</h2>
-                <a href="/${picture.picURL}" id="${gallery.id}" data-gallery></a>
+                <p style="font-size: 150%;"><a href="/${picture.picURL}" id="${gallery.id}" data-gallery>${picture.picName}</a></p>
+                <p><a href="/${picture.picURL}" id="${gallery.id}"  download>下载</a></p>
             </figcaption>
         </figure>
     </c:forEach>

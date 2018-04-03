@@ -21,6 +21,8 @@ public interface PictureMapper {
 
     //按图片ID查找图片
     Picture findById(int id);
+    //查找用户最新 上传的相片
+    Picture findyByUserMostClose(@Param(value = "userId") int userId);
     //按图片上传人的ID分页查找
     List<Picture> findByUserIdOrderByPage(@Param(value = "userId") int userId
             ,@Param(value = "currIndex") int currIndex

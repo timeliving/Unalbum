@@ -31,6 +31,7 @@ public interface PictureService {
             (String tagName,int userId, int currIndex, int pageSize);
 
     Picture findById(int id);
+    Picture findyByUserMostClose(int userId);
     PageUtil<Picture> findByUserIdOrderByPage(int userId, int currIndex, int pageSize);
 
     PageUtil<Picture> findByUserIdOrderByPageAndDate(int userId, int currIndex, int pageSize, Date beginDate, Date endDate);

@@ -49,8 +49,16 @@
                     <h3 class="animated bounceInUp">喜好</h3>
                     <p class="animated bounceInLeft">${user.userInterests}</p>
                     <div class="animated bounceInDown">
-                        <a href="#works" class="btn btn-default explore">查看全部</a>&nbsp;
-                        <a href="/home" class="btn btn-default">返回</a>
+                        <a href="#works" class="btn btn-default explore">查看全部</a>
+                        <a href="/home" class="btn btn-default">返回</a>&nbsp;&nbsp;&nbsp;
+                        <c:if test="${USER_CONTEXT != null and USER_CONTEXT.id != user.id}">
+                            <c:if test="${code == 404}">
+                                <input type="button" onclick="follow(${user.id}, ${USER_CONTEXT.id})" class="btn btn-default" id="follow" value="关注用户"/>
+                            </c:if>
+                            <c:if test="${code == 500}">
+                                <input type="button" onclick="unFollow(${user.id}, ${USER_CONTEXT.id})" class="btn btn-default" id="unFollow" value="取消关注"/>
+                            </c:if>
+                        </c:if>
                     </div>
                 </div>
             </div>
@@ -121,33 +129,69 @@
     $("#imgBack").css("height" , height);
     console.log($("#imgBack").css("height"));
 
-    /*function showPictures(obj1, obj2){
+    function follow(obj1, obj2) {
+        var userId = obj2;
+        var followUserId = obj1;
         var data={};
-        data["galleryId"] = obj1;
-        data["userId"] = obj2;
+        data["userId"] = userId;
+        data["followUserId"] =followUserId;
         $.ajax({
             type: "POST",
-            url: "/gallery/pictures",
+            url: "/follow/user",
             contentType:"application/json",
             data: JSON.stringify(data),//参数列表
             dataType:"json",
             success: function(data){
                 //请求正确之后的操作
                 console.log(data);
-                var pictureList = eval(data["galleryPictureList"]);
-                var galleryId = data["galleryId"];
-                galleryId = "#" + galleryId;
-                console.log(pictureList);
-                for(var i in pictureList){
-                    $(galleryId)
-                        .after("<a href=" + pictureList[i].picURL + "data-gallery>查看相册</a>");
+
+                if (Object.keys(data).length === 0) {
+                    alert("操作失败，请重试");
                 }
-            },
-            error: function (data) {
-                alert("查询失败，请重试");
+                updateFollowButton(data);
             }
         });
-    }*/
+    }
+
+    function unFollow(obj1, obj2) {
+        var userId = obj2;
+        var followUserId = obj1;
+        var data={};
+        data["userId"] = userId;
+        data["followUserId"] =followUserId;
+        $.ajax({
+            type: "POST",
+            url: "/follow/unFollow",
+            contentType:"application/json",
+            data: JSON.stringify(data),//参数列表
+            dataType:"json",
+            success: function(data){
+                //请求正确之后的操作
+                console.log(data);
+
+                if (Object.keys(data).length === 0) {
+                    alert("操作失败，请重试");
+                }
+                updateUnFollowButton(data);
+            }
+        });
+    }
+
+    function updateFollowButton(data) {
+        var userId = data["userId"];
+        var followUserId = data["followUserId"];
+        $("#follow").val("取消关注");
+        $("#follow").attr("onclick", "unFollow("+followUserId+"," + userId +")");
+        $("#follow").attr("id", "unFollow");
+    }
+    
+    function updateUnFollowButton(data) {
+        var userId = data["userId"];
+        var followUserId = data["followUserId"];
+        $("#unFollow").val("关注用户");
+        $("#unFollow").attr("onclick", "follow("+followUserId+"," + userId +")");
+        $("#unFollow").attr("id", "follow");
+    }
 </script>
 
 </body>

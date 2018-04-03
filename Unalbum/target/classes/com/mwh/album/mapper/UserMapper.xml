@@ -11,8 +11,6 @@
         <result property="photo" column="photo"/>
         <result property="userProfile" column="userProfile"/>
         <result property="userInterests" column="userInterests"/>
-        <association property="role" javaType="com.mwh.album.model.Role"
-                     select="com.mwh.album.mapper.RoleMapper.findById" column="role"/>
     </resultMap>
 
     <insert id="save" parameterType="User">
@@ -22,7 +20,7 @@
         insert into td_user
         values
         (null,#{userName},#{password},
-        #{createDate},#{photo},#{userProfile},#{userInterests},#{role.id})
+        #{createDate},#{photo},#{userProfile},#{userInterests})
     </insert>
 
 

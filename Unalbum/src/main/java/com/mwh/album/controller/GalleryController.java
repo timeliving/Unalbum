@@ -2,14 +2,8 @@ package com.mwh.album.controller;
 
 import com.mwh.album.common.IsIn;
 import com.mwh.album.common.PageUtil;
-import com.mwh.album.model.Gallery;
-import com.mwh.album.model.GalleryPicture;
-import com.mwh.album.model.Picture;
-import com.mwh.album.model.User;
-import com.mwh.album.service.GalleryPictureService;
-import com.mwh.album.service.GalleryService;
-import com.mwh.album.service.PictureService;
-import com.mwh.album.service.UserService;
+import com.mwh.album.model.*;
+import com.mwh.album.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -26,6 +20,7 @@ public class GalleryController extends BaseController {
     private GalleryPictureService galleryPictureService;
     private UserService userService;
     private PictureService pictureService;
+    private UserFollowService userFollowService;
 
     @RequestMapping(value = "picturesByGalleryId",method = RequestMethod.GET)
     public ModelAndView picturesByGalleryId(@RequestParam(value = "galleryId", required = false) Integer galleryId
@@ -107,11 +102,23 @@ public class GalleryController extends BaseController {
         }
         List<Gallery> galleryList = galleryService.findByUserId(userId);
 
-        List<Picture> pictureByUserList = pictureService.findByUserId(userId, 0, 10);
-        Picture picture = pictureByUserList.get(new Random().nextInt(10));
+        /*List<Picture> pictureByUserList = pictureService.findByUserId(userId, 0, 10);
+        Picture picture = pictureByUserList.get(new Random().nextInt(10));*/
+        Picture picture = pictureService.findyByUserMostClose(userId);
+        int code = 0;
+        if(getSessionUser(request).getId() != null&&userId != getSessionUser(request).getId()){
+            UserFollow userFollow = userFollowService.findByUserIdAndFollowUserId(getSessionUser(request).getId(), userId);
+            if(userFollow.getId() == null){
+                code = 404;
+            }else{
+                code = 500;
+            }
+        }
+
         mav.addObject("user", user);
         mav.addObject("galleryList", galleryList);
         mav.addObject("picture", picture);
+        mav.addObject("code", code);
         mav.setViewName("/picture/gallery");
         return mav;
     }
@@ -319,5 +326,10 @@ public class GalleryController extends BaseController {
     @Autowired
     public void setPictureService(PictureService pictureService) {
         this.pictureService = pictureService;
+    }
+
+    @Autowired
+    public void setUserFollowService(UserFollowService userFollowService) {
+        this.userFollowService = userFollowService;
     }
 }

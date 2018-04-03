@@ -88,32 +88,13 @@
                     <ul class="dropdown-menu dropdown-menu-left">
 
                         <li>
-                            <a rel="nofollow" href="https://medium.com/unsplash">Community</a>
+                            <a rel="nofollow" href="https://medium.com/unsplash">我的关注</a>
                         </li>
 
                         <li>
-                            <a rel="nofollow" href="https://store.unsplash.com/">Store</a>
+                            <a rel="nofollow" href="https://store.unsplash.com/">添加标签</a>
                         </li>
 
-                        <li>
-                            <a rel="nofollow" href="/history">History</a>
-                        </li>
-
-                        <li>
-                            <a target="_blank" href="https://madewith.unsplash.com/">Made with Unsplash</a>
-                        </li>
-
-                        <li role="presentation">
-                            <a role="menuitem" tabindex="-1" rel="nofollow" href="/tag">Tag photos</a>
-                        </li>
-
-                        <li>
-                            <a href="/developers">API/Developers</a>
-                        </li>
-
-                        <li>
-                            <a rel="nofollow" href="https://medium.com/unsplash/tagged/help">Help</a>
-                        </li>
                     </ul>
                 </div>
             </li>

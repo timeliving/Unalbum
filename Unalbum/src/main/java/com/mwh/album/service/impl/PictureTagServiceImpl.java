@@ -1,6 +1,7 @@
 package com.mwh.album.service.impl;
 
 import com.mwh.album.mapper.PictureTagMapper;
+import com.mwh.album.model.Picture;
 import com.mwh.album.model.PictureTag;
 import com.mwh.album.service.PictureTagService;
 import org.springframework.stereotype.Service;
@@ -42,9 +43,13 @@ public class PictureTagServiceImpl implements PictureTagService {
         return pictureTag;
     }
 
+    public List<Picture> findPicturesNoTag() {
+        return pictureTagMapper.findPicturesNoTag();
+    }
+
     public void save(PictureTag pictureTag) {
         PictureTag tag = findByTagIdAndPictureId(pictureTag.getTagId(), pictureTag.getPictureId());
-        if(tag.getId() == null){
+        if(tag == null){
             pictureTag.setCreateDate(new Date());
             pictureTagMapper.save(pictureTag);
         }

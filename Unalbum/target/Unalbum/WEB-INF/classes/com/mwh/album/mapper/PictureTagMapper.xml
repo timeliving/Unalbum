@@ -46,4 +46,11 @@
         from td_picture_tag where tagId=#{tagId} AND pictureId = #{pictureId}
     </select>
 
+    <select id="findPicturesNoTag" resultMap="com.mwh.album.mapper.PictureMapper.PictureList">
+        SELECT *
+        FROM td_picture tp WHERE NOT EXISTS
+        (SELECT DISTINCT pictureId FROM td_picture_tag tpt WHERE tp.id = tpt.pictureId)
+        AND tp.isShare = 1
+    </select>
+
 </mapper>

@@ -1,5 +1,6 @@
 package com.mwh.album.mapper;
 
+import com.mwh.album.model.Picture;
 import com.mwh.album.model.PictureTag;
 import org.apache.ibatis.annotations.Param;
 
@@ -16,6 +17,8 @@ public interface PictureTagMapper {
     //按ID查找
     PictureTag findByTagIdAndPictureId(@Param(value = "tagId") int tagId
             ,@Param(value = "pictureId") int pictureId);
+    //查找没有标签的所有相片
+    List<Picture> findPicturesNoTag();
 
 
 

@@ -1,5 +1,6 @@
 package com.mwh.album.service;
 
+import com.mwh.album.model.Picture;
 import com.mwh.album.model.PictureTag;
 
 import java.util.List;
@@ -15,7 +16,8 @@ public interface PictureTagService {
     //按ID查找
     PictureTag findByTagIdAndPictureId(int tagId, int pictureId);
 
-
+    //查找所有没有打标签的相片
+    List<Picture> findPicturesNoTag();
 
 
     //新增标签

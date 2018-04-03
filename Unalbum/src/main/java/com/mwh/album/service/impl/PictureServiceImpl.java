@@ -190,6 +190,10 @@ public class PictureServiceImpl implements PictureService {
         return picture;
     }
 
+    public Picture findyByUserMostClose(int userId) {
+        Picture picture = pictureMapper.findyByUserMostClose(userId);
+        return picture == null ? new Picture() : picture;
+    }
 
     public PageUtil<Picture> findByUserIdOrderByPage(int userId, int currIndex, int pageSize) {
         PageUtil<Picture> pageUtil = new PageUtil<Picture>();

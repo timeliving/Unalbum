@@ -54,13 +54,13 @@
     <select id="findPicturesByGalleryId" parameterType="int" resultMap="com.mwh.album.mapper.PictureMapper.PictureList">
         select *
         from td_gallery_picture tgp LEFT JOIN td_picture tp ON tgp.pictureId = tp.id
-        where tgp.gallery = #{galleryId} ORDER  BY tgp.createDate DESC
+        where tgp.gallery = #{galleryId} AND tp.isShare = 1 ORDER  BY tgp.createDate DESC
     </select>
 
     <select id="findPictureListByIdOrderByPage" resultMap="com.mwh.album.mapper.PictureMapper.PictureList">
         select *
         from td_gallery_picture tgp LEFT JOIN td_picture tp ON tgp.pictureId = tp.id
-        where tgp.gallery = #{galleryId} ORDER  BY tgp.createDate DESC limit ${currIndex}, ${pageSize}
+        where tgp.gallery = #{galleryId} AND tp.isShare = 1 ORDER  BY tgp.createDate DESC limit ${currIndex}, ${pageSize}
     </select>
     
     <select id="findGalleryPictureByIdOrderByPage" resultMap="GalleryPictureList">

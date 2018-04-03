@@ -3,11 +3,9 @@ package com.mwh.album.service.impl;
 import com.mwh.album.exception.UserExistException;
 import com.mwh.album.mapper.GalleryMapper;
 import com.mwh.album.mapper.PictureMapper;
-import com.mwh.album.mapper.RoleMapper;
+import com.mwh.album.mapper.UserFollowMapper;
 import com.mwh.album.mapper.UserMapper;
 import com.mwh.album.model.Gallery;
-import com.mwh.album.model.Picture;
-import com.mwh.album.model.Role;
 import com.mwh.album.model.User;
 import com.mwh.album.service.UserService;
 import org.springframework.stereotype.Service;
@@ -26,7 +24,7 @@ public class UserServiceImpl implements UserService {
     private UserMapper userMapper;
     private GalleryMapper galleryMapper;
     private PictureMapper pictureMapper;
-    private RoleMapper roleMapper;
+    private UserFollowMapper userFollowMapper;
     public void save(User user) throws UserExistException {
         User ur = this.findByUserName(user.getUserName());
         if(ur != null){
@@ -36,8 +34,6 @@ public class UserServiceImpl implements UserService {
             user.setUserProfile("");
             user.setUserInterests("");
             user.setPhoto("img/user-default-photo.jpg");
-            Role role = roleMapper.findByName("用户");
-            user.setRole(role);
             userMapper.save(user);
             Gallery gallery = new Gallery();
             gallery.setPagePicture(pictureMapper.findById(1));
@@ -106,8 +102,8 @@ public class UserServiceImpl implements UserService {
         this.userMapper = userMapper;
     }
     @Resource
-    public void setRoleMapper(RoleMapper roleMapper) {
-        this.roleMapper = roleMapper;
+    public void setUserFollowMapper(UserFollowMapper userFollowMapper) {
+        this.userFollowMapper = userFollowMapper;
     }
 
     @Resource

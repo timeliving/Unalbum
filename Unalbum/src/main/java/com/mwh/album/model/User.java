@@ -19,7 +19,6 @@ public class User implements java.io.Serializable {
     private String photo;                        //用户图像
     private String userProfile;                  //用户个人简介
     private String userInterests;                //用户个人爱好
-    private Role role;                           //用户角色
 
     // Constructors
     public User() {
@@ -80,13 +79,5 @@ public class User implements java.io.Serializable {
 
     public void setUserInterests(String userInterests) {
         this.userInterests = userInterests;
-    }
-
-    public Role getRole() {
-        return role;
-    }
-
-    public void setRole(Role role) {
-        this.role = role;
     }
 }

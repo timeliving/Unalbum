@@ -11,15 +11,11 @@ import com.mwh.album.service.TagService;
 import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author mwh
@@ -82,6 +78,68 @@ public class PictureTagController extends BaseController {
 
         mav.addObject("keyword", keyword);
         mav.setViewName("search/pictureTag");
+        return mav;
+    }
+
+    @RequestMapping(value = "/addTag", method = RequestMethod.GET)
+    public ModelAndView pictureAddTag(HttpServletRequest request){
+        ModelAndView mav = new ModelAndView();
+
+        List<Picture> allPictureNoTag = pictureTagService.findPicturesNoTag();
+        Random random = new Random();
+        int num = random.nextInt(allPictureNoTag.size());
+        Picture picture = allPictureNoTag.get(num);
+        mav.addObject("picture", picture);
+        mav.setViewName("/picture/tagPicture");
+        return mav;
+
+    }
+
+
+    @RequestMapping(value = "/random",method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String,Object> randomPicture(@RequestBody final Map<String, Object> map){
+        Map<String, Object> reply = new HashMap<String, Object>();
+        List<Picture> allPictureNoTag = pictureTagService.findPicturesNoTag();
+        Random random = new Random();
+        int num = random.nextInt(allPictureNoTag.size());
+        Picture picture = allPictureNoTag.get(num);
+        reply.put("picId", picture.getId());
+        reply.put("picURL", picture.getPicURL());
+        reply.put("success", "成功");
+        return reply;
+    }
+
+    @RequestMapping(value = "/addTags",method = RequestMethod.POST)
+    public ModelAndView addTags(@RequestParam(value = "tags", required = false) String tags
+            ,@RequestParam(value = "picId", required = false) Integer pictureId
+            ,HttpServletRequest request){
+        ModelAndView mav = new ModelAndView();
+        if(tags != null){
+            String[] tagList = tags.split(",");
+            for(String tag : tagList){
+                Tag t = tagService.findByTagNameNoBlur(tag);
+                if(t.getId() != null){
+                    PictureTag pictureTag = new PictureTag();
+                    pictureTag.setPictureId(pictureId);
+                    pictureTag.setTagId(t.getId());
+                    pictureTagService.save(pictureTag);
+                }else{
+                    t.setTagName(tag);
+                    t.setUser(getSessionUser(request));
+                    int tagId = tagService.save(t);
+                    PictureTag pictureTag = pictureTagService.findByTagIdAndPictureId(tagId, pictureId);
+                    if(pictureTag.getId() == null){
+                        pictureTag.setTagId(tagId);
+                        pictureTag.setPictureId(pictureId);
+                        pictureTagService.save(pictureTag);
+                    }
+                }
+            }
+        }
+
+        mav.setViewName("forward:/search/addTag");
+
         return mav;
     }
 

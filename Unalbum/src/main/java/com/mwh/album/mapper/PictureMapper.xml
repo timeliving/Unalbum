@@ -66,6 +66,11 @@
         from td_picture where id=#{id}
     </select>
 
+    <select id="findyByUserMostClose" parameterType="int" resultType="Picture">
+        select *
+        from td_picture where user=#{userId} order by createDate DESC limit 1
+    </select>
+
     <select id="findByUserIdOrderByPage" resultMap="PictureList">
         select *
         from td_picture where user=#{userId}

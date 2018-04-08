@@ -1,5 +1,5 @@
 /*
-SQLyog Ultimate v12.5.0 (64 bit)
+SQLyog Ultimate v12.5.1 (64 bit)
 MySQL - 5.7.21-log : Database - db_album
 *********************************************************************
 */
@@ -214,22 +214,6 @@ insert  into `td_picture_tag`(`id`,`tagId`,`pictureId`,`createDate`) values
 (11,16,44,'2018-03-26'),
 (12,16,47,'2018-03-27');
 
-/*Table structure for table `td_role` */
-
-DROP TABLE IF EXISTS `td_role`;
-
-CREATE TABLE `td_role` (
-  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '角色ID',
-  `roleName` varchar(255) DEFAULT NULL COMMENT '角色名称',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
-
-/*Data for the table `td_role` */
-
-insert  into `td_role`(`id`,`roleName`) values 
-(1,'管理员'),
-(2,'用户');
-
 /*Table structure for table `td_tag` */
 
 DROP TABLE IF EXISTS `td_tag`;
@@ -268,16 +252,32 @@ CREATE TABLE `td_user` (
   `photo` varchar(100) DEFAULT NULL COMMENT '用户头像',
   `userProfile` varchar(250) DEFAULT NULL COMMENT '用户个人简介',
   `userInterests` varchar(50) DEFAULT NULL COMMENT '用户爱好',
-  `role` int(11) DEFAULT NULL COMMENT '用户角色',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 /*Data for the table `td_user` */
 
-insert  into `td_user`(`id`,`userName`,`password`,`createDate`,`photo`,`userProfile`,`userInterests`,`role`) values 
-(1,'user','123456','2018-03-13 23:04:14','personIcon/5999f1158a6f4ecdab5d146fb88e67c6.jpeg','测试一条个人简介','城市 标志 建筑',2),
-(2,'number2','123456','2018-03-25 17:32:46','personIcon/5999f1158a6f4ecdab5d146fb88e67c6.jpeg',NULL,NULL,2),
-(3,'mwh','123456','2018-03-27 14:49:07','img/user-default-photo.jpg','','',2);
+insert  into `td_user`(`id`,`userName`,`password`,`createDate`,`photo`,`userProfile`,`userInterests`) values 
+(1,'user','123456','2018-03-13 23:04:14','personIcon/5999f1158a6f4ecdab5d146fb88e67c6.jpeg','测试一条个人简介','城市 标志 建筑'),
+(2,'number2','123456','2018-03-25 17:32:46','personIcon/5999f1158a6f4ecdab5d146fb88e67c6.jpeg',NULL,NULL),
+(3,'mwh','123456','2018-03-27 14:49:07','img/user-default-photo.jpg','','');
+
+/*Table structure for table `td_user_follow` */
+
+DROP TABLE IF EXISTS `td_user_follow`;
+
+CREATE TABLE `td_user_follow` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '关注ID',
+  `user` int(11) DEFAULT NULL COMMENT '关注者ID',
+  `followUser` int(11) DEFAULT NULL COMMENT '被关注者ID',
+  `createDate` date DEFAULT NULL COMMENT '创建时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+
+/*Data for the table `td_user_follow` */
+
+insert  into `td_user_follow`(`id`,`user`,`followUser`,`createDate`) values 
+(16,3,1,'2018-04-03');
 
 /*Table structure for table `td_user_like_collection` */
 

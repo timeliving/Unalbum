@@ -25,6 +25,7 @@
     <link rel="shortcut icon" href="<%=basePath%>/img/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="<%=basePath%>/css/font.css">
     <link rel="stylesheet" href="<%=basePath%>/css/xadmin.css">
+
     <script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
     <script src="<%=basePath%>lib/layui/layui.all.js" charset="utf-8"></script>
     <script type="text/javascript" src="<%=basePath%>js/xadmin.js"></script>
@@ -40,7 +41,11 @@
         <i title="展开左侧栏" class="iconfont">&#xe699;</i>
     </div>
     <ul class="layui-nav right" lay-filter="">
-        <li class="layui-nav-item to-index"><a href="/user/account">用户管理</a></li>
+        <li class="layui-nav-item to-index">
+            <a href="/user/account">
+                <img src="/${USER_CONTEXT.photo}" sizes="32px" style="width:32px;height:32px;border-radius: 50%" class="avatar avatar--small avatar--small-mobile">
+            </a>
+        </li>
     </ul>
 </div>
 <!-- 顶部结束 -->

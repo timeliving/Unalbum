@@ -98,7 +98,7 @@
             <label for="submit" class="layui-form-label">
             </label>
             <button  class="layui-btn" id="submit" lay-filter="add" lay-submit="">
-                增加
+                确认修改
             </button>
         </div>
     </form>

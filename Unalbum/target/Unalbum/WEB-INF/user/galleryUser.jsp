@@ -128,7 +128,7 @@
                         <c:when test="${gallery.galleryName eq '默认相册' or gallery.galleryName eq 'ta的收藏'}">
                         </c:when>
                         <c:otherwise>
-                            <a title="编辑" onclick="x_admin_show('编辑','/gallery/edit?galleryId=${gallery.id}', 500, 450)"
+                            <a title="编辑" onclick="x_admin_show('编辑','/gallery/edit?galleryId=${gallery.id}', 500, 400)"
                                href="javascript:;">
                                 <i class="layui-icon">&#xe642;</i>
                             </a>

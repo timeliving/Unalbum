@@ -29,7 +29,7 @@ public class LoginController extends BaseController {
     @RequestMapping(value="login",method=RequestMethod.GET)
     public ModelAndView userLogin(HttpServletRequest request){
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("redirect:/login.jsp");
+        mav.setViewName("login");
         return mav;
     }
 
@@ -43,11 +43,12 @@ public class LoginController extends BaseController {
     public ModelAndView userLogin(HttpServletRequest request, User user){
         User dbUser = userService.findByUserName(user.getUserName());
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("redirect:/login.jsp");
-        if (dbUser == null) {
+        if (dbUser.getId() == null) {
             mav.addObject("errorMsg", "用户不存在");
+            mav.setViewName("login");
         } else if (!dbUser.getPassword().equals(user.getPassword())) {
             mav.addObject("errorMsg", "用户密码不正确");
+            mav.setViewName("login");
         } else {
             user = dbUser;
             setSessionUser(request,dbUser);

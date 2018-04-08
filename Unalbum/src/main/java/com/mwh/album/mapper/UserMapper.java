@@ -1,6 +1,7 @@
 package com.mwh.album.mapper;
 
 import com.mwh.album.model.User;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 /**
@@ -12,6 +13,7 @@ public interface UserMapper {
 
     //查找所有用户
     List<User> findAll();
+
     //按用户ID查找用户
     User findById(int id);
     //按用户名查找用户

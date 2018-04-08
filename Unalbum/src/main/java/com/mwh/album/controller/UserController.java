@@ -42,8 +42,14 @@ public class UserController extends BaseController {
     @RequestMapping(value = "account",method = RequestMethod.POST)
     public ModelAndView userAccount(HttpServletRequest request, User user){
         ModelAndView mav = new ModelAndView();
-        userService.updateProfile(user);
-        mav.setViewName("/user/account");
+        User u = userService.findByUserName(user.getUserName());
+        if(u.getId() == null){
+            mav.addObject("errorMsg", "用户已存在");
+            mav.setViewName("redirect:/user/account");
+        }else{
+            userService.updateProfile(user);
+            mav.setViewName("/user/account");
+        }
         return mav;
     }
 
@@ -58,9 +64,16 @@ public class UserController extends BaseController {
     @RequestMapping(value = "account/password",method = RequestMethod.POST)
     public ModelAndView userPassword(HttpServletRequest request
             ,@RequestParam(value = "id", required = false) String id
+            ,@RequestParam(value = "oldPassword", required = false) String oldPassword
             ,@RequestParam(value = "password", required = false) String password){
         ModelAndView mav = new ModelAndView();
-        userService.updatePassword(Integer.parseInt(id),password);
+        User u = userService.findById(Integer.valueOf(id));
+        if(oldPassword == u.getPassword()){
+            userService.updatePassword(Integer.parseInt(id),password);
+        }else{
+            mav.addObject("errorMsg", "用户密码错误请重试");
+            mav.setViewName("redirect:/user/password");
+        }
         mav.setViewName("/user/password");
         return mav;
     }
@@ -73,7 +86,7 @@ public class UserController extends BaseController {
             code = "个人相片管理";
         }
 
-        mav.setViewName("/user/pictures");
+        mav.setViewName("user/pictures");
 
         mav.addObject("code",code);
 
@@ -323,7 +336,6 @@ public class UserController extends BaseController {
         /* 1， 使用spring的MultipartFile获取jsp传过来的文件；
          * 2， 设置需要存放文件的路径，文件名字，与后缀；
          * 3， file.transferTo(路径);
-         *
          * */
         //获得物理路径webapp所在路径
         String pathRoot = request.getSession().getServletContext().getRealPath("");

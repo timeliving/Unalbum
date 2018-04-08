@@ -113,6 +113,13 @@
     <div class="container">
 
         <div id="grid-gallery" class="grid-gallery">
+            <p>
+                <c:if test="${! empty errorMsg and errorMsg eq 'No'}">
+                    找不到以#<a>${keyword}</a>为标签的相片
+                </c:if>
+                <c:if test="${! empty errorMsg and errorMsg eq 'yes'}">
+                    以下是以#<a>${keyword}</a>为标签的相片
+                </c:if>
             <section class="grid-wrap">
                 <ul class="grid">
                     <c:forEach items="${pageUtil.list}" var="picture">
@@ -202,7 +209,7 @@
             </section><!-- // slideshow -->
         </div><!-- // grid-gallery -->
         <div class="row">
-
+            <c:if test="${pageUtil.count != 0}">
             <nav class="pagination">
                 <c:if test="${pageUtil.index == 1}">
                 <span class="page-numbers prev inactive">
@@ -233,7 +240,7 @@
                     </a>
                 </c:if>
             </nav>
-
+            </c:if>
         </div>
     </div>
 </div>

@@ -32,6 +32,7 @@
         from td_user_follow where user=#{userId} AND followUser = #{followUserId}
     </select>
 
+
     <delete id="delete" parameterType="int">
         delete
         from td_user_follow where user=#{userId} AND followUser = #{followUserId}

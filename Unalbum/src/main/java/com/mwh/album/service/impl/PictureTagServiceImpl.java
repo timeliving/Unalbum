@@ -49,7 +49,7 @@ public class PictureTagServiceImpl implements PictureTagService {
 
     public void save(PictureTag pictureTag) {
         PictureTag tag = findByTagIdAndPictureId(pictureTag.getTagId(), pictureTag.getPictureId());
-        if(tag == null){
+        if(tag.getId() == null){
             pictureTag.setCreateDate(new Date());
             pictureTagMapper.save(pictureTag);
         }

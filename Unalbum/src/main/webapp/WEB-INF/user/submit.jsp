@@ -45,7 +45,7 @@
 
 
 </head>
-<body class="">
+<body class="" id="body">
 
 
 
@@ -70,7 +70,27 @@
                 <a href="/home">主页</a>
             </li>
 
+            <li class="navbar__element navbar__element--heading navbar__element--hide-on-xs">
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle" id="super-dropdown" data-toggle="dropdown">
+                        <svg class="ellipsis-icon" version="1.1" viewBox="0 0 32 32" width="32" height="32" aria-hidden="false">
+                            <path d="M7 15.5c0 1.9-1.6 3.5-3.5 3.5s-3.5-1.6-3.5-3.5 1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5zm21.5-3.5c-1.9 0-3.5 1.6-3.5 3.5s1.6 3.5 3.5 3.5 3.5-1.6 3.5-3.5-1.6-3.5-3.5-3.5zm-12.5 0c-1.9 0-3.5 1.6-3.5 3.5s1.6 3.5 3.5 3.5 3.5-1.6 3.5-3.5-1.6-3.5-3.5-3.5z"></path>
+                        </svg>
+                    </a>
 
+                    <ul class="dropdown-menu dropdown-menu-left">
+
+                        <li>
+                            <a rel="nofollow" href="/search/addTag">添加标签</a>
+                        </li>
+
+                        <li>
+                            <a rel="nofollow" href="/follow/users">我的关注</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </li>
 
         </ul>
 

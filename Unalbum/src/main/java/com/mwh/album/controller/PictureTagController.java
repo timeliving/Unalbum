@@ -66,12 +66,27 @@ public class PictureTagController extends BaseController {
                 pageUtil = pictureService
                         .findAllByTagAndPageWithUserId(keyword
                                 , user.getId(), index, pageSize);
+
+                if(pageUtil.getCount() == 0){
+                    mav.addObject("errorMsg","No");
+                    mav.addObject("keyword" ,keyword);
+                }else{
+                    mav.addObject("errorMsg" ,"yes");
+                    mav.addObject("keyword" ,keyword);
+                }
                 mav.addObject("pageUtil", pageUtil);
             }else{
                 PageUtil<Picture> pageUtil =new PageUtil<Picture>();
                 pageUtil = pictureService
                         .findAllByTagAndPage(keyword
                                 , index, pageSize);
+                if(pageUtil.getCount() == 0){
+                    mav.addObject("errorMsg","No");
+                    mav.addObject("keyword" ,keyword);
+                }else{
+                    mav.addObject("keyword" ,"yes");
+                    mav.addObject("keyword" ,keyword);
+                }
                 mav.addObject("pageUtil", pageUtil);
             }
         }
@@ -112,9 +127,10 @@ public class PictureTagController extends BaseController {
 
     @RequestMapping(value = "/addTags",method = RequestMethod.POST)
     public ModelAndView addTags(@RequestParam(value = "tags", required = false) String tags
-            ,@RequestParam(value = "picId", required = false) Integer pictureId
+            ,@RequestParam(value = "picId", required = false) String picId
             ,HttpServletRequest request){
         ModelAndView mav = new ModelAndView();
+        Integer pictureId = Integer.valueOf(picId);
         if(tags != null){
             String[] tagList = tags.split(",");
             for(String tag : tagList){
@@ -138,7 +154,7 @@ public class PictureTagController extends BaseController {
             }
         }
 
-        mav.setViewName("forward:/search/addTag");
+        mav.setViewName("/picture/tagPicture");
 
         return mav;
     }

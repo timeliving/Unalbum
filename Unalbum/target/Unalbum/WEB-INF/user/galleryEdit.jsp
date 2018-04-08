@@ -38,12 +38,9 @@
 <div class="x-body">
     <form class="layui-form">
         <div class="layui-form-item">
-            <label for="galleryId" class="layui-form-label">
-                相册ID
-            </label>
-            <div class="layui-input-inline">
-                <input type="text" id="galleryId" name="id" class="layui-input" value="${gallery.id}">
-            </div>
+
+            <input type="hidden" id="galleryId" name="id" class="layui-input" value="${gallery.id}">
+
         </div>
 
         <div class="layui-form-item">

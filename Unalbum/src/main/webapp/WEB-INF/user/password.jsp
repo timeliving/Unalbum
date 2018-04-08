@@ -95,7 +95,27 @@
             <li class="navbar__element navbar__element--heading navbar__element--hide-on-xs ">
                 <a href="/home">主页</a>
             </li>
+            <li class="navbar__element navbar__element--heading navbar__element--hide-on-xs">
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle" id="super-dropdown" data-toggle="dropdown">
+                        <svg class="ellipsis-icon" version="1.1" viewBox="0 0 32 32" width="32" height="32" aria-hidden="false">
+                            <path d="M7 15.5c0 1.9-1.6 3.5-3.5 3.5s-3.5-1.6-3.5-3.5 1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5zm21.5-3.5c-1.9 0-3.5 1.6-3.5 3.5s1.6 3.5 3.5 3.5 3.5-1.6 3.5-3.5-1.6-3.5-3.5-3.5zm-12.5 0c-1.9 0-3.5 1.6-3.5 3.5s1.6 3.5 3.5 3.5 3.5-1.6 3.5-3.5-1.6-3.5-3.5-3.5z"></path>
+                        </svg>
+                    </a>
 
+                    <ul class="dropdown-menu dropdown-menu-left">
+
+                        <li>
+                            <a rel="nofollow" href="/search/addTag">添加标签</a>
+                        </li>
+
+                        <li>
+                            <a rel="nofollow" href="/follow/users">我的关注</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </li>
 
         </ul>
 
@@ -105,9 +125,10 @@
                     <li class="navbar__element navbar__element--full-spacing">
                         <a class="btn btn-outline btn--small text-weight--medium hidden-xs" href="/picture/submit">上传图片</a>
                     </li>
-                    <a href="/@shisheng01">
-                        <img ix-src="<%=basePath %>${USER_CONTEXT.photo}" sizes="32px" class="avatar avatar--small avatar--small-mobile">
-                    </a>  </ul>
+                    <a href="/user/account">
+                        <img src="<%=basePath %>${USER_CONTEXT.photo}" sizes="32px" class="avatar avatar--small avatar--small-mobile">
+                    </a>
+                </ul>
 
             </li>
         </ul>
@@ -151,21 +172,28 @@
                             <input type="hidden" name="id" value="${USER_CONTEXT.id}" />
 
                             <div class="form-group">
-                                <label for="user_password">Password</label> <span class="text-secondary">(最少6个字符)</span>
+                                <label for="user_password">旧密码</label>
+                                <div style="color:red; font-size:15px;">${ errorMsg }</div>
+                                <input class="form-control" autofocus="autofocus" autocomplete="off" type="password" name="oldPassword" id="oldPaddword" />
+
+                            </div> <!-- close .form-group -->
+
+                            <div class="form-group">
+                                <label for="user_password">新密码</label> <span class="text-secondary">(最少6个字符)</span>
 
                                 <input class="form-control" autofocus="autofocus" autocomplete="off" type="password" name="password" id="user_password" />
 
                             </div> <!-- close .form-group -->
 
                             <div class="form-group">
-                                <label for="user_password_confirmation">Password confirmation</label>
+                                <label for="user_password_confirmation">重复输入新密码</label>
 
                                 <input class="form-control" autofocus="autofocus" autocomplete="off" type="password" id="user_password_confirmation" />
 
                             </div> <!-- close .form-group -->
 
                             <div class="form-group">
-                                <input type="submit" name="commit" value="Change password" class="btn btn-default btn-block-level" data-disable-with="..." />
+                                <input type="submit" name="commit" value="确认修改" class="btn btn-default btn-block-level" data-disable-with="..." />
                             </div> <!-- close .form-group -->
                         </form>
                     </div> <!-- close .form -->

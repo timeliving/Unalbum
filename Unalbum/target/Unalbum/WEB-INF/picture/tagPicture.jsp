@@ -88,11 +88,11 @@
                     <ul class="dropdown-menu dropdown-menu-left">
 
                         <li>
-                            <a rel="nofollow" href="https://medium.com/unsplash">我的关注</a>
+                            <a rel="nofollow" href="/search/addTag">添加标签</a>
                         </li>
 
                         <li>
-                            <a rel="nofollow" href="https://store.unsplash.com/">打标签</a>
+                            <a rel="nofollow" href="https://store.unsplash.com/">我的关注</a>
                         </li>
                     </ul>
                 </div>
@@ -137,7 +137,7 @@
                         <div class="js-suggested-descriptors-form-container">
                             <form class="new_suggested_photo_descriptor" id="new_suggested_photo_descriptor" action="/search/addTags" accept-charset="UTF-8" data-remote="true" method="post">
                                 <input name="utf8" type="hidden" value="&#x2713;" />
-                                <p style="margin-top: 0;">请用标签描述相片，以半角逗号（,）分隔.（最好五个以内）</p>
+                                <p style="margin-top: 0;">请用标签描述相片.（最好五个以内）</p>
                                 <p class="zeta text-secondary"><em>例如: 文化, 森林, 湖泊, 景观, 动物</em></p>
 
                                 <div class="form-group" style="padding-top: 15px;">
@@ -147,7 +147,7 @@
 
                                 <div class="arch">
                                     <div class="arch-left" style="margin-bottom: 10px;">
-                                        <input type="hidden" value="${picture.id}" id="picId"/>
+                                        <input type="hidden" value="${picture.id}" id="picId" name="picId"/>
                                         <a class="zeta" style="vertical-align: -8px;" data-remote="true" onclick="random()" href="#">跳过这一张</a>
                                     </div> <!-- .arch-left -->
                                     <div class="arch-right" style="margin-bottom: 30px;">
@@ -183,7 +183,15 @@
 <footer class="footer-global js-global-footer">
     <div class="container">
 
+        <div class="footer-main">
+            <div class="row">
+                <div class="col-sm-4">
+                    <h6 class="epsilon footer-main__header text-sans text-weight--bold">Unablum</h6>
+                    <p class="footer-main__paragraph">Beautiful, free photos gifted by the world’s most generous community of photographers.</p>
+                </div>
 
+            </div>
+        </div> <!-- close .footer-main -->
 
         <div class="footer-sub">
             <div class="row">
@@ -225,7 +233,8 @@
         var picId = data["picId"];
         var picURL = data["picURL"];
         $("#image").attr("src", "/" + picURL);
-        $("#picId").val(picId);
+        var pic = document.getElementById("picId");
+        pic.setAttribute("value", picId);
     }
 </script>
 

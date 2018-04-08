@@ -88,11 +88,11 @@
                     <ul class="dropdown-menu dropdown-menu-left">
 
                         <li>
-                            <a rel="nofollow" href="https://medium.com/unsplash">我的关注</a>
+                            <a rel="nofollow" href="/search/addTag">添加标签</a>
                         </li>
 
                         <li>
-                            <a rel="nofollow" href="https://store.unsplash.com/">添加标签</a>
+                            <a rel="nofollow" href="/follow/users">我的关注</a>
                         </li>
 
                     </ul>

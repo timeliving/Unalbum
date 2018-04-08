@@ -57,7 +57,7 @@
 </div>
 <div class="x-body">
     <xblock>
-        <span class="x-right" style="line-height:40px">最多创建9个相册</span>
+        <span class="x-right" style="line-height:40px">共有数据：${pageUtil.count} 条</span>
     </xblock>
     <table class="layui-table">
         <thead>

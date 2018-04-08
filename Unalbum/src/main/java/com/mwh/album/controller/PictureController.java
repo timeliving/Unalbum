@@ -71,7 +71,12 @@ PictureController extends BaseController {
     @RequestMapping(value = "submit", method = RequestMethod.GET)
     public ModelAndView submit(HttpServletRequest request){
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("user/submit");
+        if(getSessionUser(request).getId() == null){
+            mav.addObject("errorUser", "用户登录后才可上传");
+            mav.setViewName("login");
+        }else{
+            mav.setViewName("user/submit");
+        }
         return mav;
     }
 

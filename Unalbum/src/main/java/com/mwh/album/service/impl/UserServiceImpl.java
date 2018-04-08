@@ -84,6 +84,9 @@ public class UserServiceImpl implements UserService {
 
     public User findByUserName(String userName) {
         User user = userMapper.findByUserName(userName);
+        if(user == null){
+            user = new User();
+        }
         return user;
     }
 

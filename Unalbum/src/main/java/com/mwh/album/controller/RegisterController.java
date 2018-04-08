@@ -23,7 +23,7 @@ public class RegisterController extends BaseController {
     @RequestMapping(value="register",method = RequestMethod.GET)
     public ModelAndView userRegister(HttpServletRequest request){
         ModelAndView view = new ModelAndView();
-        view.setViewName("redirect:/register.jsp");
+        view.setViewName("/register");
         return view;
     }
 
@@ -41,7 +41,7 @@ public class RegisterController extends BaseController {
             userService.save(user);
         } catch (UserExistException e) {
             view.addObject("errorMsg", "AH");
-            view.setViewName("redirect:/register.jsp");
+            view.setViewName("/register");
         }
         setSessionUser(request,user);
         return view;
